@@ -1,0 +1,96 @@
+.body{
+    position: relative;
+}
+.search-page{
+    position: relative;
+    
+}
+.search-page-image{
+    background: url(/image/search/search-background.svg) no-repeat center/cover;
+    height: 94vh;
+    opacity: 0.3;
+    
+}
+
+.search-page-title{
+    position: absolute;
+    font-size: 30px;
+    top: 100px;
+    left: 50%;
+    transform: translate(-50%,0);
+}
+
+.search-page-box{
+    position: absolute;
+    top: 200px;
+    left: 50%;
+    transform: translate(-50%,0);
+    width: 300px;
+    height: 350px;
+    border: 5px solid #a0a0a0;
+    border-radius: 25px;
+    padding: 20px;
+    /* outline: 3px solid; */
+    /* outline-offset: 15px; */
+    display: grid;
+    grid-template-areas: 
+        "togglecheckbox . ."
+        /* ". . ." */
+        "start-position arrowimg  arrival-position"
+        /* ". . ." */
+        "start-date start-date start-date" 
+        "arrival-date arrival-date arrival-date"
+        ". search-btn .";
+}
+
+.start-position{
+    width: 100px;
+    height: 50px;
+    border: 2px solid #000;
+    grid-area: start-position;
+}
+.arrowimg{
+    background: url(/image/search/go-back-arrows.svg)no-repeat center/cover;
+    width: 48px;
+    height: 48px;
+    grid-area: arrowimg;
+}
+.arrival-position{
+    width: 100px;
+    height: 50px;
+    border: 2px solid #000;
+    grid-area: arrival-position;
+}
+
+.start-date{
+    height: 50px;
+    border: 2px solid #000;
+    grid-area: start-date;
+}
+
+.arrival-date{
+    height: 50px;
+    border: 2px solid #000;
+    grid-area: arrival-date;
+}
+
+@media (min-width:700px){
+
+    .search-page-box{
+        position: absolute;
+        top: 200px;
+        left: 50%;
+        transform: translate(-50%,0);
+        width: 600px;
+        height: 200px;
+        border: 5px solid #a0a0a0;
+        border-radius: 25px;
+        padding: 20px;
+        display: grid;
+        grid-template-areas: 
+            "togglecheckbox . . . . . . . . . . ."
+            "start-position start-position arrowimg . arrival-position arrival-position . start-date start-date . arrival-date arrival-date"
+            ". . . . . search-btn . . . . . .";
+    }
+
+}

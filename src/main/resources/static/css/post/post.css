@@ -1,0 +1,128 @@
+body{
+    margin: 0;
+}
+h1{
+    margin: 0;;
+}
+.board-h1{
+    margin: 30px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.board-h1 h1{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    font-size: 45px;
+}
+.board-in{
+    display: flex;
+    flex-direction:row;
+    justify-content: center;
+    padding-bottom: 20px;
+
+}
+.board-input{
+    padding-bottom: 0px;
+    border-radius: 40px;
+    display: flex;
+}
+
+.board-input:last-child{
+    background: url(../../image/find-glass.svg);
+
+}
+
+.board-find{
+    background: url(../../image/find-glass.svg);
+    display: flex;
+
+    width: 44px;
+    height: 44px;
+    margin-left: 20px;
+}
+.board-write{
+    background: url(/image/write.svg) no-repeat center/cover;
+    display: flex;
+
+    width: 44px;
+    height: 44px;
+    margin-left: 20px;
+}
+.main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.board-search{
+    width: 200px;
+    height: 40px;
+    /* padding: 10; */
+
+    border: 1px solid #a24f17;
+}
+
+.board-item{
+    position:relative;
+
+    padding:20px 0;
+    margin: 18px;
+    border-radius: 25px 25px 25px 25px;
+    border: 1px solid rgba(221, 120, 19, 0.2);
+    box-shadow: 0 4px 10px rgba(220, 120, 20, 0.2);
+    backdrop-filter: blur(6.2px);
+    transition: transform 0.2s 0.1s, box-shadow 0.2s 0.1s;
+    width: 80%;
+}
+.board-item-h1{
+    position: absolute;
+    left: 30px;
+}
+.board-item:hover{
+    backdrop-filter: blur(0px);
+    backdrop-filter: none;
+    transform:scale(1.02,1.02);
+    box-shadow: 0 4px 30px rgba(220,120, 20, 0.3);
+}
+.board-item form{
+    display: grid;
+    grid-template: 
+    "title title title" 24px
+    "title title title" 50px
+    "date reply-count hits" 24px /1fr 1fr 1fr;
+}
+.board-item form>h1{
+    grid-area:title;
+    font-size: 30px;
+}
+.date{
+    grid-area:date;
+    display: flex;
+    align-items:flex-end;
+    justify-content: center;
+}
+.reply-count{
+    grid-area: reply-count;
+    font-size: 22px;
+}
+.hits{
+    grid-area: hits;
+    font-size: 22px;
+}
+
+.header{
+    width: 100vw;
+    height: 50px;
+    
+    background-color: #F4EAD5;
+}
+
+.board-h1{
+    width:100vw;
+    height: 100px;
+}
+

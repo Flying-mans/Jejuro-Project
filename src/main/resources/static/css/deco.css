@@ -1,0 +1,62 @@
+/* 아이콘과 텍스트를 합쳐서 사용할 때 설정 */
+.deco{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+.deco::before{
+    content: "";
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    /* background: url(/image/search-black.svg) no-repeat center/contain; */
+
+    background-color: #000;
+    -webkit-mask-size: 32px 32px;
+}
+.deco:hover{
+    color: #fff;
+
+    transition: .5s;
+    transform: scale(1.05);
+}
+.deco:hover::before{
+    background-color: #fff;
+
+    transition: .5s;
+}
+
+.deco-note::before{
+    margin-right: 2px;
+    -webkit-mask-image: url(/image/notice.svg);
+}
+.deco-dashboard::before{
+    margin-right: 2px;
+    -webkit-mask-image: url(/image/dashboard.svg);
+}
+.deco-user-manage::before{
+    margin-right: 2px;
+    -webkit-mask-image: url(/image/user-manage.svg);
+}
+.deco-notice-manage::before{
+    margin-right: 2px;
+    -webkit-mask-image: url(/image/notice-manage.svg);
+}
+.deco-alarm-manage::before{
+    margin-right: 2px;
+    -webkit-mask-image: url(/image/alarm-manage.svg);
+}
+.deco-info::before{
+    margin-right: 2px;
+    -webkit-mask-image: url(/image/info.svg);
+}
+
+
+
+/* utils ======================= */
+.deco-white::before{
+    background-color: #fff;
+}
+.deco-orange::before{
+    background-color: #f90;
+}

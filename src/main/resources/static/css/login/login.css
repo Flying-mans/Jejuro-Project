@@ -1,0 +1,86 @@
+
+.wrap-login{
+	display: flex;
+	justify-content: center;
+	width: 100%;
+}
+
+.login-title{
+	display: flex;
+	justify-content: center;
+	margin: 50px auto;
+	font-size: xx-large;
+}
+
+.login-form > *{
+	margin-bottom: 30px;
+
+}
+
+.wrap-input{
+	position: relative;
+	display: flex;
+}
+
+.input{
+	flex-basis: 100%;
+	border-radius: 1rem;
+	border: 2px solid gray;
+	padding: 15px 15px;
+}
+
+.placeholder{
+	position: absolute;
+	margin: 17px 0;
+	padding: 0 4px;
+	color: gray;
+	display: flex;
+	align-items: center;
+	top: 0;
+	left: 17px;
+	transition: all 0.2s;
+	transform-origin: 0% 0%;
+}
+
+.placeholder-focus {
+	transform: scale(0.8) translateY(-30px);
+	background: #fff;
+  }
+
+
+.input-checkbox{
+	margin-left: 0;
+}
+
+.sns-login{
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+}
+
+
+.text-end{
+	display: flex;
+	justify-content: end;
+}
+
+
+/* === 점선 사이에 텍스트 ================= */
+.hr-sect {
+	display: flex;
+	flex-basis: 100%;
+	align-items: center;
+	color: rgba(0, 0, 0, 0.35);
+	font-size: 12px;
+	margin: 8px 0px;
+}
+.hr-sect::before,
+.hr-sect::after {
+	content: "";
+	flex-grow: 1;
+	background: rgba(0, 0, 0, 0.35);
+	height: 1px;
+	font-size: 0px;
+	line-height: 0px;
+	margin: 0px 16px;
+}
