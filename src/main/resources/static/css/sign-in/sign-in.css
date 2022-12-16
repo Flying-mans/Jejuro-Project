@@ -1,0 +1,30 @@
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sign-title{
+	display: flex;
+	justify-content: center;
+	margin: 55px auto;
+	font-size: xx-large;
+}
+
+.input{
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    margin-bottom: 20px;
+}
+
+div > span{
+    margin-left: 10px;
+}
+
+input{
+	flex-basis: 100%;
+	border-radius: 1rem;
+	border: 2px solid gray;
+	padding: 10px 10px;
+}

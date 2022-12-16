@@ -1,0 +1,96 @@
+.btn {
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20px;
+    margin: 4px 2px;
+    cursor: pointer;
+
+    font-size: 24px;
+    background-color: #ff9900;
+    transition: background-color .3s;
+    color: #fff;
+
+    border: none;
+    border-radius: 0 15px;
+    box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.25);
+}
+.btn:hover:hover{
+    background-color: #ff990090;
+    transform: scale(1.02);
+}
+/* 게시판 페이지 */
+
+/* 서치 페이지 */
+#search-toggle{
+    display: none;
+}
+.trip-toggle{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 50px;
+    background: orange;
+    border-radius: 25px;
+    position: relative;
+    transition: 0.4s ease-out;
+}
+.trip-toggle div{
+    text-align: center;
+    z-index: 1;
+}
+.trip-toggle:after{
+    content: '';
+    width: 40px;
+    height: 40px;
+    background: #fff;
+    position: absolute;
+    border-radius: 50%;
+    top: 5px;
+    left: 5px;
+    transition: 0.4s ease-out;
+}
+
+#search-toggle:checked + .trip-toggle{
+    background: orange;
+}
+#search-toggle:checked + .trip-toggle::after{
+    background: #fff;
+    left:55px;
+}
+
+
+.search-btn{
+    width: 70px;
+    height: 50px;
+    border-radius: 0 20px 0 20px;
+    background: orange;
+    color: #000;
+    position: absolute;
+    bottom: -40px;
+    grid-area: search-btn;  
+}
+
+.tooglecheckbox:checked ~.arrowimg{
+    background: url(/image/search/go-arrows.svg) no-repeat center;
+    grid-area: arrowimg;
+}
+
+
+@media (min-width:700px){
+    .search-btn{
+        width: 70px;
+        height: 50px;
+        border-radius: 0 20px 0 20px;
+        background: orange;
+        color: #000;
+        position: absolute;
+        bottom: -40px;
+        left: 50%;
+        transform: translate(-50% 0);
+        grid-area: search-btn;  
+    }
+}

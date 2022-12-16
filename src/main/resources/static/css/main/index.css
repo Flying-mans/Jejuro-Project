@@ -1,0 +1,150 @@
+html {
+    scroll-snap-type: y mandatory;
+}
+
+section {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.header{
+    position: absolute;
+}
+/* first-page */
+.main-first-page {
+    /* background-color: #fcd993; */
+    background-color: #fff;
+    height: 100vh;
+    /* background: url(/image/main-first-page.svg) no-repeat center/cover; */
+}
+
+.main-first-head {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 30px 0;
+}
+
+.main-first-head>h1 {
+    font-size: 48px;
+}
+
+.main-h1-jejuro {
+    color: #ff8811;
+}
+
+.main-first-image {
+    width: 300px;
+    border-radius: 40px;
+}
+
+.main-first-footer {
+    bottom: 20px;
+    position: absolute;
+}
+
+/* second-page */
+.main-second-page {
+    /* background-color: #DEBACE; */
+    background-color: #F4EAD5;
+    height: 100vh;
+}
+
+.main-second-head {
+    color: #8b2934;
+    padding: 10px 40px;
+    /* margin: 40px; */
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-second-head span{
+    font-size: 24px;
+}
+.main-second-image {
+    height: 600px;
+    border-radius: 20px;
+}
+
+/* third-page */
+.main-third-page {
+    background-color: #e4fae4;
+    /* background-color: #fff; */
+    height: 100vh;
+}
+
+.main-third-head {
+    margin: 20px 0;
+    color: #17530d;
+    padding: 10px 40px;
+}
+
+.main-third-head span {
+    font-size: 24px;
+}
+
+.main-third-image {
+    height: 600px;
+    border-radius: 20px;
+}
+
+/* fourth-page */
+.main-fourth-page {
+    background-color: #d7ebf8;
+    height: 100vh;
+}
+
+.main-fourth-head {
+    color: #111d57;
+    margin: 20px 0;
+    padding: 10px 40px;
+}
+
+.main-fourth-head span {
+    font-size: 24px;
+}
+
+.main-fourth-image {
+    height: 600px;
+    border-radius: 20px;
+}
+
+/* fifth-page */
+.main-fifth-page {
+    background-color: #fff3fd;
+    height: 100vh;
+}
+
+.main-fifth-head {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 30px 0;
+    padding: 10px 40px;
+    color: #f515c4;
+}
+
+.main-fifth-head h1{
+    margin: 20px 0;
+    font-size: 40px;
+}
+
+.main-fifth-image {
+    height: 450px;
+    border-radius: 20px;
+    background: url(/image/login.png) no-repeat center/cover;
+}
+
+
+.main-title{
+    margin: 20px 0;
+    font-size: 30px;
+}
