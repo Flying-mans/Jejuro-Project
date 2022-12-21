@@ -1,3 +1,4 @@
+<!-- Todo: sign-up 으로 변경 -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,13 +11,13 @@
     <link rel="stylesheet" href="/css/style.css" type="text/css">
     <link rel="stylesheet" href="/css/deco.css" type="text/css">
     <link rel="stylesheet" href="/css/button.css" type="text/css">
-    <link rel='stylesheet' type='text/css' media='screen' href='/css/sign-in/sign-in.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='/css/sign-up/sign-up.css'>
     <script src='main.js'></script>
 </head>
 <body>
     <header class="header">
         <div>
-            <img class="jejuro-logo-img" src="/main-page/image/jejuro-logo.svg" alt="logo">
+            <img class="jejuro-logo-img" src="/image/jejuro-logo.svg" alt="logo">
         </div>
         <div>
             <input type="checkbox" id="checkbox1" class="checkbox1 visuallyHidden">
@@ -45,27 +46,27 @@
     
             <div class="input">
                 <span>이메일</span>
-                <input type="text" placeholder="aaaaaa@gmail.com">
+                <input type="text" placeholder="abcd123@gmail.com" required pattern=".*\S.*">
             </div>
             <div class="input">
                 <span>닉네임</span>
-                <input type="text" placeholder="홍길동">
+                <input type="text" placeholder="홍길동" required pattern=".*\S.*">
             </div>
             <div class="input">
                 <span>패스워드</span>
-                <input type="text" placeholder="password">
+                <input type="text" placeholder="password" required pattern=".*\S.*">
             </div>
             <div class="input">
                 <span>패스워드 확인</span>
-                <input type="text" placeholder="password">
+                <input type="text" placeholder="password" required pattern=".*\S.*">
             </div>
             <div class="input">
                 <span>핸드폰 번호</span>
-                <input type="text" placeholder="000-0000-0000">
+                <input type="text" placeholder="000-0000-0000" required pattern=".*\S.*">
             </div>
     
-            <div class="login-form-btn">
-                <button class="btn login-btn">
+            <div class="sign-up-form-btn">
+                <button class="btn sign-up-btn">
                     확인
                 </button>
             </div>

@@ -17,9 +17,19 @@
 
 }
 
+.wrap{
+	display: flex;
+	flex-direction: column;
+}
+
 .wrap-input{
 	position: relative;
 	display: flex;
+}
+
+.wrap-input:first-child{
+	margin-bottom: 30px;
+
 }
 
 .input{
@@ -28,6 +38,11 @@
 	border: 2px solid gray;
 	padding: 15px 15px;
 }
+
+/* placeholder가 없어지면 보이는 */
+/* input:not(:placeholder-shown){
+	background: url(/image/jejuro-logo.svg) no-repeat right;
+} */
 
 .placeholder{
 	position: absolute;
@@ -84,3 +99,20 @@
 	line-height: 0px;
 	margin: 0px 16px;
 }
+
+/* === display none ================= */
+
+.d-none{
+	display: none !important;
+}
+
+/* === fa-eye ================= */
+
+.fa-eye, 
+.fa-eye-slash{
+	position: absolute;
+	top: calc(50% - (16px/2));
+	left: calc(100% - (18px*2));
+	cursor: pointer;
+}
+

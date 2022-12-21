@@ -28,3 +28,8 @@ input{
 	border: 2px solid gray;
 	padding: 10px 10px;
 }
+
+.sign-up-form-btn{
+    display: flex;
+    justify-content: flex-end;
+}
