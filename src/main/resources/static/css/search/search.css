@@ -2,14 +2,13 @@
     position: relative;
 }
 .search-page{
-    position: relative;
+    /* position: relative; */
     
 }
 .search-page-image{
-    background: url(/image/search/search-background.svg) no-repeat center/cover;
+    background: url(/image/search/search-opacity-background.svg) no-repeat center/cover;
+    /* z-index: -1; */
     height: 94vh;
-    opacity: 0.3;
-    
 }
 
 .search-page-title{
@@ -30,14 +29,11 @@
     border: 5px solid #a0a0a0;
     border-radius: 25px;
     padding: 20px;
-    /* outline: 3px solid; */
-    /* outline-offset: 15px; */
     display: grid;
+    place-items: center;
     grid-template-areas: 
         "togglecheckbox . ."
-        /* ". . ." */
         "start-position arrowimg  arrival-position"
-        /* ". . ." */
         "start-date start-date start-date" 
         "arrival-date arrival-date arrival-date"
         ". search-btn .";
@@ -49,12 +45,7 @@
     border: 2px solid #000;
     grid-area: start-position;
 }
-.arrowimg{
-    background: url(/image/search/go-back-arrows.svg)no-repeat center/cover;
-    width: 48px;
-    height: 48px;
-    grid-area: arrowimg;
-}
+
 .arrival-position{
     width: 100px;
     height: 50px;
@@ -63,15 +54,20 @@
 }
 
 .start-date{
-    height: 50px;
-    border: 2px solid #000;
+    margin-bottom: 18px;
     grid-area: start-date;
 }
 
+
 .arrival-date{
-    height: 50px;
-    border: 2px solid #000;
+    margin-bottom: 18px;
     grid-area: arrival-date;
+}
+
+.cal{
+    height: 46px;
+    width: 280px;
+    border: 2px solid #000;
 }
 
 @media (min-width:700px){
@@ -88,9 +84,21 @@
         padding: 20px;
         display: grid;
         grid-template-areas: 
-            "togglecheckbox . . . . . . . . . . ."
-            "start-position start-position arrowimg . arrival-position arrival-position . start-date start-date . arrival-date arrival-date"
-            ". . . . . search-btn . . . . . .";
+            "togglecheckbox . . . . . . ."
+            "start-position arrowimg arrival-position . start-date . arrival-date .";
     }
 
+    .cal{
+        width: 120px;
+        height: 46px;
+        border: 2px solid #000;
+    }
+
+    .start-date{
+        grid-area: start-date;
+    }
+
+    .arrival-date{
+        grid-area: arrival-date;
+    }
 }

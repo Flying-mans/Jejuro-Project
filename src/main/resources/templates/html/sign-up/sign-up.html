@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" 
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>sign-in</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="stylesheet" href="/css/reset.css" type="text/css">
+    <link rel="stylesheet" href="/css/layout.css" type="text/css">
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+    <link rel="stylesheet" href="/css/deco.css" type="text/css">
+    <link rel="stylesheet" href="/css/button.css" type="text/css">
+    <link rel='stylesheet' type='text/css' media='screen' href='/css/sign-up/sign-up.css'>
+    <script src='main.js'></script>
+</head>
+
+<body>
+    <div th:replace="inc/header :: headerFragment"></div>
+        
+    <main>
+        <form action="" method="">
+            <span class="sign-title">
+                회원가입
+            </span>
+    
+            <div class="input">
+                <span>이메일</span>
+                <input type="text" placeholder="abcd123@gmail.com" required pattern=".*\S.*">
+            </div>
+            <div class="input">
+                <span>닉네임</span>
+                <input type="text" placeholder="홍길동" required pattern=".*\S.*">
+            </div>
+            <div class="input">
+                <span>패스워드</span>
+                <input type="text" placeholder="password" required pattern=".*\S.*">
+            </div>
+            <div class="input">
+                <span>패스워드 확인</span>
+                <input type="text" placeholder="password" required pattern=".*\S.*">
+            </div>
+            <div class="input">
+                <span>핸드폰 번호</span>
+                <input type="text" placeholder="000-0000-0000" required pattern=".*\S.*">
+            </div>
+    
+            <div class="sign-up-form-btn">
+                <button class="btn sign-up-btn">
+                    확인
+                </button>
+            </div>
+        </form>
+    </main>
+</body>
+</html>

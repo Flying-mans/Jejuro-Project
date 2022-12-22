@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" 
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/reset.css" type="text/css">
+    <link rel="stylesheet" href="/css/layout.css" type="text/css">
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+    <link rel="stylesheet" href="/css/deco.css" type="text/css">
+    <link rel="stylesheet" href="/css/button.css" type="text/css">
+    <link rel="stylesheet" href="/css/airlinelist/airlinelist.css" type="text/css">
+    
+</head> 
+
+<body>
+    <div th:replace="inc/header :: headerFragment"></div>
+
+    <div class="start-arrival-container">
+
+        <section class="start-arrival-position">
+            <div>
+                <img class="pointimg" src="/image/airlinelist/point.svg" alt="">
+                <span class="start-point"> 출발지</span>
+            </div>
+            <div class="arrowimg">
+                <img>
+            </div>
+            <div>
+                <img class="pointimg" src="/image/airlinelist/point.svg" alt="">
+                <span class="arrival-point"> 도착지</span>
+            </div>
+        </section>
+
+        <section class="start-arrival-date">
+            <div>
+                <img class="dateimg" src="/image/airlinelist/dateimg.svg" alt="">
+                <span class="start-date"> 출발날짜</span>
+            </div>
+            <div>
+                <img class="dateimg" src="/image/airlinelist/dateimg.svg" alt="">
+                <span class="arrival-date"> 도착날짜</span>
+            </div>
+        </section>
+    </div>
+
+        
+        <main class="main">
+            <div class="board-flight">
+
+                <section class="board-flight-info">
+                    <div class="airline-img">
+                        <img src="" alt="">
+                    </div>
+                        <div class="airline-title"> 에어부산</div>
+                        <div class="total-time">1시간</div>
+                        <div class="arr-dep">김포-제주</div>
+                        <div class="flight-time">08:00 - 20:20</div>
+                        <div class="flight-price">59,470원</div>
+                    </section>
+
+                    <section class="board-flight-info">
+                        <div class="airline-img">
+                            <img src="" alt="">
+                        </div>
+                            <div class="airline-title"> 에어부산</div>
+                            <div class="total-time">1시간</div>
+                            <div class="arr-dep">김포-제주</div>
+                            <div class="flight-time">08:00 - 20:20</div>
+                            <div class="flight-price">59,470원</div>
+                        </section>
+
+                        <section class="board-flight-info">
+                            <div class="airline-img">
+                                <img src="" alt="">
+                            </div>
+                                <div class="airline-title"> 에어부산</div>
+                                <div class="total-time">1시간</div>
+                                <div class="arr-dep">김포-제주</div>
+                                <div class="flight-time">08:00 - 20:20</div>
+                                <div class="flight-price">59,470원</div>
+                            </section>
+                </div>
+            </main>
+</body>
+</html>

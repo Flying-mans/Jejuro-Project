@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" 
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/reset.css" type="text/css">
+    <link rel="stylesheet" href="/css/layout.css" type="text/css">
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+    <link rel="stylesheet" href="/css/deco.css" type="text/css">
+    <link rel="stylesheet" href="/css/button.css" type="text/css">
+    <link rel="stylesheet" href="/css/post/post.css" type="text/css">
+</head>
+
+<body>
+    <div th:replace="inc/header :: headerFragment"></div>
+
+    <div>
+        <section class="board-h1">
+            <h1>여행게시판</h1>
+        </section>
+        <div class="board-in">
+            <div class="board-input">
+                <input class="board-search"type="text">
+            </div>
+
+            <div class="board-write btn">글쓰기</div>
+
+
+        </div>
+    </div>
+
+    <main class="main">
+
+        <section class="board-item">
+            <form action="">
+                <h1 class="board-item-h1">여행후기 11/30</h1>
+                <span class="date">2022/2/5</span>
+                <span class="reply-count">댓글 :3</span>
+                <span class="hits">조회수 :3</span>
+            </form>        
+        </section>
+
+        <section class="board-item">
+            <form action="">
+                <h1 class="board-item-h1">내년 초에 같이 여행갈분?</h1>
+                <span class="date">2022/2/5</span>
+                <span class="reply-count">댓글 :2</span>
+                <span class="hits">조회수 :1</span>
+            </form>
+        </section>
+
+        <section class="board-item">
+            <form action="">
+                <h1 class="board-item-h1">일본 비행편은 없나요?</h1>
+                <span class="date">2022/2/5</span>
+                <span class="reply-count">댓글 :5</span>
+                <span class="hits">조회수 :13</span>
+            </form>        
+        </section>
+
+    </main>
+</body>
+</html>
