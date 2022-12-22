@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorate="~{inc/layout}">
+<!-- ---------------------------------------------------------------------- -->
+
+<main layout:fragment="content">
+    <section class="main-first-page">
+        <div class="main-first-head">
+            <h1>가자!!<span class="main-h1-jejuro">제주로~</span></h1><br>
+            <h2>6주 동안 항공 가격을</h2>
+            <h2>그래프로 한 눈에~!!</h2>
+            <form action="../html/search/search.html">
+                <button class="btn btn-go">출발</button>
+            </form>
+        </div>
+        <div>
+            <img data-aos="fade-down" class="main-first-image" src="/image/main-first-page.svg" alt="">
+        </div>
+        <div class="main-first-footer btn-next">
+            다음페이지 버튼
+        </div>
+    </section>
+
+
+    <section class="main-second-page">
+        <div>
+            <img data-aos="zoom-out" class="main-second-image" src="/image/main-second-page.svg" alt="">
+        </div>
+        <div class="main-second-head">
+            <h1 class="main-title">Q: 왜 6주 전 그래프를 보여주나요?</h1><br>
+            <span>A: 비행기 가격은 보통 6주 전 부터 움직이기 시작합니다.</span>
+        </div>
+    </section>
+
+
+    <section class="main-third-page">
+        <div class="main-third-head">
+            <h1 class="main-title">알람을 설정할 수 있어요</h1>
+            <span>원하는 가격으로 알람 설정하면
+                친절하게 문자가 갑니다</span>
+        </div>
+        <div>
+            <img data-aos="zoom-in" class="main-third-image" src="/image/main-third-page.svg" alt="">
+        </div>
+    </section>
+
+
+    <section class="main-fourth-page">
+        <div>
+            <img data-aos="fade-up-right" class="main-fourth-image" src="/image/main-fourth-page.svg" alt="">
+        </div>
+        <div class="main-fourth-head">
+            <h1 class="main-title">게시판을 이용해 보세요</h1>
+            <span>여행을 기록하고
+                가격 정보도
+                공유할수 있어요 </span>
+        </div>
+    </section>
+
+
+    <section class="main-fifth-page">
+        <div class="main-fifth-head">
+            <h1>제주로! 가는<br>
+                최고의 방법</h1>
+            <span>바로 제주로 <a href="/html/login/login.html" class="login-link">로그인</a></span>
+        </div>
+        <div>
+            <a href="/html/login/login.html" class="login-link">
+                <img class="main-fifth-image" src="/image/login.png" alt="">
+            </a>
+        </div>
+    </section>
+</main>
+
+
+<footer>
+</footer>
+
+
+
+<script>
+    AOS.init(); // 자바스크립트로 init()을 해야 동작한다.
+</script>
+
+</html>
