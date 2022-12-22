@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" 
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/reset.css" type="text/css">
+    <link rel="stylesheet" href="/css/layout.css" type="text/css">
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+    <link rel="stylesheet" href="/css/deco.css" type="text/css">
+    <link rel="stylesheet" href="/css/button.css" type="text/css">
+    <link rel="stylesheet" href="/css/myinfo/update.css" type="text/css">
+    
+    <script src="/js/myinfo/update.js"></script>
+</head>
+<body>
+    <div th:replace="inc/header :: headerFragment"></div>
+
+    <main class="main">
+        <div class="main-header">
+            <h1>마이페이지</h1>
+        </div>
+        <div class="main-main">
+            <form action="/myinfo/update" class="input-form">
+                <div class="input-div">
+                    <div class="input-container">
+                        <div>이메일</div>
+                        <input class="input" type="text" name="username" placeholder="newlecture@newlecture.com">
+                    </div>
+                    
+                    <div class="input-container">
+                        <div>닉네임</div>
+                        <input class="input" type="text" name="nickname" placeholder="newlecture">
+                    </div>
+    
+                    <div class="input-container">
+                        <div>비밀번호</div>
+                        <input class="input password" type="text" name="password" placeholder="" required>
+                    </div>
+    
+                    <div class="input-container">
+                        <div>비밀번호 확인</div>
+                        <input class="input password-confirm" type="text" name="password-confirm" placeholder="" required>
+                    </div>
+    
+                    <div class="input-container">
+                        <div>휴대폰 번호</div>
+                        <input class="input" type="text" name="phone" placeholder="010-0000-0000">
+                    </div>
+                </div>
+                <div class="main-footer">
+                    <!-- <button class="btn" type="button" onclick="location.href='/html/myinfo/myinfo.html'">완료</button> -->
+                    <input class="btn" type="submit" value="완료">
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+
+    </footer>
+</body>
+</html>

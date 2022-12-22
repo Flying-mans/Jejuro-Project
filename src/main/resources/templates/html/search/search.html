@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" 
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>airline search</title>
+    <link rel="stylesheet" href="/css/reset.css" type="text/css">
+    <link rel="stylesheet" href="/css/layout.css" type="text/css">
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+    <link rel="stylesheet" href="/css/deco.css" type="text/css">
+    <link rel="stylesheet" href="/css/button.css" type="text/css">
+    <link rel="stylesheet" href="/css/search/search.css" type="text/css">
+</head>
+<body>
+    <div th:replace="inc/header :: headerFragment"></div>
+
+    <section class="search-page">
+
+        <div class="search-page-image">
+            <img class="" src="" alt="">
+        </div>
+        
+        <div class="search-page-title">
+            <h1> 항공편 </h1>
+        </div>
+        <form action="/html/airlinelist/airlinelist.html">
+            <div class="search-page-box">
+
+                <input class="tooglecheckbox" type="checkbox" id="search-toggle">
+                <label class="trip-toggle" for="search-toggle">
+                    <div>왕복</div>
+                    <div>편도</div>
+                </label>
+                
+                    <select class="start-position">
+                        <option value="">출발지</option>
+                        <option class="GMP" value="GMP">김포(GMP)</option>
+                        <option class="CJU" value="CJU">제주(CJU)</option>
+                    </select>
+                
+                <div class="arrowimg">
+                    <img>
+                </div>
+                
+                    <select class="arrival-position">
+                        <option value="">도착지</option>
+                        <option class="CJU" value="CJU">제주(CJU)</option>
+                        <option class="GMP" value="GMP">김포(GMP)</option>
+                    </select>
+                
+                <div class="start-date">
+                    <div>출발일</div>
+                    <input type="date" class="cal" data-placeholder="출발일">
+                </div>
+                
+                <div class="arrival-date">
+                    <div>도착일</div>
+                    <input type="date" class="cal" data-placeholder="도착일">
+                </div>
+                
+                <div>
+                    <button class="search-btn">검색</button>
+                </div>
+            </div>
+        </form>
+
+    </section>
+
+</body>
+</html>

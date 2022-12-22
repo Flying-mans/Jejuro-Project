@@ -61,6 +61,27 @@
     background: #fff;
     left:55px;
 }
+/* #search-toggle:checked + .search-page-box{
+    position: absolute;
+    top: 200px;
+    left: 50%;
+    transform: translate(-50%,0);
+    width: 600px;
+    height: 200px;
+    border: 5px solid #a0a0a0;
+    border-radius: 25px;
+    padding: 20px;
+    display: grid;
+    grid-template-areas: 
+        "togglecheckbox . . . . . "
+        "start-position arrowimg arrival-position . start-date .";
+    /* grid-template-areas: 
+        "togglecheckbox . . . . . . . . . . ."
+        "start-position start-position arrowimg . arrival-position arrival-position . start-date start-date . arrival-date arrival-date" */
+        /* ". . . . . search-btn . . . . . ." 
+    } 
+    */
+
 
 
 .search-btn{
@@ -70,13 +91,47 @@
     background: orange;
     color: #000;
     position: absolute;
-    bottom: -40px;
-    grid-area: search-btn;  
+    bottom: -70px;
+    transform: translate(-50%, -50%);
+    justify-content: center;
+    align-items: center;
+    grid-area: search-btn;
+}
+
+.arrowimg{
+    background: url(/image/search/go-back-arrows.svg)no-repeat center/cover;
+    margin-top: 10px;
+    width: 40px;
+    height: 40px;
+    grid-area: arrowimg;
 }
 
 .tooglecheckbox:checked ~.arrowimg{
     background: url(/image/search/go-arrows.svg) no-repeat center;
+    margin-top: 10px;
+    width: 48px; 
+    height: 48px;
     grid-area: arrowimg;
+}
+
+.tooglecheckbox:checked ~.search-page-box{
+    position: absolute;
+        top: 200px;
+        left: 50%;
+        transform: translate(-50%,0);
+        width: 600px;
+        height: 200px;
+        border: 5px solid #a0a0a0;
+        border-radius: 25px;
+        padding: 20px;
+        display: grid;
+        grid-template-areas:
+            "togglecheckbox . . . . . . . . "
+            "start-position arrowimg arrival-position . . . start-date start-date start-date .";
+
+}
+.tooglecheckbox:checked ~.arrival-date{
+    display: none;
 }
 
 
@@ -88,9 +143,26 @@
         background: orange;
         color: #000;
         position: absolute;
-        bottom: -40px;
+        bottom: -55px;
         left: 50%;
-        transform: translate(-50% 0);
-        grid-area: search-btn;  
+        transform: translate(-50%, -50%);
+        justify-content: center;
+        align-items: center;
+    }
+
+    .tooglecheckbox:checked ~.search-page-box{
+        position: absolute;
+            top: 200px;
+            left: 50%;
+            transform: translate(-50%,0);
+            width: 600px;
+            height: 200px;
+            border: 5px solid #a0a0a0;
+            border-radius: 25px;
+            padding: 20px;
+            display: grid;
+            grid-template-areas: 
+            "togglecheckbox . . . . . . ."
+            "start-position arrowimg arrival-position . start-date start-date . .";
     }
 }
