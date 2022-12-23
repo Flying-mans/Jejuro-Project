@@ -1,4 +1,4 @@
-package com.jejuro.server.entities;
+package com.jejuro.server.entity;
 
 public class Member {
 	private int memberId;

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" 
     xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -15,6 +16,7 @@
     
     
 </head>
+
 <body>
     <div th:replace="inc/header :: headerFragment"></div>
 
@@ -23,18 +25,18 @@
             <h1>마이페이지</h1>
         </div>
         <div class="main-option">
-            <div class="myinfo"><a href="myinfo.html">나의 정보</a></div>
-            <div class="alarm-setting"><a href="alarm.html">알람 설정</a></div>
+            <div class="myinfo"><a href="myinfo.html" th:href="@{/member/myinfo/{member.email}(member.email=${member.email})}>나의 정보</a></div>
+            <div class="alarm-setting"><a href="alarm.html" th:href="@{/member/myinfo/alarm/{member.email}(member.email=${member.email})}">알람 설정</a></div>
         </div>
         <div class="main-main">
             <div>
-                <div>
+                <div th:each="alarm:${alarm}">
                     <section class="alarm-item">
                         <form action="">
                             <h1 class="alarm-item-h1">항공편 번호</h1>
                             <br><br><br>
-                            <div class="dep-date">출발날짜 : 2022/08/23</div>
-                            <div class="arr-date">도착날짜 : 2023/02/02</div>
+                            <div class="dep-date">출발날짜 : 20220823</div>
+                            <div class="arr-date">도착날짜 : 20230202</div>
                             <br><br>
                             <div class="price">가격 : \30,000</div>
                         </form>        
@@ -49,39 +51,8 @@
                         <form action="">
                             <h1 class="alarm-item-h1">항공편 번호</h1>
                             <br><br><br>
-                            <div class="dep-date">출발날짜 : 2022/08/23</div>
-                            <div class="arr-date">도착날짜 : 2023/02/02</div>
-                            <br><br>
-                            <div class="price">가격 : \30,000</div>
-                        </form>        
-                    </section>
-                    <div class="select-option">
-                        <input type="checkbox">
-                    </div>
-                </div>
-                
-                <div>
-                    <section class="alarm-item">
-                        <form action="">
-                            <h1 class="alarm-item-h1">항공편 번호</h1>
-                            <br><br><br>
-                            <div class="dep-date">출발날짜 : 2022/08/23</div>
-                            <div class="arr-date">도착날짜 : 2023/02/02</div>
-                            <br><br>
-                            <div class="price">가격 : \30,000</div>
-                        </form>        
-                    </section>
-                    <div class="select-option">
-                        <input type="checkbox">
-                    </div>
-                </div>            
-                <div>
-                    <section class="alarm-item">
-                        <form action="">
-                            <h1 class="alarm-item-h1">항공편 번호</h1>
-                            <br><br><br>
-                            <div class="dep-date">출발날짜 : 2022/08/23</div>
-                            <div class="arr-date">도착날짜 : 2023/02/02</div>
+                            <div class="dep-date">출발날짜 : 20220823</div>
+                            <div class="arr-date">도착날짜 : 20230202</div>
                             <br><br>
                             <div class="price">가격 : \30,000</div>
                         </form>        
@@ -92,7 +63,9 @@
                 </div>
             </div>
             <div class="main-footer">
-                <button class="btn">삭제</button>
+                <form action="">
+                    <button class="btn">삭제</button>
+                </form>
             </div>
         </div>
     </main>

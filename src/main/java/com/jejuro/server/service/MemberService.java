@@ -1,13 +1,12 @@
-package com.jejuro.server.dao;
+package com.jejuro.server.service;
 
-import org.apache.ibatis.annotations.Mapper;
+import java.util.List;
 
 import com.jejuro.server.entity.Member;
 
-@Mapper
-public interface MemberDao {
-	//회원가입
-	void insert(Member member);
+public interface MemberService {
+	//회원 추가
+	void add(Member member);
 
 	//회원 정보 가져오기
 	Member get(String email);
