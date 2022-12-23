@@ -29,4 +29,8 @@ public class HomeController {
     public String signup(){
         return "html/sign-up/sign-up";
     }
+    @GetMapping("findpasswd")
+    public String findpasswd(){
+        return "html/findpasswd/findpasswd";
+    }
 }
