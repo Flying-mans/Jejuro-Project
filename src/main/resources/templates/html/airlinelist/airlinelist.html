@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" 
-    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,6 +10,7 @@
     <link rel="stylesheet" href="/css/style.css" type="text/css">
     <link rel="stylesheet" href="/css/deco.css" type="text/css">
     <link rel="stylesheet" href="/css/button.css" type="text/css">
+    <link rel="stylesheet" href="/css/post/post.css" type="text/css">
     <link rel="stylesheet" href="/css/airlinelist/airlinelist.css" type="text/css">
     
 </head> 
@@ -23,66 +23,45 @@
         <section class="start-arrival-position">
             <div>
                 <img class="pointimg" src="/image/airlinelist/point.svg" alt="">
-                <span class="start-point"> 출발지</span>
+                <span class="start-point" th:text="${basicInfo.departure}"> 출발지</span>
             </div>
             <div class="arrowimg">
                 <img>
             </div>
             <div>
                 <img class="pointimg" src="/image/airlinelist/point.svg" alt="">
-                <span class="arrival-point"> 도착지</span>
+                <span class="arrival-point" th:text="${basicInfo.arrival}"> 도착지</span>
             </div>
         </section>
 
         <section class="start-arrival-date">
             <div>
                 <img class="dateimg" src="/image/airlinelist/dateimg.svg" alt="">
-                <span class="start-date"> 출발날짜</span>
+                <span class="start-date" th:text="${basicInfo.depDate}"> 출발날짜</span>
             </div>
             <div>
                 <img class="dateimg" src="/image/airlinelist/dateimg.svg" alt="">
-                <span class="arrival-date"> 도착날짜</span>
+                <span class="arrival-date" th:text="${basicInfo.arrDate}"> 도착날짜</span>
             </div>
         </section>
     </div>
 
-        
-        <main class="main">
-            <div class="board-flight">
+    <main class="main">
+        <div class="board-flight" th:each="flight: ${flights}">
 
-                <section class="board-flight-info">
-                    <div class="airline-img">
-                        <img src="" alt="">
-                    </div>
-                        <div class="airline-title"> 에어부산</div>
-                        <div class="total-time">1시간</div>
-                        <div class="arr-dep">김포-제주</div>
-                        <div class="flight-time">08:00 - 20:20</div>
-                        <div class="flight-price">59,470원</div>
-                    </section>
-
-                    <section class="board-flight-info">
-                        <div class="airline-img">
-                            <img src="" alt="">
-                        </div>
-                            <div class="airline-title"> 에어부산</div>
-                            <div class="total-time">1시간</div>
-                            <div class="arr-dep">김포-제주</div>
-                            <div class="flight-time">08:00 - 20:20</div>
-                            <div class="flight-price">59,470원</div>
-                        </section>
-
-                        <section class="board-flight-info">
-                            <div class="airline-img">
-                                <img src="" alt="">
-                            </div>
-                                <div class="airline-title"> 에어부산</div>
-                                <div class="total-time">1시간</div>
-                                <div class="arr-dep">김포-제주</div>
-                                <div class="flight-time">08:00 - 20:20</div>
-                                <div class="flight-price">59,470원</div>
-                            </section>
+            <section class="board-flight-info">
+                <div class="airline-img">
+                    <!--                        th:src="${flight.getLogoUrl()}}"-->
+                    <img src="" alt="">
                 </div>
-            </main>
+                <div class="airline-title" th:text="${flight.getAirlineName()}"> 에어부산</div>
+                <div class="total-time" th:text="${flight.getDurationTime()}">1시간</div>
+                <div class="arr-dep" th:text="${flight.getDepArr()}">김포-제주</div>
+                <div class="flight-time" th:text="${flight.getDepArrTime()}">08:00 - 20:20</div>
+                <div class="flight-price" th:text="${flight.getFee()}">59,470원</div>
+            </section>
+
+        </div>
+    </main>
 </body>
 </html>
