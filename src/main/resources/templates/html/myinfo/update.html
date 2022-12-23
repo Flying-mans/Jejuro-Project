@@ -25,7 +25,7 @@
             <h1>마이페이지</h1>
         </div>
         <div class="main-main">
-            <form action="/member/myinfo/update" class="input-form" method="post" th:object="${member}">
+            <form action="/member/myinfo/update/complete" class="input-form" method="post" th:object="${member}">
                 <div class="input-div">
                     <div class="input-container">
                         <div>이메일</div>
@@ -53,6 +53,7 @@
                     </div>
                 </div>
                 <div class="main-footer">
+                    <input type="hidden" name="member_id" th:value="${member.member_id}">
                     <input class="btn" type="submit" value="완료">
                 </div>
             </form>

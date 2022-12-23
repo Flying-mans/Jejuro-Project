@@ -1,7 +1,7 @@
 package com.jejuro.server.entity;
 
 public class Member {
-	private int memberId;
+	private int member_id;
 	
 	private String email;
 	private String password;
@@ -12,8 +12,8 @@ public class Member {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Member(String email) {
-		this.email = email;
+	public Member(int id) {
+		this.member_id = id;
 	}
 
 	public Member(String email, String password, String nickName, String phoneNum) {
@@ -24,22 +24,13 @@ public class Member {
 		this.phoneNum = phoneNum;
 	}
 	
-	public Member(int memberId, String email, String password, String nickName, String phoneNum) {
-		super();
-		this.memberId = memberId;
+
+	public Member(int member_id, String email, String password, String nickName, String phoneNum) {
+		this.member_id = member_id;
 		this.email = email;
 		this.password = password;
 		this.nickName = nickName;
 		this.phoneNum = phoneNum;
-	}
-
-
-	public int getMemberId() {
-		return memberId;
-	}
-
-	public void setMemberId(int memberId) {
-		this.memberId = memberId;
 	}
 
 	public String getEmail() {
@@ -76,9 +67,14 @@ public class Member {
 
 	@Override
 	public String toString() {
-		return "Member [memberId=" + memberId + ", email=" + email + ", password=" + password + ", nickName=" + nickName
-				+ ", phoneNum=" + phoneNum + "]";
+		return "Member [member_id=" + member_id + ", email=" + email + ", password=" + password + ", nickName="
+				+ nickName + ", phoneNum=" + phoneNum + "]";
 	}
+
+	public int getMember_id() {
+		return member_id;
+	}
+
 	
 	
 }

@@ -21,14 +21,14 @@ public class DefaultMemberService implements MemberService{
 
 	//회원 정보 가져오기
 	@Override
-	public Member get(String email) {
-		return dao.get(email);
+	public Member get(int id) {
+		return dao.get(id);
 	}
 
 	//회원 삭제
 	@Override
-	public void delete(String email) {
-		dao.delete(email);
+	public void delete(int id) {
+		dao.delete(id);
 	}
 
 	//회원 수정

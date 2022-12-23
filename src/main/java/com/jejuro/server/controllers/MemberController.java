@@ -24,57 +24,59 @@ public class MemberController {
 	@Autowired
 	private MemberService service;
 
-	//마이페이지 기능 확인을 위한 로그인 페이지
+	//마이페이지 기능 확인을 위한 로그인 테스트 페이지
 	@GetMapping("/register")
 	public String register(Model model) {
 		model.addAttribute("member", new Member());
 		return "html/sign-up/sign-up";
 	}
 	
-	//내 정보 확인
+	//내 정보 확인 테스트 페이지
 	@PostMapping("/myinfo")
-	public String result(Member member) {
+	public String myinfo1(Member member) {
 		service.add(member);
-		String result = "redirect:/member/myinfo/"+member.getEmail();
+		String result = "redirect:/member/myinfo/"+member.getMember_id();
 		return result;
 	}
 
-	//email로 내 정보 확인을 위한 테스트
-	@GetMapping("/myinfo/{email}")
-	public String myinfo(@PathVariable("email") String email,
+	//내 정보 확인을 위한 테스트
+	@GetMapping("/myinfo/{id}")
+	public String myinfo2(@PathVariable("id") int id,
 						Model model) {
-		Member member = service.get(email);
+		Member member = service.get(id);
 		model.addAttribute("member", member);
 		return "html/myinfo/myinfo";
 	}
 	
-	//email로 내 정보 확인
-	@PostMapping("/myinfo/{email}")
-	public String Displaymyinfo(@PathVariable("email") String email) {
-		service.get(email);
+	//내 정보 확인
+	@PostMapping("/myinfo/{id}")
+	public String displayMyinfo(@PathVariable("id") int id) {
+		service.get(id);
 		return "html/myinfo/myinfo";
 	}
 	
 	//내 정보 삭제
 	@PostMapping("/myinfo/delete")
-	public String delete(@RequestParam("email") String email) {
-		service.delete(email);
+	public String deleteMember(@RequestParam("id") int id) {
+		service.delete(id);
 		return "redirect:/member/register";
 	}
 	
 	//내 정보 수정 
-	@GetMapping("/myinfo/update/{email}")
-	public String updatePage(@PathVariable("email") String email,
+	@GetMapping("/myinfo/update/{id}")
+	public String updateMember(@PathVariable("id") int id,
 							Model model) {
-		model.addAttribute("member", new Member(email));
+		model.addAttribute("member", new Member(id));
 		return "html/myinfo/update";
 	}
 	
 	//내 정보 수정 완료
-	@PostMapping("/myinfo/update")
-	public String update(Member member) {
+	@PostMapping("/myinfo/update/complete")
+	public String updateComplete(@RequestParam("member_id") int id,
+						Member member) {
 		service.update(member);
-		String result = "redirect:/member/myinfo/"+member.getEmail();
+		System.out.println(member);
+		String result = "redirect:/member/myinfo/"+ String.valueOf(id);
 		return result;
 	}
 }

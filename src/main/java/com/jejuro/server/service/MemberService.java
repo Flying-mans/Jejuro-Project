@@ -9,11 +9,12 @@ public interface MemberService {
 	void add(Member member);
 
 	//회원 정보 가져오기
-	Member get(String email);
+    Member get(int id);
 
 	//회원 삭제
-	void delete(String email);
+	void delete(int id);
 
 	//회원 수정
 	void update(Member member);
+
 }

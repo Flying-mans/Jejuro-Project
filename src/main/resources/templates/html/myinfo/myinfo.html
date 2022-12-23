@@ -27,8 +27,8 @@
         </div>
         <div action="" class="input-form">
             <div class="main-option">
-                <div class="myinfo"><a href="myinfo" th:href="@{/member/myinfo/{member.email}(member.email=${member.email})}">나의 정보</a></div>
-                <div class="alarm-setting"><a href="/html/myinfo/alarm.html" th:href="@{/member/myinfo/alarm/{member.email}(member.email=${member.email})}">알람 설정</a></div>
+                <div class="myinfo"><a href="myinfo" th:href="@{/member/myinfo/{id}(id=${member.member_id})}">나의 정보</a></div>
+                <div class="alarm-setting"><a href="/html/myinfo/alarm.html" th:href="@{/member/myinfo/alarm/{id}(id=${member.member_id})}">알람 설정</a></div>
             </div>
             <div class="main-main" th:each="member:${member}">
                 <ul>
@@ -56,10 +56,10 @@
             </div>
             <div class="main-footer">
                 <form action="delete" method="post">
-                    <input type="hidden" name="email" th:value="${member.email}">
+                    <input type="hidden" name="id" th:value="${member.member_id}">
                     <button class="btn delete">회원탈퇴</button>
                 </form>
-                <a th:href="@{update/{email}(email=${member.email})}">
+                <a th:href="@{update/{id}(id=${member.member_id})}">
                     <button class="btn update">수정</button>
                 </a>
             </div>
