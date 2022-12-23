@@ -29,7 +29,7 @@ public class HomeController {
     public String signup(){
         return "html/sign-up/sign-up";
     }
-    @GetMapping("password")
+    @PostMapping("password")
     public String password(){
         return "html/findpasswd/password";
     }
