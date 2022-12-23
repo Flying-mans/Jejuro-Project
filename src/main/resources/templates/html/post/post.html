@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" 
-    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
-    
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -16,8 +16,10 @@
 </head>
 
 <body>
+	<script src="/js/post.js"></script>
+    
     <div th:replace="inc/header :: headerFragment"></div>
-
+    
     <div>
         <section class="board-h1">
             <h1>여행게시판</h1>
@@ -26,42 +28,26 @@
             <div class="board-input">
                 <input class="board-search"type="text">
             </div>
-
-            <div class="board-write btn">글쓰기</div>
-
-
+            <div class="board-write btn"><a href="post/post-detail">글쓰기</a></div>
         </div>
     </div>
-
     <main class="main">
-
-        <section class="board-item">
-            <form action="">
-                <h1 class="board-item-h1">여행후기 11/30</h1>
-                <span class="date">2022/2/5</span>
-                <span class="reply-count">댓글 :3</span>
-                <span class="hits">조회수 :3</span>
-            </form>        
+		
+        <section class="board-item" th:each="boarditem:${post}">
+       		<a th:href="@{post/{id}(id=${boarditem.postId})}">
+	        	<form action="post" method="post">
+		            <h1 class="board-item-h1" th:text="${boarditem.title}">여행후기 11/30</h1>
+		            <span class="date">2022/2/5</span>
+		            <span class="reply-count">댓글 : 3</span>
+		            <span class="hits">조회수 : <span th:text="${boarditem.view_count}">0</span></span>
+	        	</form>        
+            </a>
         </section>
-
-        <section class="board-item">
-            <form action="">
-                <h1 class="board-item-h1">내년 초에 같이 여행갈분?</h1>
-                <span class="date">2022/2/5</span>
-                <span class="reply-count">댓글 :2</span>
-                <span class="hits">조회수 :1</span>
-            </form>
-        </section>
-
-        <section class="board-item">
-            <form action="">
-                <h1 class="board-item-h1">일본 비행편은 없나요?</h1>
-                <span class="date">2022/2/5</span>
-                <span class="reply-count">댓글 :5</span>
-                <span class="hits">조회수 :13</span>
-            </form>        
-        </section>
-
+        <form th:each="page:${page}">
+        
+         <h1 class="board-item-h1" th:text="${page}">여행후기 11/30</h1>
+         
+		</form>
     </main>
 </body>
 </html>
