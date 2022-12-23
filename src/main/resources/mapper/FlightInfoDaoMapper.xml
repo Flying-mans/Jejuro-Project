@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jejuro.server.dao.FlightInfoDao">
+
+    <select id="getFlightListOneWay" resultType="com.jejuro.server.entity.view.FlightInfo">
+        select * from flight_info
+        where departure=#{departure}
+        and dep_date=#{depDate}
+        limit #{offset}, #{size}
+    </select>
+
+    <delete id="" >
+
+    </delete>
+
+
+
+</mapper>
