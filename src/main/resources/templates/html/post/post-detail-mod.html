@@ -15,8 +15,7 @@
 </head>
 <body>
     <div th:replace="inc/header :: headerFragment"></div>
-    
-    
+
     <div th:each="boarditem:${post}">
 
 	    <div class="post-detail-head">
@@ -24,31 +23,19 @@
 	            <h1>글 쓰 기</h1>
 	        </div>
 	        <div class="btn-set">
-	
-	<!--
-	            <a th:href="@{delete/{id}(id=${boarditem.postId})}">
-	            	<button class="btn">삭제</button>
-	            </a>
-	-->
-	
 	            <form action="delete" method="post">
 	            	<input type="hidden" name="id" th:value="${boarditem.postId}">
 	            	<button class="btn">삭제</button>
-	            </form>
-	            
+	            </form>      
 	            <button class="btn">수정</button>
-
-	
 	        </div>
 	    </div>
-	
 	    <main class="container">
 	        <div>
 	            <textarea th:text="${boarditem.title}" class="wrap-input input textareaa">제목을 입력하세요</textarea>
 	            <textarea th:text="${boarditem.content}" class="wrap-input input post-index-content textareab">dd</textarea>
 	        </div>
 	    </main>
-
     </div>
 </body>
 </html>
