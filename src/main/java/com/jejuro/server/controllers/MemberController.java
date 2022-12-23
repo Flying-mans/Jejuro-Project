@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -39,7 +40,7 @@ public class MemberController {
 		return result;
 	}
 
-	//내 정보 확인을 위한 테스트
+	//내 정보 확인
 	@GetMapping("/myinfo/{id}")
 	public String myinfo2(@PathVariable("id") int id,
 						Model model) {
@@ -48,7 +49,7 @@ public class MemberController {
 		return "html/myinfo/myinfo";
 	}
 	
-	//내 정보 확인
+	//내 정보 확인을 위한 테스트
 	@PostMapping("/myinfo/{id}")
 	public String displayMyinfo(@PathVariable("id") int id) {
 		service.get(id);
@@ -56,13 +57,13 @@ public class MemberController {
 	}
 	
 	//내 정보 삭제
-	@PostMapping("/myinfo/delete")
+	@DeleteMapping("/myinfo/delete")
 	public String deleteMember(@RequestParam("id") int id) {
 		service.delete(id);
 		return "redirect:/member/register";
 	}
 	
-	//내 정보 수정 
+	//내 정보 수정하기
 	@GetMapping("/myinfo/update/{id}")
 	public String updateMember(@PathVariable("id") int id,
 							Model model) {

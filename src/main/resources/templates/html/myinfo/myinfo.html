@@ -55,10 +55,11 @@
 
             </div>
             <div class="main-footer">
-                <form action="delete" method="post">
+                <form action="delete" method="delete">
                     <input type="hidden" name="id" th:value="${member.member_id}">
                     <button class="btn delete">회원탈퇴</button>
                 </form>
+                <form action="" method="patch"></form>
                 <a th:href="@{update/{id}(id=${member.member_id})}">
                     <button class="btn update">수정</button>
                 </a>

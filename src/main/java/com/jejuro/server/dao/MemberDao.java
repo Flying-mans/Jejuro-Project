@@ -7,7 +7,7 @@ import com.jejuro.server.entity.Member;
 @Mapper
 public interface MemberDao {
 	//회원가입
-	void insert(Member member);
+	void signUp(Member member);
 
 	//회원 정보 가져오기
 	Member get(int id);
