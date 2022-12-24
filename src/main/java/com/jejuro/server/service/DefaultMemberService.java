@@ -15,7 +15,7 @@ public class DefaultMemberService implements MemberService{
 	//회원 추가
 	@Override
 	public void add(Member member) {
-		dao.insert(member);
+		dao.signUp(member);
 		
 	}
 
@@ -33,8 +33,9 @@ public class DefaultMemberService implements MemberService{
 
 	//회원 수정
 	@Override
-	public void update(Member member) {
+	public int update(Member member) {
 		dao.update(member);
+		return dao.getId(member);
 	}
 
 }

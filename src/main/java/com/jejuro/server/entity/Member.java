@@ -12,8 +12,8 @@ public class Member {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Member(int id) {
-		this.member_id = id;
+	public Member(int member_id) {
+		this.member_id = member_id;
 	}
 
 	public Member(String email, String password, String nickName, String phoneNum) {

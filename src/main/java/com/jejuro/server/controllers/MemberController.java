@@ -18,66 +18,66 @@ import com.jejuro.server.service.MemberService;
 @Controller
 @RequestMapping("/member")
 public class MemberController {
-	
+
 	public MemberController() {
 
 	}
+
 	@Autowired
 	private MemberService service;
 
-	//마이페이지 기능 확인을 위한 로그인 테스트 페이지
+	// 마이페이지 기능 확인을 위한 로그인 테스트 페이지
 	@GetMapping("/register")
 	public String register(Model model) {
 		model.addAttribute("member", new Member());
 		return "html/sign-up/sign-up";
 	}
-	
-	//내 정보 확인 테스트 페이지
+
+	// 내 정보 확인 테스트 페이지
 	@PostMapping("/myinfo")
 	public String myinfo1(Member member) {
 		service.add(member);
-		String result = "redirect:/member/myinfo/"+member.getMember_id();
+		String result = "redirect:/member/myinfo/" + member.getMember_id();
 		return result;
 	}
 
-	//내 정보 확인
+	// 내 정보 확인
 	@GetMapping("/myinfo/{id}")
 	public String myinfo2(@PathVariable("id") int id,
-						Model model) {
+			Model model) {
 		Member member = service.get(id);
 		model.addAttribute("member", member);
 		return "html/myinfo/myinfo";
 	}
-	
-	//내 정보 확인을 위한 테스트
+
+	// 내 정보 확인을 위한 테스트
 	@PostMapping("/myinfo/{id}")
 	public String displayMyinfo(@PathVariable("id") int id) {
 		service.get(id);
 		return "html/myinfo/myinfo";
 	}
-	
-	//내 정보 삭제
-	@DeleteMapping("/myinfo/delete")
+
+	// 내 정보 삭제
+	@PostMapping("/myinfo/delete")
 	public String deleteMember(@RequestParam("id") int id) {
 		service.delete(id);
 		return "redirect:/member/register";
 	}
-	
-	//내 정보 수정하기
+
+	// 내 정보 수정하기
 	@GetMapping("/myinfo/update/{id}")
 	public String updateMember(@PathVariable("id") int id,
-							Model model) {
-		model.addAttribute("member", new Member(id));
+			Model model) {
+		Member member = service.get(id);
+		model.addAttribute("member", new Member(id, member.getEmail(), null, null, null));	
 		return "html/myinfo/update";
 	}
-	
-	//내 정보 수정 완료
+
+	// 내 정보 수정 완료
 	@PostMapping("/myinfo/update/complete")
-	public String updateComplete(@RequestParam("member_id") int id,
-						Member member) {
-		service.update(member);
-		System.out.println(member);
-		String result = "redirect:/member/myinfo/"+ String.valueOf(id);
+	public String updateComplete(Member member) {
+		int id = service.update(member);
+		String result = "redirect:/member/myinfo/" + id;
 		return result;
 	}
 }

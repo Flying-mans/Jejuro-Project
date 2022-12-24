@@ -3,7 +3,7 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.jejuro.server.dao.MemberDao">
-	<insert id="insert" parameterType="com.jejuro.server.entity.Member">
+	<insert id="signUp" parameterType="com.jejuro.server.entity.Member">
 		insert into member(email, password, nickName, phoneNum) 
 		values(#{email}, #{password}, #{nickName}, #{phoneNum});
 	</insert>
@@ -25,6 +25,12 @@
 			<if test="password != null">password=#{password},</if>
 			<if test="phoneNum != null">phoneNum=#{phoneNum}</if>
 		</set>
-		where member_id = #{id};
+		where email = #{email};
 	</update>
+
+	<select id="getId" resultType="Integer">
+		select member_id from member
+		where nickName = #{nickName}
+	</select>
+
 </mapper>

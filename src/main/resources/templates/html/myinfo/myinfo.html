@@ -26,11 +26,11 @@
             <h1>마이페이지</h1>
         </div>
         <div action="" class="input-form">
-            <div class="main-option">
+            <div class="main-option" th:each="member:${member}">
                 <div class="myinfo"><a href="myinfo" th:href="@{/member/myinfo/{id}(id=${member.member_id})}">나의 정보</a></div>
                 <div class="alarm-setting"><a href="/html/myinfo/alarm.html" th:href="@{/member/myinfo/alarm/{id}(id=${member.member_id})}">알람 설정</a></div>
             </div>
-            <div class="main-main" th:each="member:${member}">
+            <div class="main-main">
                 <ul>
                     <li>
                         <h1>이메일</h1>
@@ -55,11 +55,10 @@
 
             </div>
             <div class="main-footer">
-                <form action="delete" method="delete">
+                <form action="delete" method="post">
                     <input type="hidden" name="id" th:value="${member.member_id}">
                     <button class="btn delete">회원탈퇴</button>
                 </form>
-                <form action="" method="patch"></form>
                 <a th:href="@{update/{id}(id=${member.member_id})}">
                     <button class="btn update">수정</button>
                 </a>

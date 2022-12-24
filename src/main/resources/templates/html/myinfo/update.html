@@ -28,8 +28,8 @@
             <form action="/member/myinfo/update/complete" class="input-form" method="post" th:object="${member}">
                 <div class="input-div">
                     <div class="input-container">
-                        <div>이메일</div>
-                        <input class="input" type="text" placeholder="newlecture@newlecture.com" th:field="*{email}">
+                        <!-- <div>이메일</div> -->
+                        <input class="input" type="hidden" placeholder="newlecture@newlecture.com" th:field="${member.email}">
                     </div>
                     
                     <div class="input-container">
@@ -53,7 +53,6 @@
                     </div>
                 </div>
                 <div class="main-footer">
-                    <input type="hidden" name="member_id" th:value="${member.member_id}">
                     <input class="btn" type="submit" value="완료">
                 </div>
             </form>
