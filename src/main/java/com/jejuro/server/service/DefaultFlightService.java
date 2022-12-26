@@ -6,6 +6,7 @@ import com.jejuro.server.entity.view.FlightInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -39,11 +40,17 @@ public class DefaultFlightService implements FlightService{
 
     private static FlightListDto getFlightListDto(FlightInfo f) {
         String durationTime = getDurationTime(f.getArrTime(), f.getDepTime());
-        String depArr = f.getDeparture() + "-" + f.getArrival();
-        String depArrTime = f.getDepTime() + "-" + f.getArrTime();
+        //GMP - CJU
+        String depArr = f.getDeparture() + " -> " + f.getArrival();
+        // 0640 - 0710
+        String depArrTime = f.getDepTime().substring(0,2) + ":" +f.getDepTime().substring(2,4)+ " ~ "
+                + f.getArrTime().substring(0,2)+":"+f.getArrTime().substring(2,4);
+        //항공사 이름, img
         String logoUrl = f.getUrl();
         String airLineName = f.getName();
-        int fee = f.getFee();
+        //가격
+        DecimalFormat won = new DecimalFormat("###,###");
+        String fee = won.format(f.getFee())+"원";
         FlightListDto flightListDto = new FlightListDto(logoUrl, airLineName, durationTime, depArr, depArrTime, fee);
         return flightListDto;
     }
@@ -58,7 +65,7 @@ public class DefaultFlightService implements FlightService{
         int time = ((arrTime / 100) * 60 + (arrTime % 100)) - ((depTime / 100) * 60 + (depTime % 100));
         int hour = time / 60;
         int min = time % 60;
-        String durationTime = Integer.toString(hour) + ":" + Integer.toString(min);
+        String durationTime = Integer.toString(hour) + "시간 " + Integer.toString(min) + "분";
         return durationTime;
     }
 }

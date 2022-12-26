@@ -25,7 +25,7 @@
                 <img class="pointimg" src="/image/airlinelist/point.svg" alt="">
                 <span class="start-point" th:text="${basicInfo.departure}"> 출발지</span>
             </div>
-            <div class="arrowimg">
+            <div class="arrow-img">
                 <img>
             </div>
             <div>
@@ -36,11 +36,14 @@
 
         <section class="start-arrival-date">
             <div>
-                <img class="dateimg" src="/image/airlinelist/dateimg.svg" alt="">
+                <img class="start-dateimg" src="/image/airlinelist/dateimg.svg" alt="">
                 <span class="start-date" th:text="${basicInfo.depDate}"> 출발날짜</span>
             </div>
+<!--            <div class="take-off-flight-img">-->
+<!--                <img>-->
+<!--            </div>-->
             <div>
-                <img class="dateimg" src="/image/airlinelist/dateimg.svg" alt="">
+                <img class="arrival-dateimg" src="/image/airlinelist/dateimg.svg" alt="" th:if="${basicInfo.arrDate == null}" th:src="${null}"/>
                 <span class="arrival-date" th:text="${basicInfo.arrDate}"> 도착날짜</span>
             </div>
         </section>
@@ -52,7 +55,7 @@
             <section class="board-flight-info">
                 <div class="airline-img">
                     <!--                        th:src="${flight.getLogoUrl()}}"-->
-                    <img src="" alt="">
+                    <img th:src="${flight.getLogoUrl()}" alt="">
                 </div>
                 <div class="airline-title" th:text="${flight.getAirlineName()}"> 에어부산</div>
                 <div class="total-time" th:text="${flight.getDurationTime()}">1시간</div>
