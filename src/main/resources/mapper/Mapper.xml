@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jejuro.server.dao.PostDao">
+
+	<select id="getPost" resultType="com.jejuro.server.entity.Post">
+		select * from post
+		order by reg_date DESC
+		<trim prefix="limit" prefixOverrides=",">
+			<if test="offset != null">#{offset},</if>
+			<if test="size != null">#{size}</if>
+		</trim>
+	</select>
+	<insert id="regPost" parameterType="com.jejuro.server.entity.Post">
+		insert into post(title, content)
+		values(#{title},#{content})
+	</insert>
+	<select id="get" resultType="com.jejuro.server.entity.Post">
+		select * from post
+		where post_id = #{id}
+	</select>
+	
+	<delete id="delPost" parameterType="Integer">
+		delete from post where post_id = #{id}
+	</delete>
+	
+	<update id="viewAdd" parameterType="Integer">
+		update post set view_count = view_count + 1 where post_id = #{id}
+	</update>
+	
+	<update id="modPost" parameterType="com.jejuro.server.entity.Post">
+		UPDATE post SET content = #{content}, title = #{title} 
+		WHERE post_id = #{id}
+	</update>
+	
+	
+	
+</mapper>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>게시판 글쓰기</title>
+    <link rel="stylesheet" href="/css/reset.css" type="text/css">
+    <link rel="stylesheet" href="/css/layout.css" type="text/css">
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+    <link rel="stylesheet" href="/css/deco.css" type="text/css">
+    <link rel="stylesheet" href="/css/button.css" type="text/css">
+    <link rel="stylesheet" href="/css/post/post-detail.css" type="text/css">
+
+</head>
+<body>
+    <div th:replace="inc/header :: headerFragment"></div>
+
+    <div th:each="boarditem:${post}">
+        <form method="post">
+	    <div class="post-detail-head">
+	        <div>
+	            <h1>글 쓰 기</h1>
+	        </div>
+	        <div class="btn-set">
+            	<button onclick="javascript: form.action='/post/delete'"name="id"th:value="${boarditem.postId}"class="btn">삭제</button>
+  
+	            <button onclick="javascript: form.action='/post/modify'"name="id"th:value="${boarditem.postId}"class="btn">수정</button>
+	        </div>
+	    </div>
+	    <main class="container">
+	        <div>
+	            <textarea name="title" th:text="${boarditem.title}" class="wrap-input input textareaa">제목을 입력하세요</textarea>
+	            <textarea name="content" th:text="${boarditem.content}" class="wrap-input input post-index-content textareab">dd</textarea>
+	        </div>
+	    </main>
+        </form>   
+    </div>
+</body>
+</html>
