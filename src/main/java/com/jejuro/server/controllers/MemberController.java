@@ -12,7 +12,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.jejuro.server.entity.Alarm;
 import com.jejuro.server.entity.Member;
+import com.jejuro.server.service.AlarmService;
 import com.jejuro.server.service.MemberService;
 
 @Controller
@@ -26,6 +28,9 @@ public class MemberController {
 	@Autowired
 	private MemberService service;
 
+	@Autowired
+	private AlarmService alarmService;
+
 	// 마이페이지 기능 확인을 위한 로그인 테스트 페이지
 	@GetMapping("/register")
 	public String register(Model model) {
@@ -34,10 +39,15 @@ public class MemberController {
 	}
 
 	// 내 정보 확인 테스트 페이지
-	@PostMapping("/myinfo")
-	public String myinfo1(Member member) {
+	@PostMapping("/register")
+	public String register(@RequestParam("email") String email,
+						@RequestParam("nickname") String nickName,
+						@RequestParam("password") String password,
+						@RequestParam("phoneNum") String phoneNum) {
+		Member member = new Member(email, nickName, password, phoneNum);
 		service.add(member);
-		String result = "redirect:/member/myinfo/" + member.getMember_id();
+		Member getMember = service.getByEmail(email);
+		String result = "redirect:/member/myinfo/" + getMember.getMember_id();
 		return result;
 	}
 
@@ -79,5 +89,28 @@ public class MemberController {
 		int id = service.update(member);
 		String result = "redirect:/member/myinfo/" + id;
 		return result;
+	}
+
+
+
+	// 알람 설정===========================================
+
+		// 내 정보 수정하기
+		// @GetMapping("/myinfo/update/{id}")
+		// public String updateMember(@PathVariable("id") int id,
+		// 		Model model) {
+		// 	Member member = service.get(id);
+		// 	model.addAttribute("member", new Member(id, member.getEmail(), null, null, null));	
+		// 	return "html/myinfo/update";
+		// }
+
+	@GetMapping("/myinfo/alarm/{id}")
+	public String displayAlarm(@PathVariable("id") int id, Model model) {
+
+		List<Alarm> alarm = alarmService.getAlarmList(id);
+		model.addAttribute("alarm", alarm);
+
+		return "html/myinfo/alarm";
+
 	}
 }

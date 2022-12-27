@@ -38,4 +38,10 @@ public class DefaultMemberService implements MemberService{
 		return dao.getId(member);
 	}
 
+	//회원 정보 email로 가져오기
+	@Override
+	public Member getByEmail(String email) {
+		return dao.getByEmail(email);
+	}
+
 }

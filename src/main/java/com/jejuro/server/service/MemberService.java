@@ -15,6 +15,9 @@ public interface MemberService {
 	void delete(int id);
 
 	//회원 수정
-	void update(Member member);
+	int update(Member member);
+
+	//회원 정보 email로 가져오기
+	Member getByEmail(String email);
 
 }
