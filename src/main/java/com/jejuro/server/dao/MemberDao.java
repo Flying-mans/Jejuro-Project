@@ -21,5 +21,8 @@ public interface MemberDao {
 	//회원 ID 정보 가져오기
     int getId(Member member);
 
+	//회원 email 가져오기
+    Member getByEmail(String email);
+
 
 }

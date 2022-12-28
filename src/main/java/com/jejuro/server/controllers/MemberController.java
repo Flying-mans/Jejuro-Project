@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.jejuro.server.entity.Member;
 import com.jejuro.server.service.MemberService;
 
+import jakarta.servlet.http.HttpSession;
+
 @Controller
 @RequestMapping("/member")
 public class MemberController {
@@ -69,15 +71,41 @@ public class MemberController {
 	public String updateMember(@PathVariable("id") int id,
 			Model model) {
 		Member member = service.get(id);
-		model.addAttribute("member", new Member(id, member.getEmail(), null, null, null));	
+		model.addAttribute("member", new Member(id, member.getEmail(), null, null, null));
 		return "html/myinfo/update";
 	}
-
+// ! 주석해제
 	// 내 정보 수정 완료
-	@PostMapping("/myinfo/update/complete")
-	public String updateComplete(Member member) {
-		int id = service.update(member);
-		String result = "redirect:/member/myinfo/" + id;
-		return result;
+	// @PostMapping("/myinfo/update/complete")
+	// public String updateComplete(Member member) {
+	// 	int id = service.update(member);
+	// 	String result = "redirect:/member/myinfo/" + id;
+	// 	return result;
+	// }
+
+	// 로그인 테스트
+	@GetMapping("login")
+	public String login() {
+		System.out.println("===============================================");
+		return "html/login/login";
+	}
+
+	@PostMapping("login")
+	public String login(String email, String password, String returnURL, HttpSession session) {
+		System.out.println("returnURL: " + returnURL);
+
+		Member member = service.getMemberByEmail(email);
+
+		if (member == null)
+			return "redirect:login?error";
+		else if (!member.getPassword().equals(password))
+			return "redirect:login?error";
+
+		session.setAttribute("email", member.getEmail());
+
+		if (returnURL != null && returnURL.equals(""))
+			return "reditect:" + returnURL;
+
+		return "redirect:/index";
 	}
 }

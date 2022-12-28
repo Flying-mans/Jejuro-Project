@@ -17,4 +17,7 @@ public interface MemberService {
 	//회원 수정
 	void update(Member member);
 
+	//회원 이메일 가져오기
+    Member getMemberByEmail(String email);
+
 }

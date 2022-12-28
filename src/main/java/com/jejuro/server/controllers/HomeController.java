@@ -2,6 +2,7 @@ package com.jejuro.server.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
@@ -21,10 +22,10 @@ public class HomeController {
     public String post(){
         return "html/post/post";
     }
-    @GetMapping("login")
-    public String login(){
-        return "html/login/login";
-    }
+    // @GetMapping("login")
+    // public String login(){
+    //     return "html/login/login";
+    // }
     @GetMapping("sign-up")
     public String signup(){
         return "html/sign-up/sign-up";
@@ -33,4 +34,8 @@ public class HomeController {
     public String password(){
         return "html/findpasswd/password";
     }
+    @GetMapping("denied")
+	public String denied() {
+		return "denied";
+	}
 }
