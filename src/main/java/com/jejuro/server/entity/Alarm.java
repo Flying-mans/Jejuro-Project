@@ -2,13 +2,13 @@ package com.jejuro.server.entity;
 
 public class Alarm {
 	private int alarm_id;
-	
+
 	private String price;
 	private int member_id;
 	private String flight_code;
 	private String dep_date;
-	
-	
+
+
 	public Alarm() {
 		// TODO Auto-generated constructor stub
 	}
@@ -33,21 +33,21 @@ public class Alarm {
 		this.price = price;
 	}
 
-    public int getMember_id() {
-        return member_id;
-    }
+	public int getMember_id() {
+		return member_id;
+	}
 
-    public void setMember_id(int member_id) {
-        this.member_id = member_id;
-    }
+	public void setMember_id(int member_id) {
+		this.member_id = member_id;
+	}
 
-    public String getFlight_code() {
-        return flight_code;
-    }
+	public String getFlight_code() {
+		return flight_code;
+	}
 
-    public void setFlight_code(String flight_code) {
-        this.flight_code = flight_code;
-    }
+	public void setFlight_code(String flight_code) {
+		this.flight_code = flight_code;
+	}
 
 	public String getDep_date() {
 		return dep_date;
@@ -63,6 +63,6 @@ public class Alarm {
 				+ flight_code + ", dep_date=" + dep_date + "]";
 	}
 
-	 
+
 
 }

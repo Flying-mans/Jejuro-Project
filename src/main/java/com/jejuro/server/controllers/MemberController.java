@@ -94,15 +94,6 @@ public class MemberController {
 
 	// 알람 설정===========================================
 
-		// 내 정보 수정하기
-		// @GetMapping("/myinfo/update/{id}")
-		// public String updateMember(@PathVariable("id") int id,
-		// 		Model model) {
-		// 	Member member = service.get(id);
-		// 	model.addAttribute("member", new Member(id, member.getEmail(), null, null, null));	
-		// 	return "html/myinfo/update";
-		// }
-
 	// 알람 출력
 	@GetMapping("/myinfo/alarm/{id}")
 	public String displayAlarm(@PathVariable("id") int id, Model model) {
@@ -119,8 +110,10 @@ public class MemberController {
 	public String deleteAlarm(@RequestParam("id") int id, Model model) {
 
 		model.addAttribute("id", id);
-		int mid = alarmService.getMemberId(id);
+
+		// 알람 id로 회원 id를 가져온다
+		int memberId = alarmService.getMemberId(id);
 		alarmService.delete(id);
-		return "redirect:/member/myinfo/alarm/"+mid;
+		return "redirect:/member/myinfo/alarm/" + memberId;
 	}
 }
