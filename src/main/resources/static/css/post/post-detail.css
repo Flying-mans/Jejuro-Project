@@ -1,5 +1,5 @@
 
-.post-index-head{
+.post-detail-head{
     display: flex;
     padding: 30px;
     justify-content:space-between;
@@ -18,7 +18,7 @@
 	padding: 15px 15px;
     margin: 20px;
 }
-.post-index-content{
+.post-detail-content{
     height: 450px;
     box-shadow: 0 0 13px 0.5;
 }
@@ -33,5 +33,17 @@
 	left: 17px;
 	transition: all 0.2s;
 	transform-origin: 0% 0%;
+}
+.textareaa{
+	width: 85vw;
+    height: 1.2em;
+
+    resize: none;
+}
+.textareab{
+	width: 85vw;
+    height: 16.25em;
+
+    resize: none;
 }
 

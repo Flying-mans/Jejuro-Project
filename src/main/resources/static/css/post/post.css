@@ -56,7 +56,8 @@ h1{
     width: 220px;
     height: 50px;
     border-radius: 20px;
-    /* padding: 10; */
+    font-size: 25px;
+    padding: 0 20px;
 
     border: 1px solid #a24f17;
 
@@ -73,16 +74,22 @@ h1{
     backdrop-filter: blur(6.2px);
     transition: transform 0.2s 0.1s, box-shadow 0.2s 0.1s;
     width: 80%;
+
 }
 .board-item-h1{
     position: absolute;
     left: 30px;
+    width: 80%;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .board-item:hover{
     backdrop-filter: blur(0px);
     backdrop-filter: none;
     transform:scale(1.02,1.02);
     box-shadow: 0 4px 30px rgba(220,120, 20, 0.3);
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .board-item form{
     display: grid;

@@ -79,9 +79,6 @@
 	justify-content: end;
 }
 
-.login-btn{
-	width: 100%;
-}
 
 /* === 점선 사이에 텍스트 ================= */
 .hr-sect {
@@ -101,14 +98,6 @@
 	font-size: 0px;
 	line-height: 0px;
 	margin: 0px 16px;
-}
-
-/* === join ================= */
-
-.joinTxt{
-	font: bold;
-	/* font-size: 26px; */
-	color: #ff9900;
 }
 
 /* === display none ================= */
