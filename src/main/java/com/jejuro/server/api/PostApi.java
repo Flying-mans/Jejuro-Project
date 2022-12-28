@@ -27,15 +27,5 @@ public class PostApi {
 		
 		return post;
 	}
-	
-//	@GetMapping("post/{id}")
-//	public String detail(
-//			@PathVariable("id")int id,
-//			Model model) {
-//
-//		Post post = service.get(id);
-//		model.addAttribute("post",post);
-//
-//		return "html/post/mod";
-//	}
+
 }
