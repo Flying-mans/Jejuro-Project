@@ -5,7 +5,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -104,13 +103,24 @@ public class MemberController {
 		// 	return "html/myinfo/update";
 		// }
 
+	// 알람 출력
 	@GetMapping("/myinfo/alarm/{id}")
 	public String displayAlarm(@PathVariable("id") int id, Model model) {
 
-		List<Alarm> alarm = alarmService.getAlarmList(id);
+		List<Alarm> alarm = alarmService.getList(id);
 		model.addAttribute("alarm", alarm);
 
 		return "html/myinfo/alarm";
 
+	}
+
+	// 알람 삭제
+	@PostMapping("/myinfo/alarm/delete")
+	public String deleteAlarm(@RequestParam("id") int id, Model model) {
+
+		model.addAttribute("id", id);
+		int mid = alarmService.getMemberId(id);
+		alarmService.delete(id);
+		return "redirect:/member/myinfo/alarm/"+mid;
 	}
 }

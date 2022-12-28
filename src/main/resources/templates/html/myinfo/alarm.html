@@ -25,47 +25,25 @@
             <h1>마이페이지</h1>
         </div>
         <div class="main-option">
-            <div class="myinfo"><a href="myinfo.html" th:href="@{/member/myinfo/{member.email}(member.email=${member.email})}>나의 정보</a></div>
-            <div class="alarm-setting"><a href="alarm.html" th:href="@{/member/myinfo/alarm/{member.email}(member.email=${member.email})}">알람 설정</a></div>
-        </div>
+            <div class="myinfo"><a href="myinfo" th:href="@{/member/myinfo/{id}(id=${id})}">나의 정보</a></div>
+            <div class="alarm-setting"><a href="/html/myinfo/alarm.html" th:href="@{/member/myinfo/alarm/{id}(id=${id})}">알람 설정</a></div>
+    </div>
         <div class="main-main">
-            <div>
-                <div th:each="alarm:${alarm}">
-                    <section class="alarm-item">
-                        <form action="">
-                            <h1 class="alarm-item-h1">항공편 번호</h1>
-                            <br><br><br>
-                            <div class="dep-date">출발날짜 : 20220823</div>
-                            <div class="arr-date">도착날짜 : 20230202</div>
-                            <br><br>
-                            <div class="price">가격 : \30,000</div>
-                        </form>        
-                    </section>
-                    <div class="select-option">
-                        <input type="checkbox">
+            <div class="alarm" th:each="alarm:${alarm}">
+                <section class="alarm-item">
+                    <h1 class="alarm-item-h1" th:text="'항공편 번호 : '+${alarm.flight_code}">항공편 번호</h1>
+                    <br><br><br>
+                    <div class="dep-date" th:text="'출발날짜 : '+${alarm.dep_date}">출발날짜 : 20220823</div>
+                    <!-- <div class="arr-date" th:text="도착지 : ${alarm.arrival}">도착날짜 : 20230202</div> -->
+                    <br><br>
+                    <div class="price" th:text="'가격 : '+${alarm.price}">가격 : \30,000</div>  
+                    <div class="main-footer">
+                        <form action="delete" method="post">
+                            <input type="hidden" name="id" th:value="${alarm.alarm_id}">
+                            <button class="btn delete" type="submit">삭제</button>
+                        </form>
                     </div>
-                </div>
-                
-                <div>
-                    <section class="alarm-item">
-                        <form action="">
-                            <h1 class="alarm-item-h1">항공편 번호</h1>
-                            <br><br><br>
-                            <div class="dep-date">출발날짜 : 20220823</div>
-                            <div class="arr-date">도착날짜 : 20230202</div>
-                            <br><br>
-                            <div class="price">가격 : \30,000</div>
-                        </form>        
-                    </section>
-                    <div class="select-option">
-                        <input type="checkbox">
-                    </div>
-                </div>
-            </div>
-            <div class="main-footer">
-                <form action="">
-                    <button class="btn">삭제</button>
-                </form>
+                </section>
             </div>
         </div>
     </main>
