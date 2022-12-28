@@ -25,8 +25,6 @@ public class PostApi {
 		
 		List<Post> post = service.getPost(page);
 		
-
-		System.out.println(page);
 		return post;
 	}
 	
