@@ -6,14 +6,14 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>login</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel="stylesheet" href="/src/main/resources/static/css/reset.css" type="text/css">
-    <link rel="stylesheet" href="/src/main/resources/static/css/layout.css" type="text/css">
-    <link rel="stylesheet" href="/src/main/resources/static/css/style.css" type="text/css">
-    <link rel="stylesheet" href="/src/main/resources/static/css/deco.css" type="text/css">
-    <link rel="stylesheet" href="/src/main/resources/static/css/button.css" type="text/css">
-    <link rel='stylesheet' type='text/css' media='screen' href='/src/main/resources/static/css/login/login.css'>
+    <link rel="stylesheet" href="/css/reset.css" type="text/css">
+    <link rel="stylesheet" href="/css/layout.css" type="text/css">
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+    <link rel="stylesheet" href="/css/deco.css" type="text/css">
+    <link rel="stylesheet" href="/css/button.css" type="text/css">
+    <link rel='stylesheet' type='text/css' media='screen' href='/css/login/login.css'>
 
-    <script src='/src/main/resources/static/js/login.js'></script>
+    <script src='login.js'></script>
     <script src="https://kit.fontawesome.com/e9806ac622.js" crossorigin="anonymous"></script>
 </head>
 
@@ -44,68 +44,65 @@
         
     </header>
 
-        <div th:replace="inc/header :: headerFragment"></div>
-    
-            <div class="wrap-login">
-                <form class="login-form" action="Dologin" method="post">        
-                    <span class="login-title">
-                        로그인
-                    </span>
-                    <div class="wrap">
-                        <div class="wrap-input">
-                            <input class="input username" type="text" name="username" placeholder="">
-                            <span class="placeholder username">Username</span>
-                        </div>
-                        <div class="wrap-input">
-                            <input class="input password" type="password" name="password" placeholder="">
-                            <span class="placeholder password">Password</span>
-                            <i class="fa-regular fa-eye d-none"></i>
-                            <i class="fa-regular fa-eye-slash d-none"></i>
-                        </div>
-                    </div>
-    
-                    <div class="contact-form-checkbox">
-                        <input class="input-checkbox" id="ckb1" type="checkbox" name="remember-me">
-                        <label class="label-checkbox" for="ckb1">
-                            아이디 저장
-                        </label>
-                    </div>
-                    
-                    <div class="sns-login">
-                        <a href="#">
-                            <img src="/src/main/resources/static/image/login/naver-login.png" alt= "네이버 로그인">
-                        </a>
-                        <a href="#">
-                            <img src="/src/main/resources/static/image/login/kakao-login.png" alt=" 카카오 로그인">                           
-                        </a>
-                        <a href="#">
-                            <img src="/src/main/resources/static/image/login/google-login.png" alt="구글 로그인">                          
-                        </a>
-                    </div>
-    
-                    <div class="text-end login-form-btn">
-                        <button class="btn login-btn">
-                            로그인
-                        </button>
-                    </div>
-    
-                    <div class="text-end">
-                        <a class="test" href="/src/main/resources/static/html/findpasswd/findpasswd.html" onclick="popUp()">
-                            비밀번호 찾기
-                        </a>
-                    </div>
-    
-                    <div class="hr-sect">또는</div>
-    
-                    <div class="text-center">
-                        아직 제주로 회원이 아니신가요?
-                        <a class="joinTxt" href="/src/main/resources/static/html/sign-up/sign-up.html">
-                            가입하기
-                        </a>
-                    </div>
-                </form>
+    <div class="wrap-login">
+        <form class="login-form" action="Dologin" method="post">
+            <span class="login-title">
+                로그인
+            </span>
+            <div class="wrap">
+                <div class="wrap-input">
+                    <input class="input username" type="text" name="username" placeholder="">
+                    <span class="placeholder username">Username</span>
+                </div>
+                <div class="wrap-input">
+                    <input class="input password" type="password" name="password" placeholder="">
+                    <span class="placeholder password">Password</span>
+                    <i class="fa-regular fa-eye d-none"></i>
+                    <i class="fa-regular fa-eye-slash d-none"></i>
+                </div>
             </div>
-    </body>
+
+            <div class="contact-form-checkbox">
+                <input class="input-checkbox" id="ckb1" type="checkbox" name="remember-me">
+                <label class="label-checkbox" for="ckb1">
+                    아이디 저장
+                </label>
+            </div>
+
+            <div class="sns-login">
+                <a href="#">
+                    <img src="/image/login/naver-login.png" alt="네이버 로그인">
+                </a>
+                <a href="#">
+                    <img src="/image/login/kakao-login.png" alt=" 카카오 로그인">
+                </a>
+                <a href="#">
+                    <img src="/image/login/google-login.png" alt="구글 로그인">
+                </a>
+            </div>
+
+            <div class="text-end login-form-btn">
+                <button class="btn login-btn">
+                    로그인
+                </button>
+            </div>
+
+            <div class="text-end">
+                <a class="test" href="#" onclick="popUp()">
+                    비밀번호 찾기
+                </a>
+            </div>
+
+            <div class="hr-sect">또는</div>
+
+            <div class="text-center">
+                아직 제주로 회원이 아니신가요?
+                <a class="txt1" href="">
+                    회원가입
+                </a>
+            </div>
+        </form>
+    </div>
 </body>
 
 </html>

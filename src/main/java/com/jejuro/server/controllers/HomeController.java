@@ -18,10 +18,7 @@ public class HomeController {
     public String search(){
         return "html/search/search";
     }
-    @GetMapping("post")
-    public String post(){
-        return "html/post/post";
-    }
+
     @GetMapping("login")
     public String login(){
         return "html/login/login";
@@ -29,9 +26,5 @@ public class HomeController {
     @GetMapping("sign-up")
     public String signup(){
         return "html/sign-up/sign-up";
-    }
-    @PostMapping("password")
-    public String password(){
-        return "html/findpasswd/password";
     }
 }
