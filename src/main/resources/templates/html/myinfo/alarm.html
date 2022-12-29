@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" 
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/reset.css" type="text/css">
+    <link rel="stylesheet" href="/css/layout.css" type="text/css">
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+    <link rel="stylesheet" href="/css/deco.css" type="text/css">
+    <link rel="stylesheet" href="/css/button.css" type="text/css">
+    <link rel="stylesheet" href="/css/myinfo/alarm.css" type="text/css">
+    
+    
+</head>
+
+<body>
+    <div th:replace="inc/header :: headerFragment"></div>
+
+    <main class="main">
+        <div class="main-header">
+            <h1>마이페이지</h1>
+        </div>
+        <div class="main-option">
+            <div class="myinfo"><a href="myinfo" th:href="@{/member/myinfo/{id}(id=${id})}">나의 정보</a></div>
+            <div class="alarm-setting"><a href="/html/myinfo/alarm.html" th:href="@{/member/myinfo/alarm/{id}(id=${id})}">알람 설정</a></div>
+    </div>
+        <div class="main-main">
+            <div class="alarm" th:each="alarm:${alarm}">
+                <section class="alarm-item">
+                    <h1 class="alarm-item-h1" th:text="'항공편 번호 : '+${alarm.flight_code}">항공편 번호</h1>
+                    <br><br><br>
+                    <div class="dep-date" th:text="'출발날짜 : '+${alarm.dep_date}">출발날짜 : 20220823</div>
+                    <!-- <div class="arr-date" th:text="도착지 : ${alarm.arrival}">도착날짜 : 20230202</div> -->
+                    <br><br>
+                    <div class="price" th:text="'가격 : '+${alarm.price}">가격 : \30,000</div>  
+                    <div class="main-footer">
+                        <form action="delete" method="post">
+                            <input type="hidden" name="id" th:value="${alarm.alarm_id}">
+                            <button class="btn delete" type="submit">삭제</button>
+                        </form>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+
+    </footer>
+</body>
+</html>
