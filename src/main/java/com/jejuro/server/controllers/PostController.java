@@ -31,7 +31,6 @@ public class PostController {
 		List<Post> post = service.getPost(page);
 		
 		model.addAttribute("post", post);
-
 		return "html/post/post";
 	}
 

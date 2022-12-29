@@ -33,23 +33,20 @@
 
         </div>
     </div>
-    <main class="main">
-		
-        <section class="board-item" th:each="boarditem:${post}">
-       		<a th:href="@{post/{id}(id=${boarditem.postId})}">
-	        	<form action="post" method="post">
-		            <h1 class="board-item-h1" th:text="${boarditem.title}">여행후기 11/30</h1>
-		        	<span class="date" th:text="${boarditem.reg_date}">2022/2/5</span>
-<!--		          	<span class="date" th:text="${#dates.format(boarditem.reg_date, dd/mm)}">2022/2/5</span>-->
-		            <span class="reply-count">댓글 : 3</span>
-		            <span class="hits">조회수 : <span th:text="${boarditem.view_count}">0</span></span>
-	        	</form>        
-            </a>
-        </section>
-
-         <h1 class="board-item-h1" th:text="${page}">여행후기 11/30</h1>
-
+    <main>
+		<div class="main">
+	        <section class="board-item section-post" th:each="boarditem:${post}">
+	       		<a th:href="@{post/{id}(id=${boarditem.postId})}">
+		        	<form action="post" method="post">
+			            <h1 class="board-item-h1" th:text="${boarditem.title}">여행후기 11/30</h1>
+			        	<span class="date" th:text="${boarditem.reg_date}">2022/2/5</span>
+			            <span class="reply-count">댓글 : 3</span>
+			            <span class="hits">조회수 : <span th:text="${boarditem.view_count}">0</span></span>
+		        	</form>        
+	            </a>
+	        </section>
+		</div>
     </main>
-	<button class="btn next-btn">다음</button>
+	<button class="btn next-btn" value="1">다음</button>
 </body>
 </html>
