@@ -1,38 +1,36 @@
-
-.wrap-login{
+.wrap-login {
 	display: flex;
 	justify-content: center;
 	width: 100%;
 }
 
-.login-title{
+.login-title {
 	display: flex;
 	justify-content: center;
 	margin: 50px auto;
 	font-size: xx-large;
 }
 
-.login-form > *{
+.login-form>* {
 	margin-bottom: 30px;
-
 }
 
-.wrap{
+.wrap {
 	display: flex;
 	flex-direction: column;
 }
 
-.wrap-input{
+.wrap-input {
 	position: relative;
 	display: flex;
 }
 
-.wrap-input:first-child{
+.wrap-input:first-child {
 	margin-bottom: 30px;
 
 }
 
-.input{
+.input {
 	flex-basis: 100%;
 	border-radius: 1rem;
 	border: 2px solid gray;
@@ -44,7 +42,7 @@
 	background: url(/image/jejuro-logo.svg) no-repeat right;
 } */
 
-.placeholder{
+.placeholder {
 	position: absolute;
 	margin: 17px 0;
 	padding: 0 4px;
@@ -60,26 +58,26 @@
 .placeholder-focus {
 	transform: scale(0.8) translateY(-30px);
 	background: #fff;
-  }
+}
 
 
-.input-checkbox{
+.input-checkbox {
 	margin-left: 0;
 }
 
-.sns-login{
+.sns-login {
 	width: 100%;
 	display: flex;
 	justify-content: space-between;
 }
 
 
-.text-end{
+.text-end {
 	display: flex;
 	justify-content: end;
 }
 
-.login-btn{
+.login-btn {
 	width: 100%;
 }
 
@@ -92,6 +90,7 @@
 	font-size: 12px;
 	margin: 8px 0px;
 }
+
 .hr-sect::before,
 .hr-sect::after {
 	content: "";
@@ -105,7 +104,7 @@
 
 /* === join ================= */
 
-.joinTxt{
+.joinTxt {
 	font: bold;
 	/* font-size: 26px; */
 	color: #ff9900;
@@ -113,17 +112,22 @@
 
 /* === display none ================= */
 
-.d-none{
+.d-none {
 	display: none !important;
 }
 
 /* === fa-eye ================= */
 
-.fa-eye, 
-.fa-eye-slash{
+.fa-eye,
+.fa-eye-slash {
 	position: absolute;
 	top: calc(50% - (16px/2));
 	left: calc(100% - (18px*2));
 	cursor: pointer;
 }
 
+/* === 로그인 실패 ================= */
+
+.not-matched {
+	color: red;
+}

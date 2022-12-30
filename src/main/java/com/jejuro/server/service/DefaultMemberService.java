@@ -30,12 +30,12 @@ public class DefaultMemberService implements MemberService{
 	public void delete(int id) {
 		dao.delete(id);
 	}
-// ! 주석해ㅈ제
+
 	//회원 수정
 	@Override
 	public void update(Member member) {
-		// dao.update(member);
-		// return dao.getId(member);
+		dao.update(member);
+		return dao.getId(member);
 	}
 
 	@Override

@@ -74,14 +74,14 @@ public class MemberController {
 		model.addAttribute("member", new Member(id, member.getEmail(), null, null, null));
 		return "html/myinfo/update";
 	}
-// ! 주석해제
+
 	// 내 정보 수정 완료
-	// @PostMapping("/myinfo/update/complete")
-	// public String updateComplete(Member member) {
-	// 	int id = service.update(member);
-	// 	String result = "redirect:/member/myinfo/" + id;
-	// 	return result;
-	// }
+	@PostMapping("/myinfo/update/complete")
+	public String updateComplete(Member member) {
+		int id = service.update(member);
+		String result = "redirect:/member/myinfo/" + id;
+		return result;
+	}
 
 	// 로그인 테스트
 	@GetMapping("login")
