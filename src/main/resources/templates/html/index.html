@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" 
-    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 
 <head>
     <meta charset="UTF-8">
@@ -21,35 +20,7 @@
 <body class="body">
     <main class="main">
         <section class="main-first-page">
-            <header class="header">
-                <div>
-                    <a href="/index">
-                        <img class="jejuro-logo-img" src="/image/jejuro-logo.svg" alt="logo">
-                    </a>
-                </div>
-                <div>
-                    <input type="checkbox" id="menu-btn" class="menu-btn visuallyHidden">
-                    <label for="menu-btn">
-                        <div class="hamburger hamburger1">
-                            <span class="bar bar1"></span>
-                            <span class="bar bar2"></span>
-                            <span class="bar bar3"></span>
-                            <!-- <span class="bar bar4"></span> -->
-                        </div>
-                        <div class="wrapper">
-                            <ul>
-                                <li><a href="/search">여행검색</a></li>
-                                <li><a href="/post">여행게시판</a></li>
-                                <li><a href="/member/login">로그인</a></li>
-                                <li><a href="/sign-up">회원가입</a></li>
-                                <li><a href="/member/myinfo">마이페이지</a></li>
-                            </ul>
-                        </div>
-                    </label>
-                </div>
-                
-            </header>
-            
+            <div th:replace="inc/header :: headerFragment"></div>
             <div class="main-first-head">
                 <h1>가자!!<span class="main-h1-jejuro">제주로~</span></h1><br>
                 <h2>6주 동안 항공 가격을</h2>
@@ -81,7 +52,7 @@
         <section class="main-third-page">
             <div class="main-third-head">
                 <h1 class="main-title">알람을 설정할 수 있어요</h1>
-                <span>원하는 가격으로 알람 설정하면 
+                <span>원하는 가격으로 알람 설정하면
                     친절하게 문자가 갑니다</span>
             </div>
             <div>
@@ -92,13 +63,12 @@
 
         <section class="main-fourth-page">
             <div>
-                <img data-aos="fade-up-right" class="main-fourth-image" src="/image/main-fourth-page.svg"
-                    alt="">
+                <img data-aos="fade-up-right" class="main-fourth-image" src="/image/main-fourth-page.svg" alt="">
             </div>
             <div class="main-fourth-head">
                 <h1 class="main-title">게시판을 이용해 보세요</h1>
-                <span>여행을 기록하고 
-                    가격  정보도 
+                <span>여행을 기록하고
+                    가격 정보도
                     공유할수 있어요 </span>
             </div>
         </section>
@@ -116,7 +86,7 @@
         </section>
     </main>
 
-    
+
     <footer>
     </footer>
 

@@ -13,11 +13,10 @@ import org.springframework.security.provisioning.JdbcUserDetailsManager;
 import org.springframework.security.provisioning.UserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 
+import com.jejuro.server.auth.service.JejuroUserDetailsService;
+
 @Configuration
 public class JejuroSecurityConfig {
-
-    @Autowired
-    private DataSource dataSource;
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
@@ -25,7 +24,7 @@ public class JejuroSecurityConfig {
         http
                 .csrf()
                 .disable()
-                .authorizeRequests(authorize -> authorize
+                .authorizeHttpRequests(authorize -> authorize
                         .requestMatchers("/search/**").hasAnyRole("ADMIN")
                         .requestMatchers("/post/**").hasAnyRole("MEMBER", "ADMIN")
                         .anyRequest().permitAll())
@@ -47,13 +46,8 @@ public class JejuroSecurityConfig {
     };
 
     @Bean
-    public UserDetailsService jdbcUserDetailsService() {
-       
-        JdbcUserDetailsManager manager = new JdbcUserDetailsManager(dataSource);
-        manager.setUsersByUsernameQuery("select email, password, 1 enabled from member where email=?");
-        manager.setAuthoritiesByUsernameQuery("select email, 'ROLE_MEMBER' authority from member where email=?");
-
-        return manager;
+    public UserDetailsService jejuroUserDetailsService() {
+        return new JejuroUserDetailsService();
     }
 
 }

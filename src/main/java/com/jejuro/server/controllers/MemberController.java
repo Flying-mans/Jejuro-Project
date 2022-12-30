@@ -86,14 +86,11 @@ public class MemberController {
 	// 로그인 테스트
 	@GetMapping("login")
 	public String login() {
-		System.out.println("===============================================");
 		return "html/login/login";
 	}
 
 	@PostMapping("login")
 	public String login(String email, String password, String returnURL, HttpSession session) {
-		System.out.println("returnURL: " + returnURL);
-
 		Member member = service.getMemberByEmail(email);
 
 		if (member == null)
