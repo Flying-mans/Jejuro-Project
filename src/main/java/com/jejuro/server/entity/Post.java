@@ -61,17 +61,18 @@ public class Post {
 	public void setTitle(String title) {
 		this.title = title;
 	}
-	public int getPostId() {
+
+	public int getPost_id() {
 		return post_id;
 	}
-	public void setPostId(int post_id) {
+	public void setPost_id(int post_id) {
 		this.post_id = post_id;
 	}
-	public int getMemberId() {
+	public int getMember_id() {
 		return member_id;
 	}
-	public void setMemberId(int memberId) {
-		this.member_id = memberId;
+	public void setMember_id(int member_id) {
+		this.member_id = member_id;
 	}
 	public String getReg_date() {
 		return reg_date;
@@ -85,11 +86,5 @@ public class Post {
 		return "Post [post_id=" + post_id + ", member_id=" + member_id + ", title=" + title + ", content=" + content
 				+ ", view_count=" + view_count + ", reg_date=" + reg_date + "]";
 	}
-	
-	
-	
-
-
-
 
 }
