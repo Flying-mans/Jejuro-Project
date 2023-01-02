@@ -5,16 +5,12 @@ window.addEventListener("scroll",function(){
 	var main = document.querySelector(".main");
 	var mainHeight = this.document.querySelector("main");
 
-	let isUpdateList = true;
+	// let isUpdateList = true;
 	const currentScroll = window.scrollY;
 	const paddingBottom = 600;
-
-	console.log(currentScroll);
-	console.log(mainHeight.offsetHeight);
 	
 	if(currentScroll + paddingBottom >= mainHeight.offsetHeight){
 
-		if(isUpdateList){
 
 		isUpdateList = false;
 
@@ -42,6 +38,5 @@ window.addEventListener("scroll",function(){
 				};
 			});
 		nextBtn.value ++;
-		}
 	}	
 });
