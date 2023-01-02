@@ -36,7 +36,7 @@
     <main>
 		<div class="main">
 	        <section class="board-item section-post" th:each="boarditem:${post}">
-	       		<a th:href="@{post/{id}(id=${boarditem.postId})}">
+	       		<a th:href="@{post/{id}(id=${boarditem.post_id})}">
 		        	<form action="post" method="post">
 			            <h1 class="board-item-h1" th:text="${boarditem.title}">여행후기 11/30</h1>
 			        	<span class="date" th:text="${boarditem.reg_date}">2022/2/5</span>
