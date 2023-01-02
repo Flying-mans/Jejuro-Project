@@ -19,7 +19,7 @@ public class JejuroSecurityConfig {
         http
                 .csrf()
                 .disable()
-                .authorizeHttpRequests(authorize -> authorize
+                .authorizeHttpRequests(authorize -> authorize // 회원 권한 테스트
                         .requestMatchers("/search/**").hasAnyRole("ADMIN")
                         .requestMatchers("/post/**").hasAnyRole("MEMBER", "ADMIN")
                         .anyRequest().permitAll())
@@ -34,9 +34,9 @@ public class JejuroSecurityConfig {
                         .logoutUrl("/member/logout")
                         .logoutSuccessUrl("/index"))
                 .rememberMe(form -> form
-                        .key("uniqueAndSecret")
-                        .rememberMeParameter("remember-me")
-                        .tokenValiditySeconds(86400 * 14))
+                        .key("uniqueAndSecret") // 인증을 위해 발행되는 토큰을 구별하는 키 이름
+                        .rememberMeParameter("remember-me") // 로그인 페이지 html 파라미터 이름
+                        .tokenValiditySeconds(60 * 60 * 24)) // 토큰 유효시간(s) 디폴트는 2주
                 ;
 
         return http.build();

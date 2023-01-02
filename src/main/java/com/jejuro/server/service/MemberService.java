@@ -1,7 +1,5 @@
 package com.jejuro.server.service;
 
-import java.util.List;
-
 import com.jejuro.server.entity.Member;
 
 public interface MemberService {
