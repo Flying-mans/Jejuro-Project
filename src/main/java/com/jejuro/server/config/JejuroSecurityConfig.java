@@ -28,7 +28,8 @@ public class JejuroSecurityConfig {
                         .loginPage("/member/login")
                         .defaultSuccessUrl("/index"))
 
-                .exceptionHandling(exp -> exp.accessDeniedPage("/denied"))
+                .exceptionHandling(exp -> exp
+                        .accessDeniedPage("/denied")) // 인가 실패시 처리
 
                 .logout(form -> form
                         .logoutUrl("/member/logout")

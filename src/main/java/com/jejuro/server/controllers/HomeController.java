@@ -41,6 +41,6 @@ public class HomeController {
 
     @GetMapping("denied")
     public String denied() {
-        return "denied";
+        return "html/error/denied";
     }
 }

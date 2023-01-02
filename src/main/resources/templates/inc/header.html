@@ -33,7 +33,7 @@
                             <a href="/myinfo" sec:authorize="isAuthenticated()"><span sec:authentication="name">Bob</span>마이페이지</a><br>
                         </li>
                         <li>
-                            <a href="/member/logout" sec:authorize="hasAnyRole('ADMIN')">로그아웃</a>
+                            <a href="/member/logout" sec:authorize="hasAnyRole('ADMIN', 'MEMBER')">로그아웃</a>
                         </li>
                     </th:block>
                     <!-- This content is only shown to administrators. -->
