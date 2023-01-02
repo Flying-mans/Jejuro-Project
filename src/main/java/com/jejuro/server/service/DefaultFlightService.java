@@ -40,6 +40,8 @@ public class DefaultFlightService implements FlightService{
 
     private static FlightListDto getFlightListDto(FlightInfo f) {
         String durationTime = getDurationTime(f.getArrTime(), f.getDepTime());
+        // flightCode
+        String code = f.getCode();
         //GMP - CJU
         String depArr = f.getDeparture() + " -> " + f.getArrival();
         // 0640 - 0710
@@ -51,7 +53,7 @@ public class DefaultFlightService implements FlightService{
         //가격
         DecimalFormat won = new DecimalFormat("###,###");
         String fee = won.format(f.getFee())+"원";
-        FlightListDto flightListDto = new FlightListDto(logoUrl, airLineName, durationTime, depArr, depArrTime, fee);
+        FlightListDto flightListDto = new FlightListDto(logoUrl, airLineName, code, durationTime, depArr, depArrTime, fee);
         return flightListDto;
     }
 
