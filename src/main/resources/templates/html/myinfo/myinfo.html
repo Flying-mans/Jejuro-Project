@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" 
     xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -15,9 +14,7 @@
     <link rel="stylesheet" href="/css/myinfo/myinfo.css" type="text/css">
     
     <script src="/js/myinfo/myinfo.js"></script>
-    
 </head>
-
 <body>
     <div th:replace="inc/header :: headerFragment"></div>
 
@@ -25,49 +22,43 @@
         <div class="main-header">
             <h1>마이페이지</h1>
         </div>
-        <div action="" class="input-form">
-            <div class="main-option" th:each="member:${member}">
-                <div class="myinfo"><a href="myinfo" th:href="@{/member/myinfo/{id}(id=${member.member_id})}">나의 정보</a></div>
-                <div class="alarm-setting"><a href="/html/myinfo/alarm.html" th:href="@{/member/myinfo/alarm/{id}(id=${member.member_id})}">알람 설정</a></div>
+        <form action="" class="input-form">
+            <div class="main-option">
+                <div class="myinfo"><a href="myinfo.html">나의 정보</a></div>
+                <div class="alarm-setting"><a href="alarm.html">알람 설정</a></div>
             </div>
             <div class="main-main">
                 <ul>
                     <li>
                         <h1>이메일</h1>
-                        <div th:text="${member.email}">newlecture@newlecture.com</div>
+                        <div>newlecture@newlecture.com</div>
                     </li>
                     <br>
                     <li>
                         <h1>닉네임</h1>
-                        <div th:text="${member.nickName}">newlecture</div>
-                    </li>
-                    <br>
-                    <li>
-                        <h1>패스워드</h1>
-                        <div th:text="${member.password}">********</div>
+                        <div>newlecture</div>
                     </li>
                     <br>
                     <li>
                         <h1>휴대폰 번호</h1>
-                        <div th:text="${member.phoneNum}">010-****-0000</div>
+                        <div>010-0000-0000</div>
                     </li>
                 </ul>
-
             </div>
             <div class="main-footer">
-                <form action="delete" method="post">
-                    <input type="hidden" name="id" th:value="${member.member_id}">
+                <form action="">
                     <button class="btn delete">회원탈퇴</button>
                 </form>
-                <a th:href="@{update/{id}(id=${member.member_id})}">
-                    <button class="btn update">수정</button>
-                </a>
+                <form action="">
+                    <input class="btn update" type="button" value="수정">
+                </form>
             </div>
-        </div>
+        </form>
     </main>
 
     <footer>
 
     </footer>
+
 </body>
 </html>
