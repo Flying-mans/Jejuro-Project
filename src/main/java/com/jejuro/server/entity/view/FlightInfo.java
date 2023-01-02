@@ -11,6 +11,8 @@ public class FlightInfo {
 
     private String name;
     private String url; // logo image url (추후 s3에 올리기)
+
+    private String code;
     private String departure;
     private String arrival;
     private int fee;
@@ -23,9 +25,10 @@ public class FlightInfo {
     public FlightInfo() {
     }
 
-    public FlightInfo(String name, String url, String departure, String arrival, int fee, String depTime, String arrTime) {
+    public FlightInfo(String name, String url, String code, String departure, String arrival, int fee, String depTime, String arrTime) {
         this.name = name;
         this.url = url;
+        this.code = code;
         this.departure = departure;
         this.arrival = arrival;
         this.fee = fee;
@@ -88,6 +91,15 @@ public class FlightInfo {
     public void setArrTime(String arrTime) {
         this.arr_time = arrTime;
     }
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
 
     @Override
     public String toString() {

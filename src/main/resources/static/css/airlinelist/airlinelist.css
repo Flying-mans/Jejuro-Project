@@ -78,22 +78,32 @@ h1{
     justify-content: flex-start;
     align-items: center;
 }
+.board-flight-info:hover{
+    backdrop-filter: blur(0px);
+    backdrop-filter: none;
+    transform:scale(1.02,1.02);
+    box-shadow: 0 4px 30px rgba(220,120, 20, 0.3);
+}
 
 .board-flight-info{
     margin: 10px;
     width: 80vw;
-    height: 15vh;
-    border: 1px solid rgba(221, 120, 19, 0.2);
-    box-shadow: 0 4px 10px rgba(220, 120, 20, 0.2);
+    height: 13vh;
+    border: 2px solid rgba(221, 120, 19, 0.2);
     backdrop-filter: blur(6.2px);
     transition: transform 0.2s 0.1s, box-shadow 0.2s 0.1s;
     border-radius: 25px;
+}
+
+.board-flight-info form{
+    width: 80vw;
+    height: 13vh;
     display: grid;
     place-items: center;
     grid-template-areas:
     "airlineimg totaltime price"
     "airlineimg point price"
-    "airlinetitle datetime datetime"
+    "airlinetitle datetime chartbutton"
 }
 
 .airline-img{
@@ -114,14 +124,18 @@ h1{
     grid-area: totaltime;
 }
 
-.arr-dep{
+.dep-arr{
     grid-area: point;
 }
 
 .flight-time{
     grid-area: datetime;
 }
+.button-chart{
+    border: 0;
+    background-color: transparent;
+    grid-area: chartbutton;
+}
 .flight-price{
     grid-area: price;
 }
-

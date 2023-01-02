@@ -5,7 +5,7 @@
 <mapper namespace="com.jejuro.server.dao.FlightInfoDao">
 
     <select id="getFlightListOneWay" resultType="com.jejuro.server.entity.view.FlightInfo">
-        select * from flight_list_info
+        select * from flight_info
         where departure=#{departure}
         and dep_date=#{depDate}
         limit #{offset}, #{size}

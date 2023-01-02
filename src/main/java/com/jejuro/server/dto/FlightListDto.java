@@ -4,14 +4,17 @@ public class FlightListDto {
 
     private String logoUrl;
     private String airlineName;
+
+    private String code;
     private String durationTime;
     private String depArr; // 출발지 목적지
     private String depArrTime; // 출발시간 목적시간
     private String fee;
 
-    public FlightListDto(String logoUrl, String airlineName, String durationTime, String depArr, String depArrTime, String fee) {
+    public FlightListDto(String logoUrl, String airlineName, String code, String durationTime, String depArr, String depArrTime, String fee) {
         this.logoUrl = logoUrl;
         this.airlineName = airlineName;
+        this.code = code;
         this.durationTime = durationTime;
         this.depArr = depArr;
         this.depArrTime = depArrTime;
@@ -64,5 +67,13 @@ public class FlightListDto {
 
     public void setFee(String fee) {
         this.fee = fee;
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
     }
 }
