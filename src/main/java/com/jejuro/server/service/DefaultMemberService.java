@@ -33,14 +33,14 @@ public class DefaultMemberService implements MemberService{
 
 	//회원 수정
 	@Override
-	public int update(Member member) {
+	public void update(Member member) {
 		dao.update(member);
 		return dao.getId(member);
 	}
 
-	//회원 정보 email로 가져오기
+	// 회원 이메일 가져오기
 	@Override
-	public Member getByEmail(String email) {
+	public Member getMemberByEmail(String email) {
 		return dao.getByEmail(email);
 	}
 

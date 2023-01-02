@@ -1,7 +1,5 @@
 package com.jejuro.server.service;
 
-import java.util.List;
-
 import com.jejuro.server.entity.Member;
 
 public interface MemberService {
@@ -19,5 +17,8 @@ public interface MemberService {
 
 	//회원 정보 email로 가져오기
 	Member getByEmail(String email);
+
+	//회원 이메일 가져오기
+    Member getMemberByEmail(String email);
 
 }

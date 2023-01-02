@@ -23,5 +23,8 @@ public interface MemberDao {
 
    Member getByEmail(String email);
 
+	//회원 email 가져오기
+    Member getByEmail(String email);
+
 
 }

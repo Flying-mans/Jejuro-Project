@@ -1,15 +1,14 @@
 package com.jejuro.server.entity;
 
 public class Member {
+
 	private int member_id;
-	
 	private String email;
 	private String password;
 	private String nickName;
 	private String phoneNum;
-	
+
 	public Member() {
-		// TODO Auto-generated constructor stub
 	}
 
 	public Member(int member_id) {
@@ -23,7 +22,6 @@ public class Member {
 		this.nickName = nickName;
 		this.phoneNum = phoneNum;
 	}
-	
 
 	public Member(int member_id, String email, String password, String nickName, String phoneNum) {
 		this.member_id = member_id;
@@ -65,16 +63,14 @@ public class Member {
 		this.phoneNum = phoneNum;
 	}
 
+	public int getMember_id() {
+		return member_id;
+	}
+
 	@Override
 	public String toString() {
 		return "Member [member_id=" + member_id + ", email=" + email + ", password=" + password + ", nickName="
 				+ nickName + ", phoneNum=" + phoneNum + "]";
 	}
 
-	public int getMember_id() {
-		return member_id;
-	}
-
-	
-	
 }

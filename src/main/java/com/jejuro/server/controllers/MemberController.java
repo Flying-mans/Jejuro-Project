@@ -16,6 +16,8 @@ import com.jejuro.server.entity.Member;
 import com.jejuro.server.service.AlarmService;
 import com.jejuro.server.service.MemberService;
 
+import jakarta.servlet.http.HttpSession;
+
 @Controller
 @RequestMapping("/member")
 public class MemberController {
@@ -40,9 +42,9 @@ public class MemberController {
 	// 내 정보 확인 테스트 페이지
 	@PostMapping("/register")
 	public String register(@RequestParam("email") String email,
-						@RequestParam("nickname") String nickName,
-						@RequestParam("password") String password,
-						@RequestParam("phoneNum") String phoneNum) {
+			@RequestParam("nickname") String nickName,
+			@RequestParam("password") String password,
+			@RequestParam("phoneNum") String phoneNum) {
 		Member member = new Member(email, nickName, password, phoneNum);
 		service.add(member);
 		Member getMember = service.getByEmail(email);
@@ -78,7 +80,7 @@ public class MemberController {
 	public String updateMember(@PathVariable("id") int id,
 			Model model) {
 		Member member = service.get(id);
-		model.addAttribute("member", new Member(id, member.getEmail(), null, null, null));	
+		model.addAttribute("member", new Member(id, member.getEmail(), null, null, null));
 		return "html/myinfo/update";
 	}
 
@@ -90,7 +92,28 @@ public class MemberController {
 		return result;
 	}
 
+	// 로그인 테스트
+	@GetMapping("login")
+	public String login() {
+		return "html/login/login";
+	}
 
+	@PostMapping("login")
+	public String login(String email, String password, String returnURL, HttpSession session) {
+		Member member = service.getMemberByEmail(email);
+
+		if (member == null)
+			return "redirect:login?error";
+		else if (!member.getPassword().equals(password))
+			return "redirect:login?error";
+
+		session.setAttribute("email", member.getEmail());
+
+		if (returnURL != null && returnURL.equals(""))
+			return "reditect:" + returnURL;
+
+		return "redirect:/index";
+	}
 
 	// 알람 설정===========================================
 

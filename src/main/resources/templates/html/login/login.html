@@ -22,10 +22,13 @@
     <div th:replace="inc/header :: headerFragment"></div>
 
         <div class="wrap-login">
-            <form class="login-form" action="Dologin" method="post">        
+            <form class="login-form" action="login" method="post">        
                 <span class="login-title">
                     로그인
                 </span>
+                <div id="qwe" class="not-matched" th:if="${param.error}!=null">
+                    아이디 또는 비밀번호가 일치하지 않습니다.
+                </div>
                 <div class="wrap">
                     <div class="wrap-input">
                         <input class="input username" type="text" name="username" placeholder="">
@@ -42,7 +45,7 @@
                 <div class="contact-form-checkbox">
                     <input class="input-checkbox" id="ckb1" type="checkbox" name="remember-me">
                     <label class="label-checkbox" for="ckb1">
-                        아이디 저장
+                        로그인 상태 저장
                     </label>
                 </div>
                 
