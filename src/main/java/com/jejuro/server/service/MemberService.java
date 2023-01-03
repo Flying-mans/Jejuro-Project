@@ -17,8 +17,4 @@ public interface MemberService {
 
 	//회원 정보 email로 가져오기
 	Member getByEmail(String email);
-
-	//회원 이메일 가져오기
-    Member getMemberByEmail(String email);
-
 }

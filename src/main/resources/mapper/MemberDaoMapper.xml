@@ -37,9 +37,4 @@
 		select member_id from member
 		where nickName = #{nickName}
 	</select>
-
-	<select id="getByEmail" resultType="com.jejuro.server.entity.Member">
-		select * from member
-		where email=#{email}
-	</select>
 </mapper>
