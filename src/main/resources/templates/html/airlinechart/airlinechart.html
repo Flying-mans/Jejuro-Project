@@ -60,11 +60,6 @@
     </a>
   </section>
 
-  <div class="airline-alarm-container">
-    <div class="alarm-price"> 59,400 원</div>
-    <button class="alarm-button"> 알림설정 </button>
-  </div>
-
   <div class="airline-chart-container">
     <div class="low-high-container">
       <div class="low-price title">최저가격 :
@@ -73,16 +68,16 @@
       <div class="high-price title">최고가격 :
         <span class="high price">80,000원</span>
       </div>
-    </div>
-
-    <div class="previous-avg-container">
-      <div class="previous-price title">어제가격 :
-        <span class="previous price">65,000원</span>
-      </div>
       <div class="avg-price title">평균가격 :
         <span class="avg price">50,000원</span>
       </div>
     </div>
+
+    <div class="airline-alarm-container">
+      <input class="alarm-price" placeholder="알림 가격을 설정 ₩"> </input>
+      <button class="alarm-button"> 알림설정 </button>
+    </div>
+
     <div class="cartjs">
       <canvas id="myChart" style="width:90vw; height:50vh;"></canvas>
       <script src="/js/airlinechart.js"></script>

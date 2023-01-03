@@ -21,31 +21,6 @@ h1{
     pointer-events: none;
 }
 
-/* 항공 알림 컨테이너 */
-.airline-alarm-container{
-    width: 80vw;
-    height: 40px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-
-.alarm-price{
-    width: 55vw;
-    height: 30px;
-    padding-right: 10px;
-    outline: 1px solid rgba(221, 120, 19, 0.2);
-    backdrop-filter: blur(6.2px);
-    border-radius: 25px;
-    text-align: end;
-    line-height: 2.0;
-}
-.alarm-button{
-    width: 20vw;
-    height: 30px;
-    background-color: orange;
-    border-radius: 25px;
-}
 
 /* 항공 차트 컨테이너 */
 .airline-chart-container{
@@ -63,7 +38,7 @@ h1{
 }
 
 
-/* 최고-최저 컨테이너 */
+/* 최고-최저-평균 컨테이너 */
 .low-high-container{
     width: 80vw;
     height: 20px;
@@ -73,24 +48,17 @@ h1{
     justify-content: center;
     align-items: center;
 }
-/* 전날/평균 - 가격 컨테이너 */
-.previous-avg-container{
-    width: 80vw;
-    height: 20px;
-    margin: 10px 0;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    margin-bottom: 20px;
-}
+
 .title{
     width: 30vw;
+    text-align: center;
     margin-right: 5px;
-    font-size: 12px;
+    font-size: 11px;
 }
 .price{
     width: 30vw;
-    font-size: 12px;
+    text-align: center;
+    font-size: 11px;
 }
 
 .low.price{
@@ -99,6 +67,39 @@ h1{
 
 .high.price{
     color: blue;
+}
+
+/* 항공 알림 컨테이너 */
+.airline-alarm-container{
+    width: 80vw;
+    height: 40px;
+    margin: 10px 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.alarm-price {
+    width: 30vw;
+    height: 30px;
+    padding-right: 10px;
+    margin-right: 10px;
+    border: 0;
+    outline: 1px solid rgba(221, 120, 19, 0.2);
+    backdrop-filter: blur(6.2px);
+    border-radius: 25px;
+    text-align: end;
+    line-height: 2.0;
+}
+.alarm-button{
+    width: 20vw;
+    height: 30px;
+    margin-left: 10px;
+    padding-left: 10px;
+    border: 0;
+    background-color: orange;
+    border-radius: 25px;
 }
 
 
@@ -115,7 +116,7 @@ h1{
 
 @media (min-width:700px){
 
-    /* 최고-최저 컨테이너 */
+    /* 최고-최저-평균 컨테이너 */
     .low-high-container{
         width: 80vw;
         height: 20px;
@@ -128,24 +129,12 @@ h1{
     .title{
         width: 20vw;
         margin-right: 5px;
-        font-size: 0.9rem;
+        font-size: 0.8rem;
     }
 
     .price{
-        width: 20vw;
-        font-size: 0.9rem;
-    }
-
-
-    /* 전날/평균 - 가격 컨테이너 */
-    .previous-avg-container{
-        width: 80vw;
-        height: 20px;
-        margin: 10px 0;
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        margin-bottom: 20px;
+        width: 30vw;
+        font-size: 0.8rem;
     }
 
 }
