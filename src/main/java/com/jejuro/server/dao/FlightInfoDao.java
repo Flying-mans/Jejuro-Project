@@ -10,4 +10,5 @@ public interface FlightInfoDao {
 
     List<FlightInfo> getFlightListOneWay(String departure, String depDate, int offset, int size);
     List<FlightInfo> getFlightListRoundtrip(String departure, String depDate, String arrDate, int offset, int size);
+    FlightInfo getFlightInfoByCode(String code, String depDate);
 }

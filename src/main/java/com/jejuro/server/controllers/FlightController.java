@@ -2,13 +2,13 @@ package com.jejuro.server.controllers;
 
 import com.jejuro.server.dto.BasicFlightInfoDto;
 import com.jejuro.server.dto.FlightListDto;
+import com.jejuro.server.entity.Post;
+import com.jejuro.server.entity.view.FlightInfo;
 import com.jejuro.server.service.FlightService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -35,5 +35,17 @@ public class FlightController {
         model.addAttribute("basicInfo", basicInfoDto);
 
         return "html/airlinelist/airlinelist";
+    }
+
+    @GetMapping("/{code}/{depDate}")
+    public String getChart(
+            @PathVariable("code") String code,
+            @PathVariable("depDate") String depDate,
+            Model model
+    ) {
+        FlightListDto flightInfoByCode = flightService.getFlightInfoByCode(code, depDate);
+        model.addAttribute("flight", flightInfoByCode);
+
+        return "html/airlinechart/airlinechart";
     }
 }
