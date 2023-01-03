@@ -30,7 +30,7 @@
                     <!-- <span sec:authentication="principal.authorities">[ROLE_USER, ROLE_ADMIN]</span> -->
                     <th:block sec:authorize="isAuthenticated()">
                         <li>
-                            <a href="/myinfo" sec:authorize="isAuthenticated()"><span sec:authentication="name">Bob</span>마이페이지</a><br>
+                            <a href="/member/myinfo" sec:authorize="isAuthenticated()"><span sec:authentication="name">Bob</span>마이페이지</a><br>
                         </li>
                         <li>
                             <a href="/member/logout" sec:authorize="hasAnyRole('ADMIN')">로그아웃</a>

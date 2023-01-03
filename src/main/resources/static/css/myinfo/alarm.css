@@ -23,8 +23,9 @@
 }
 .main-main{
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    width: 75vw;
     
     flex-wrap: wrap;
     text-align: left;

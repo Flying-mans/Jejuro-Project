@@ -13,7 +13,7 @@ public interface MemberService {
 	void delete(int id);
 
 	//회원 수정
-	void update(Member member);
+	int update(Member member);
 
 	//회원 이메일 가져오기
     Member getMemberByEmail(String email);
