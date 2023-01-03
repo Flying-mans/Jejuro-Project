@@ -58,7 +58,6 @@ public class MemberController {
 	public String goMyinfo(Model model, Principal principal) {
 
 		String username = principal.getName();
-		System.out.println("username : "+username);
 		// 이메일로 member id 가져오기
 		Member member = service.getByEmail(username);
 
@@ -95,7 +94,6 @@ public class MemberController {
 			Model model	) {
 
 		Member member = service.get(id);
-		System.out.println(member);
 		model.addAttribute("member", new Member(id, member.getEmail(), null, null, null));
 		return "html/myinfo/update";
 	}
