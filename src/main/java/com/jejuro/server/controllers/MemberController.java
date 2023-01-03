@@ -40,19 +40,6 @@ public class MemberController {
 		return "html/sign-up/sign-up";
 	}
 
-	// 내 정보 확인
-	@GetMapping("/myinfo")
-	public String goMyinfo(Model model, Principal principal) {
-
-		String username = principal.getName();
-		System.out.println("username : "+username);
-		// 이메일로 member id 가져오기
-		Member member = service.getMemberByEmail(username);
-
-		String result = "redirect:/member/myinfo/" + member.getMember_id();
-		return result;
-	}
-
 	// 내 정보 확인 테스트 페이지
 	@PostMapping("/register")
 	public String register(@RequestParam("email") String email,
@@ -63,6 +50,19 @@ public class MemberController {
 		service.add(member);
 		Member getMember = service.getByEmail(email);
 		String result = "redirect:/member/myinfo/" + getMember.getMember_id();
+		return result;
+	}
+
+	// 내 정보 확인
+	@GetMapping("/myinfo")
+	public String goMyinfo(Model model, Principal principal) {
+
+		String username = principal.getName();
+		System.out.println("username : "+username);
+		// 이메일로 member id 가져오기
+		Member member = service.getByEmail(username);
+
+		String result = "redirect:/member/myinfo/" + member.getMember_id();
 		return result;
 	}
 
@@ -95,6 +95,7 @@ public class MemberController {
 			Model model	) {
 
 		Member member = service.get(id);
+		System.out.println(member);
 		model.addAttribute("member", new Member(id, member.getEmail(), null, null, null));
 		return "html/myinfo/update";
 	}
