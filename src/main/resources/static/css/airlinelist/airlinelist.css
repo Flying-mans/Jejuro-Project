@@ -28,6 +28,13 @@ h1{
     margin: auto;
     font-size: 30px;
 }
+.arrow-img {
+    background: url(/image/search/go-arrows.svg) no-repeat;
+    margin-top: 30px;
+    width: 50px;
+    height: 50px;
+}
+
 
 .arrival-point{
     margin: auto;
@@ -35,22 +42,24 @@ h1{
 }
 
 .start-arrival-date{
+    height: 150px;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    margin-top: 50px;
-    margin-bottom: 80px;
+    margin: 30px 0;
 }
-
-.dateimg{
+.start-dateimg{
     width: 30px;
     height: 30px;
 }
-
 .start-date{
     margin: auto;
     font-size: 30px;
+}
+.arrival-dateimg{
+    width: 30px;
+    height: 30px;
 }
 .arrival-date{
     margin: auto;
@@ -69,30 +78,44 @@ h1{
     justify-content: flex-start;
     align-items: center;
 }
+.board-flight-info:hover{
+    backdrop-filter: blur(0px);
+    backdrop-filter: none;
+    transform:scale(1.02,1.02);
+    box-shadow: 0 4px 30px rgba(220,120, 20, 0.3);
+}
 
 .board-flight-info{
     margin: 10px;
     width: 80vw;
-    height: 15vh;
-    border: 1px solid rgba(221, 120, 19, 0.2);
-    box-shadow: 0 4px 10px rgba(220, 120, 20, 0.2);
+    height: 13vh;
+    border: 2px solid rgba(221, 120, 19, 0.2);
     backdrop-filter: blur(6.2px);
     transition: transform 0.2s 0.1s, box-shadow 0.2s 0.1s;
     border-radius: 25px;
+}
+
+.board-flight-info form{
+    width: 80vw;
+    height: 13vh;
     display: grid;
     place-items: center;
     grid-template-areas:
     "airlineimg totaltime price"
     "airlineimg point price"
-    "airlinetitle datetime datetime"
+    "airlinetitle datetime chartbutton"
 }
 
 .airline-img{
-    background: url(/image/airline/airbusan.svg) no-repeat center/cover;
-    width: 50px;
-    height: 50px;
+    background-repeat: no-repeat;
     grid-area: airlineimg;
 }
+
+.airline-img img{
+    width: 50px;
+    height: 50px;
+}
+
 .airline-title{
     grid-area: airlinetitle;
 }
@@ -101,135 +124,18 @@ h1{
     grid-area: totaltime;
 }
 
-.arr-dep{
+.dep-arr{
     grid-area: point;
 }
 
 .flight-time{
     grid-area: datetime;
 }
+.button-chart{
+    border: 0;
+    background-color: transparent;
+    grid-area: chartbutton;
+}
 .flight-price{
     grid-area: price;
 }
-
-
-
-
-
-
-
-
-
-/* .board-h1 h1{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    font-size: 45px;
-}
-.board-in{
-    display: flex;
-    flex-direction:row;
-    align-items: center;
-    justify-content: space-between;
-    padding-bottom: 20px;
-    padding: 0px 55px;
-}
-.board-input{
-    padding-bottom: 0px;
-    border-radius: 40px;
-    display: flex;
-    position: relative;
-    align-items: center;
-    justify-content: center;
-}
-
-.board-input::before{
-    content: "";
-    background: url(../../image/find-glass.svg) center/contain no-repeat;
-    position: absolute;
-    right: 10px;
-    width: 44px;
-    height: 44px;
-}
-
-
-
-.main{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-}
-
-.board-search{
-    width: 220px;
-    height: 50px;
-    border-radius: 20px;
-    /* padding: 10; 
-    
-    border: 1px solid #a24f17;
-    
-}
-*/
-
-/* .board-item{
-    position:relative;
-
-    padding:20px 0;
-    margin: 18px;
-    border-radius: 25px 25px 25px 25px;
-    border: 1px solid rgba(221, 120, 19, 0.2);
-    box-shadow: 0 4px 10px rgba(220, 120, 20, 0.2);
-    backdrop-filter: blur(6.2px);
-    transition: transform 0.2s 0.1s, box-shadow 0.2s 0.1s;
-    width: 80%;
-}
-.board-item-h1{
-    position: absolute;
-    left: 30px;
-}
-.board-item:hover{
-    backdrop-filter: blur(0px);
-    backdrop-filter: none;
-    transform:scale(1.02,1.02);
-    box-shadow: 0 4px 30px rgba(220,120, 20, 0.3);
-}
-.board-item form{
-    display: grid;
-    grid-template: 
-    "title title title" 24px
-    "title title title" 50px
-    "date reply-count hits" 24px /1fr 1fr 1fr;
-}
-.board-item form>h1{
-    grid-area:title;
-    font-size: 30px;
-}
-.date{
-    grid-area:date;
-    display: flex;
-    align-items:flex-end;
-    justify-content: center;
-}
-.reply-count{
-    grid-area: reply-count;
-    font-size: 22px;
-}
-.hits{
-    grid-area: hits;
-    font-size: 22px;
-}
-
-.header{
-    width: 100vw;
-    height: 50px;
-    
-    background-color: #F4EAD5;
-}
-
-.board-h1{
-    width:100vw;
-    height: 100px;
-} */
-

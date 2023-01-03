@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jejuro.server.dao.AlarmDao">
+
+	<select id="getList" resultType="com.jejuro.server.entity.Alarm">
+		select * from alarm
+		where member_id = #{member_id}
+		order by alarm_id desc
+	</select>
+	
+	<delete id="delete">
+		delete from alarm
+		where alarm_id = #{id};
+	</delete>
+	
+	<select id="getMemberId" resultType="int">
+		select member_id from alarm
+		where alarm_id = #{id}
+	</select>
+
+</mapper>

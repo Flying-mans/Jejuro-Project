@@ -6,14 +6,15 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.jejuro.server.entity.Alarm;
 import com.jejuro.server.entity.Member;
+import com.jejuro.server.service.AlarmService;
 import com.jejuro.server.service.MemberService;
 
 import jakarta.servlet.http.HttpSession;
@@ -28,6 +29,9 @@ public class MemberController {
 
 	@Autowired
 	private MemberService service;
+
+	@Autowired
+	private AlarmService alarmService;
 
 	// 마이페이지 기능 확인을 위한 로그인 테스트 페이지
 	@GetMapping("/register")
@@ -49,11 +53,16 @@ public class MemberController {
 		return result;
 	}
 
-	// 내 정보 확인
-	@PostMapping("/myinfo")
-	public String goMyinfo(Member member, Principal principal) {
+	// 내 정보 확인 테스트 페이지
+	@PostMapping("/register")
+	public String register(@RequestParam("email") String email,
+			@RequestParam("nickname") String nickName,
+			@RequestParam("password") String password,
+			@RequestParam("phoneNum") String phoneNum) {
+		Member member = new Member(email, nickName, password, phoneNum);
 		service.add(member);
-		String result = "redirect:/member/myinfo/" + member.getMember_id();
+		Member getMember = service.getByEmail(email);
+		String result = "redirect:/member/myinfo/" + getMember.getMember_id();
 		return result;
 	}
 
@@ -119,5 +128,30 @@ public class MemberController {
 			return "reditect:" + returnURL;
 
 		return "redirect:/index";
+	}
+
+	// 알람 설정===========================================
+
+	// 알람 출력
+	@GetMapping("/myinfo/alarm/{id}")
+	public String displayAlarm(@PathVariable("id") int id, Model model) {
+
+		List<Alarm> alarm = alarmService.getList(id);
+		model.addAttribute("alarm", alarm);
+
+		return "html/myinfo/alarm";
+
+	}
+
+	// 알람 삭제
+	@PostMapping("/myinfo/alarm/delete")
+	public String deleteAlarm(@RequestParam("id") int id, Model model) {
+
+		model.addAttribute("id", id);
+
+		// 알람 id로 회원 id를 가져온다
+		int memberId = alarmService.getMemberId(id);
+		alarmService.delete(id);
+		return "redirect:/member/myinfo/alarm/" + memberId;
 	}
 }

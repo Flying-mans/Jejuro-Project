@@ -7,7 +7,7 @@ public interface MemberService {
 	void add(Member member);
 
 	//회원 정보 가져오기
-    Member get(int id);
+   Member get(int id);
 
 	//회원 삭제
 	void delete(int id);
@@ -15,7 +15,10 @@ public interface MemberService {
 	//회원 수정
 	int update(Member member);
 
+	//회원 정보 email로 가져오기
+	Member getByEmail(String email);
+
 	//회원 이메일 가져오기
-    Member getMemberByEmail(String email);
+   Member getMemberByEmail(String email);
 
 }
