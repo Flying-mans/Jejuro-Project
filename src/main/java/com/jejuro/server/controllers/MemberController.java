@@ -100,7 +100,7 @@ public class MemberController {
 
 	@PostMapping("login")
 	public String login(String email, String password, String returnURL, HttpSession session) {
-		Member member = service.getMemberByEmail(email);
+		Member member = service.getByEmail(email);
 
 		if (member == null)
 			return "redirect:login?error";

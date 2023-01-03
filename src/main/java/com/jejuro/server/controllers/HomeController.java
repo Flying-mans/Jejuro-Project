@@ -24,11 +24,6 @@ public class HomeController {
         return "html/search/search";
     }
 
-    @GetMapping("post")
-    public String post() {
-        return "html/post/post";
-    }
-
     @GetMapping("sign-up")
     public String signup() {
         return "html/sign-up/sign-up";
