@@ -6,7 +6,6 @@
 
     display: inline-flex;
     flex-direction: column;
-    justify-content: space-between;
     align-items: center;
     text-align: center;
 
@@ -23,7 +22,18 @@
 .main-main{
     text-align: left;
     margin: 20px 0;
-    height: 500px;
+    height: 800px;
+}
+.input-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    height: 100%;
+}
+.input-div{
+    margin-top: 20px;
 }
 .input-container:not(:first-child){
     margin-top: 20px;
@@ -44,4 +54,3 @@
 .myinfo{
     color: #ff9900;
 }
-
