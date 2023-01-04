@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -16,7 +17,10 @@
 
 </head>
 
+
 <body>
+<div th:replace ="inc/header :: headerFragment"></div>
+
 <header class="header">
   <div>
     <img class="jejuro-logo-img" src="/image/jejuro-logo.svg" alt="logo">
