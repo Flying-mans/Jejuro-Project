@@ -44,4 +44,11 @@ public class DefaultMemberService implements MemberService{
 		return dao.getByEmail(email);
 	}
 
+	// nickname으로 회원 정보 가져오기
+	@Override
+	public Member getByNickname(String username) {
+		return dao.getByNickname(username);
+	}
+
+
 }
