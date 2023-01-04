@@ -73,10 +73,12 @@
       </div>
     </div>
 
-    <div class="airline-alarm-container">
-      <input class="alarm-price" placeholder="알림 가격을 설정 ₩"> </input>
-      <button class="alarm-button"> 알림설정 </button>
-    </div>
+    <form class="airline-alarm-container" action="/flight/alarm" method="post">
+      <input type="hidden" name="code" th:value="${flight.getCode()}">
+      <input type="hidden" name="depDate" th:value="${flight.getDepDate()}">
+      <input type="text" name="alarm" class="alarm-price" placeholder="알림 가격을 설정 ₩"> </input>
+      <button type="submit" class="alarm-button"> 알림설정 </button>
+    </form>
 
     <div class="cartjs">
       <canvas id="myChart" style="width:90vw; height:50vh;"></canvas>
