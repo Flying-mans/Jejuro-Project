@@ -1,6 +1,7 @@
 package com.jejuro.server.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.jejuro.server.dao.MemberDao;
@@ -15,8 +16,9 @@ public class DefaultMemberService implements MemberService{
 	//회원 추가
 	@Override
 	public void add(Member member) {
+		BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+		member.setPassword(passwordEncoder.encode(member.getPassword()));
 		dao.signUp(member);
-		
 	}
 
 	//회원 정보 가져오기
