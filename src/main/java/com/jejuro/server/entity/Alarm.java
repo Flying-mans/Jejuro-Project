@@ -7,6 +7,7 @@ public class Alarm {
 	private int member_id;
 	private String flight_code;
 	private String dep_date;
+	private int status;
 
 
 	public Alarm() {
@@ -57,10 +58,18 @@ public class Alarm {
 		this.dep_date = dep_date;
 	}
 
+	public int getStatus() {
+		return status;
+	}
+
+	public void setStatus(int status) {
+		this.status = status;
+	}
+
 	@Override
 	public String toString() {
 		return "Alarm [alarm_id=" + alarm_id + ", price=" + price + ", member_id=" + member_id + ", flight_code="
-				+ flight_code + ", dep_date=" + dep_date + "]";
+				+ flight_code + ", dep_date=" + dep_date + ", status=" + status + "]";
 	}
 
 

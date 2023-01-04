@@ -14,4 +14,6 @@ public interface AlarmService {
 	// 알람 id로 회원 id 가져오기
 	int getMemberId(int id);
 
+   void setAlarm(int memberId, String code, String depDate, int price);
+
 }
