@@ -55,7 +55,7 @@
 <main class="main">
     <div class="board-flight" th:each="flight: ${flights}">
         <section class="board-flight-info">
-            <a th:href="@{flight/{code}(code=${flight.getCode()})}">
+            <a th:href="@{'flight/'+${flight.getCode()}+'/'+${flight.getDepDate()}}">
                 <form action="chart" method="post">
                     <div name="flightlogo" class="airline-img">
                         <img th:src="${flight.getLogoUrl()}" alt="">

@@ -21,11 +21,13 @@ public class FlightInfo {
 
     private String arr_time;
 
+    private String dep_date;
+
 
     public FlightInfo() {
     }
 
-    public FlightInfo(String name, String url, String code, String departure, String arrival, int fee, String depTime, String arrTime) {
+    public FlightInfo(String name, String url, String code, String departure, String arrival, int fee, String depTime, String arrTime, String dep_date) {
         this.name = name;
         this.url = url;
         this.code = code;
@@ -34,6 +36,7 @@ public class FlightInfo {
         this.fee = fee;
         this.dep_time = depTime;
         this.arr_time = arrTime;
+        this.dep_date = dep_date;
     }
 
     public String getName() {
@@ -100,6 +103,13 @@ public class FlightInfo {
         this.code = code;
     }
 
+    public String getDep_date() {
+        return dep_date;
+    }
+
+    public void setDep_date(String dep_date) {
+        this.dep_date = dep_date;
+    }
 
     @Override
     public String toString() {
