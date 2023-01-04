@@ -32,6 +32,12 @@ public class MemberController {
 	@Autowired
 	private AlarmService alarmService;
 
+	@PostMapping("/signup")
+	public String signup(){
+
+		return "redirect:/member/login";
+	}
+
 	// 마이페이지 기능 확인을 위한 로그인 테스트 페이지
 	@GetMapping("/register")
 	public String register(Model model) {
