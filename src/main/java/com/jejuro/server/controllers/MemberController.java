@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -32,6 +33,28 @@ public class MemberController {
 
 	@Autowired
 	private AlarmService alarmService;
+
+	
+	@GetMapping("signup")
+	public String siginup(){
+		return "html/sign-up/sign-up";
+	}
+
+	/**
+	 * @ModelAttribute 
+	 * html name과 entity의 필드가 동일하다면 스프링이 setter method를 호출하면서 값을 알아서 담아줌
+	 *
+	 * @param member
+	 * 이메일 닉네임 패스워드 핸드폰
+	 * @return 로그인 페이지
+	 */
+	@PostMapping("signup")
+	public String signup(@ModelAttribute Member member){
+		
+		service.add(member);
+
+		return "html/login/login";
+	}
 
 	// 마이페이지 기능 확인을 위한 로그인 테스트 페이지
 	@GetMapping("/register")
