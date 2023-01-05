@@ -81,8 +81,7 @@ public class MemberController {
 	public String goMyinfo(Model model, Principal principal) {
 
 		String username = principal.getName();
-		// 이메일로 member id 가져오기
-		Member member = service.getByEmail(username);
+		Member member = service.getByNickname(username);
 
 		String result = "redirect:/member/myinfo/" + member.getMember_id();
 		return result;

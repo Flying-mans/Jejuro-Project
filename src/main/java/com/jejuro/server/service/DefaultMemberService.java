@@ -36,6 +36,8 @@ public class DefaultMemberService implements MemberService{
 	//회원 수정
 	@Override
 	public int update(Member member) {
+		BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+		member.setPassword(passwordEncoder.encode(member.getPassword()));
 		dao.update(member);
 		return dao.getId(member);
 	}
