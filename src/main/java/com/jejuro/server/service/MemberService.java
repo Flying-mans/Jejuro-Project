@@ -7,7 +7,7 @@ public interface MemberService {
 	void add(Member member);
 
 	//회원 정보 가져오기
-    Member get(int id);
+   Member get(int id);
 
 	//회원 삭제
 	void delete(int id);

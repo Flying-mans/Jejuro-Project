@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="/css/reset.css" type="text/css">
+  <link rel="stylesheet" href="/css/layout.css" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <link rel="stylesheet" href="/css/deco.css" type="text/css">
+  <link rel="stylesheet" href="/css/button.css" type="text/css">
+  <link rel="stylesheet" href="/css/airlinelist/airlinelist.css" type="text/css">
+  <link rel="stylesheet" href="/css/airlinechart/airlinechart.css" type="text/css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+
+</head>
+
+
+<body>
+<div th:replace ="inc/header :: headerFragment"></div>
+
+<main class="main">
+
+  <section class="board-flight-info">
+    <a>
+      <form>
+        <div name="flightlogo" class="airline-img">
+          <img th:src="${flight.getLogoUrl()}" alt="">
+        </div>
+        <!--                    <div name="flightCode" class="airline-title" th:text="${flight.getCode()}"> 111</div>-->
+        <div name="flighttitle" class="airline-title" th:text="${flight.getAirlineName()}"> 에어부산</div>
+        <div name="totaltime" class="total-time" th:text="${flight.getDurationTime()}">1시간</div>
+        <div name="deparr" class="dep-arr" th:text="${flight.getDepArr()}">김포-제주</div>
+        <div name="flighttime" class="flight-time" th:text="${flight.getDepArrTime()}">08:00 - 20:20</div>
+        <div name="flightprice" class="flight-price" th:text="${flight.getFee()}">59,470원</div>
+      </form>
+    </a>
+  </section>
+
+  <div class="airline-chart-container">
+    <div class="low-high-container">
+      <div class="low-price title">최저가격 :
+        <span class="low price">45,000원</span>
+      </div>
+      <div class="high-price title">최고가격 :
+        <span class="high price">80,000원</span>
+      </div>
+      <div class="avg-price title">평균가격 :
+        <span class="avg price">50,000원</span>
+      </div>
+    </div>
+
+    <div class="airline-alarm-container">
+      <input class="alarm-price" placeholder="알림 가격을 설정 ₩"> </input>
+      <button class="alarm-button"> 알림설정 </button>
+    </div>
+
+    <div class="cartjs">
+      <canvas id="myChart" style="width:90vw; height:50vh;"></canvas>
+      <script src="/js/airlinechart.js"></script>
+    </div>
+  </div>
+</main>
+</body>
+</html>

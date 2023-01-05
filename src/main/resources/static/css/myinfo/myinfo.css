@@ -6,16 +6,16 @@
 
     display: inline-flex;
     flex-direction: column;
-    justify-content: space-between;
     align-items: center;
     text-align: center;
-
 }
 .main-header>h1{
     font-size: 48px;
 }
 .main-option{
     display: flex;
+    justify-content: center;
+    margin-top: 20px;
 }
 .main-option div{
     padding: 0 20px;
@@ -23,6 +23,15 @@
 .main-main{
     margin: 20px 0;
     height: 500px;
+    width: 100%;
+}
+.input-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    height: 100%;
 }
 .main-main ul{
     text-align: left;

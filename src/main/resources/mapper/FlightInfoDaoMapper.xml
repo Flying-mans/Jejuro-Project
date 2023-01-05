@@ -11,6 +11,13 @@
         limit #{offset}, #{size}
     </select>
 
+    <select id="getFlightInfoByCode" resultType="com.jejuro.server.entity.view.FlightInfo">
+        select * from flight_info
+        where code=#{code}
+        and dep_date=#{depDate}
+        limit 0, 1
+    </select>
+
     <delete id="" >
 
     </delete>

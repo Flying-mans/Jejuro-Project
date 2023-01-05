@@ -1,5 +1,6 @@
 package com.jejuro.server.controllers;
 
+import java.security.Principal;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -76,8 +77,20 @@ public class MemberController {
 	}
 
 	// 내 정보 확인
+	@GetMapping("/myinfo")
+	public String goMyinfo(Model model, Principal principal) {
+
+		String username = principal.getName();
+		// 이메일로 member id 가져오기
+		Member member = service.getByEmail(username);
+
+		String result = "redirect:/member/myinfo/" + member.getMember_id();
+		return result;
+	}
+
+	// 내 정보 확인
 	@GetMapping("/myinfo/{id}")
-	public String myinfo2(@PathVariable("id") int id,
+	public String displayMyinfo(@PathVariable("id") int id,
 			Model model) {
 		Member member = service.get(id);
 		model.addAttribute("member", member);
@@ -101,7 +114,8 @@ public class MemberController {
 	// 내 정보 수정하기
 	@GetMapping("/myinfo/update/{id}")
 	public String updateMember(@PathVariable("id") int id,
-			Model model) {
+			Model model	) {
+
 		Member member = service.get(id);
 		model.addAttribute("member", new Member(id, member.getEmail(), null, null, null));
 		return "html/myinfo/update";

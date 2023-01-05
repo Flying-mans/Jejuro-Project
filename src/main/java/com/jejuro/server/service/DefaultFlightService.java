@@ -2,6 +2,7 @@ package com.jejuro.server.service;
 
 import com.jejuro.server.dao.FlightInfoDao;
 import com.jejuro.server.dto.FlightListDto;
+import com.jejuro.server.dto.chart.FlightChartDto;
 import com.jejuro.server.entity.view.FlightInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -53,7 +54,10 @@ public class DefaultFlightService implements FlightService{
         //가격
         DecimalFormat won = new DecimalFormat("###,###");
         String fee = won.format(f.getFee())+"원";
-        FlightListDto flightListDto = new FlightListDto(logoUrl, airLineName, code, durationTime, depArr, depArrTime, fee);
+
+        // depDate
+        String depDate = f.getDep_date();
+        FlightListDto flightListDto = new FlightListDto(logoUrl, airLineName, code, durationTime, depArr, depArrTime, depDate, fee);
         return flightListDto;
     }
 
@@ -69,5 +73,18 @@ public class DefaultFlightService implements FlightService{
         int min = time % 60;
         String durationTime = Integer.toString(hour) + "시간 " + Integer.toString(min) + "분";
         return durationTime;
+    }
+
+    @Override
+    public FlightListDto getFlightInfoByCode(String code, String depDate) {
+        FlightInfo flightInfoByCode = flightInfoDao.getFlightInfoByCode(code, depDate);
+        FlightListDto flightListDto = getFlightListDto(flightInfoByCode);
+        return flightListDto;
+    }
+
+    @Override
+    public FlightChartDto getFlightChart(String code, String depDate) {
+        
+        return null;
     }
 }
