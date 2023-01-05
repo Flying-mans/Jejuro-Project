@@ -2,7 +2,7 @@ package com.jejuro.server.service;
 
 import com.jejuro.server.dao.FlightInfoDao;
 import com.jejuro.server.dto.FlightListDto;
-import com.jejuro.server.dto.chart.FlightChartDto;
+import com.jejuro.server.entity.Flight;
 import com.jejuro.server.entity.view.FlightInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -82,9 +82,15 @@ public class DefaultFlightService implements FlightService{
         return flightListDto;
     }
 
-    @Override
-    public FlightChartDto getFlightChart(String code, String depDate) {
-        
-        return null;
-    }
+
+	@Override
+	public List<Flight> getDays(String code, String depDate) {
+		return flightInfoDao.getDays(code, depDate);
+	}
+
+	@Override
+	public List<Flight> getDay(String code, String depDate) {
+		// TODO Auto-generated method stub
+		return flightInfoDao.getDay(code, depDate);
+	}
 }

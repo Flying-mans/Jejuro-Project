@@ -1,16 +1,21 @@
 package com.jejuro.server.controllers;
 
-import com.jejuro.server.dto.BasicFlightInfoDto;
-import com.jejuro.server.dto.FlightListDto;
-import com.jejuro.server.entity.Post;
-import com.jejuro.server.entity.view.FlightInfo;
-import com.jejuro.server.service.FlightService;
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
-import java.util.List;
+import com.jejuro.server.dto.BasicFlightInfoDto;
+import com.jejuro.server.dto.FlightListDto;
+import com.jejuro.server.entity.Flight;
+import com.jejuro.server.service.FlightService;
 
 @Controller
 @RequestMapping("/flight")
@@ -19,6 +24,7 @@ public class FlightController {
     @Autowired
     private FlightService flightService;
 
+    
     @PostMapping()
     public String flightList(
             @RequestParam(value = "oneway", required = false) boolean oneWay,
@@ -30,10 +36,11 @@ public class FlightController {
     ) {
         List<FlightListDto> flightList = flightService.getFlightList(oneWay, departure, arrival, depDate, arrDate);
         BasicFlightInfoDto basicInfoDto = new BasicFlightInfoDto(departure, arrival, depDate, arrDate);
-
+        
         model.addAttribute("flights", flightList);
         model.addAttribute("basicInfo", basicInfoDto);
 
+        
         return "html/airlinelist/airlinelist";
     }
 
@@ -45,7 +52,29 @@ public class FlightController {
     ) {
         FlightListDto flightInfoByCode = flightService.getFlightInfoByCode(code, depDate);
         model.addAttribute("flight", flightInfoByCode);
-
+       
+       List<Flight> charts = flightService.getDays(code,depDate);
+       List<Flight> chart = flightService.getDay(code, depDate);
+       List<String> days = new ArrayList<String>();
+       List<String> fees = new ArrayList<String>();
+    
+       for(int i=0; i<charts.size(); i++) {
+    	   String dayList = charts.get(i).getCollected_date();
+    	   String feeList = charts.get(i).getFee(); 
+    	   days.add(dayList);
+    	   fees.add(feeList);
+       }
+       
+       int lowestFee = Integer.parseInt(charts.get(0).getLowestFee());
+       int highestFee = Integer.parseInt(charts.get(0).getHighestFee());
+       
+       model.addAttribute("days", days);
+       model.addAttribute("fees", fees);
+       model.addAttribute("charts",charts);
+       model.addAttribute("chart", chart);
+       model.addAttribute("lowestFee", lowestFee);
+       model.addAttribute("highestFee", highestFee);
+       
         return "html/airlinechart/airlinechart";
     }
 }
