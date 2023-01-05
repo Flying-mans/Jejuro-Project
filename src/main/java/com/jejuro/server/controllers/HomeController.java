@@ -9,12 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/")
 public class HomeController {
 
-    @GetMapping("")
-    public String main() {
-        return "html/index";
-    }
-
-    @GetMapping("index")
+    @GetMapping({"", "index"})
     public String index() {
         return "html/index";
     }

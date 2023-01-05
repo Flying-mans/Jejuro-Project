@@ -17,6 +17,11 @@
 		select * from member
 		where email = #{email}
 	</select>
+
+	<select id="getByNickname" resultType="com.jejuro.server.entity.Member">
+		select * from member
+		where nickName = #{username}
+	</select>
 	
 	<delete id="delete">
 		delete from member

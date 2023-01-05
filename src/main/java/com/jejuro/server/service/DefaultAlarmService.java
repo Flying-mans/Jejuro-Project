@@ -33,6 +33,11 @@ public class DefaultAlarmService implements AlarmService{
 		
 	}
 
+	@Override
+	public void setAlarm(int memberId, String code, String depDate, int price) {
+		dao.insert(memberId, code, depDate, price);
+	}
+
 
 
 }

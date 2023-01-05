@@ -20,4 +20,9 @@
 		where alarm_id = #{id}
 	</select>
 
+	<select id="insert" resultType="com.jejuro.server.entity.Alarm">
+		insert into alarm(member_id, flight_code, dep_date, price, status) 
+		values(#{memberId}, #{code}, #{depDate}, #{price}, '1');
+	</select>
+
 </mapper>
