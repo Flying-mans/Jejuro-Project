@@ -31,17 +31,19 @@
         <div class="main-main">
             <div class="alarm" th:each="alarm:${alarm}">
                 <section class="alarm-item">
-                    <h1 class="alarm-item-h1" th:text="'항공편 번호 : '+${alarm.flight_code}">항공편 번호</h1>
-                    <br><br><br>
-                    <div class="dep-date" th:text="'출발날짜 : '+${alarm.dep_date}">출발날짜 : 20220823</div>
-                    <br><br>
-                    <div class="price" th:text="'가격 : '+${alarm.price}">가격 : \30,000</div>  
-                    <div class="main-footer">
-                        <form action="delete" method="post">
-                            <input type="hidden" name="id" th:value="${alarm.alarm_id}">
-                            <button class="btn delete" type="submit">삭제</button>
-                        </form>
-                    </div>
+                    <a th:href="@{/flight/}+${alarm.flight_code}+@{/}+${alarm.dep_date}">
+                        <h1 class="alarm-item-h1" th:text="'항공편 번호 : '+${alarm.flight_code}">항공편 번호</h1>
+                        <br><br><br>
+                        <div class="dep-date" th:text="'출발날짜 : '+${alarm.dep_date}">출발날짜 : 20220823</div>
+                        <br><br>
+                        <div class="price" th:text="'가격 : '+${alarm.price}">가격 : \30,000</div>  
+                        <div class="main-footer">
+                            <form action="delete" method="post">
+                                <input type="hidden" name="id" th:value="${alarm.alarm_id}">
+                                <button class="btn delete" type="submit">삭제</button>
+                            </form>
+                        </div>
+                    </a>
                 </section>
             </div>
         </div>
