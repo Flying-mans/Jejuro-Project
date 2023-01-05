@@ -29,7 +29,6 @@
         <div name="flightlogo" class="airline-img">
           <img th:src="${flight.getLogoUrl()}" alt="">
         </div>
-        <!--                    <div name="flightCode" class="airline-title" th:text="${flight.getCode()}"> 111</div>-->
         <div name="flighttitle" class="airline-title" th:text="${flight.getAirlineName()}"> 에어부산</div>
         <div name="totaltime" class="total-time" th:text="${flight.getDurationTime()}">1시간</div>
         <div name="deparr" class="dep-arr" th:text="${flight.getDepArr()}">김포-제주</div>
@@ -39,16 +38,16 @@
     </a>
   </section>
 
-  <div class="airline-chart-container">
+  <div class="airline-chart-container"  th:each="chart: ${chart}" >
     <div class="low-high-container">
       <div class="low-price title">최저가격 :
-        <span class="low price">45,000원</span>
+        <span class="low price" th:text="${chart.lowestFee}">45,000원</span>
       </div>
       <div class="high-price title">최고가격 :
-        <span class="high price">80,000원</span>
+        <span class="high price" th:text="${chart.highestFee}">80,000원</span>
       </div>
       <div class="avg-price title">평균가격 :
-        <span class="avg price">50,000원</span>
+        <span class="avg price" th:text="${chart.averageFee}">50,000원</span>
       </div>
     </div>
 
@@ -60,8 +59,40 @@
     </form>
 
     <div class="cartjs">
-      <canvas id="myChart" style="width:90vw; height:50vh;"></canvas>
-      <script src="/js/airlinechart.js"></script>
+      <canvas id="myChart"width="500"height="350"></canvas>
+      <script th:inline="javascript" >
+      const ctx = document.getElementById('myChart').getContext('2d');
+      const myChart = new Chart(ctx, {
+      	type: 'line',
+      	data: {
+      		labels: [[${days}]],
+      		datasets: [{
+      			label: [[${flight.getAirlineName()}]],
+      			data: [[${fees}]]
+      			,
+      			backgroundColor: [
+      				'rgba(255, 153, 0, 0.3)',
+      			],
+      			borderColor: [
+      				'rgba(255, 153, 0, 1)',
+      			],
+      			borderWidth: 1
+      		}]
+      	},
+      	options: {
+      		responsive: false,
+      		scales: {
+      		yAxes: [{
+      			ticks: {
+      				min: [[${lowestFee}]]-30000,
+      				max: [[${highestFee}]]+30000,
+      				stepSize : 10000,
+      				fontSize : 15,
+      			}
+      		}]
+      	}}
+      });
+      </script>
     </div>
   </div>
 </main>

@@ -8,7 +8,6 @@ public class FlightListDto {
     private String durationTime;
     private String depArr; // 출발지 목적지
     private String depArrTime; // 출발시간 목적시간
-
     private String depDate; // 출발 날짜
     private String fee;
 

@@ -9,101 +9,75 @@ package com.jejuro.server.entity;
  */
 public class Flight {
 
-    private Long id;
-    private String code;
-    private String departure;
-    private String arrival;
-    private String depTime;
-    private String arrTime;
-    private String depDate;
-    private String collectedDate;
-
-    private int fee;
+    private String collected_date;
+    private String fee;
+    private String lowestFee;
+    private String highestFee;
+    private String averageFee;
 
     public Flight() {}
 
-    public Flight(Long id, String code, String departure, String arrival, String depTime, String arrTime, String depDate, String collectedDate, int fee) {
-        this.id = id;
-        this.code = code;
-        this.departure = departure;
-        this.arrival = arrival;
-        this.depTime = depTime;
-        this.arrTime = arrTime;
-        this.depDate = depDate;
-        this.collectedDate = collectedDate;
-        this.fee = fee;
-    }
+    public Flight(String collected_date, String fee) {
+		this.fee = fee;
+		this.collected_date = collected_date;
+	}
 
-    public Long getId() {
-        return id;
-    }
+    
+    public Flight(String collected_date, String fee, String lowestFee, String highestFee, String averageFee) {
+		super();
+		this.collected_date = collected_date;
+		this.fee = fee;
+		this.lowestFee = lowestFee;
+		this.highestFee = highestFee;
+		this.averageFee = averageFee;
+	}
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getCode() {
-        return code;
-    }
-
-    public void setCode(String code) {
-        this.code = code;
-    }
-
-    public String getDeparture() {
-        return departure;
-    }
-
-    public void setDeparture(String departure) {
-        this.departure = departure;
-    }
-
-    public String getArrival() {
-        return arrival;
-    }
-
-    public void setArrival(String arrival) {
-        this.arrival = arrival;
-    }
-
-    public String getDepTime() {
-        return depTime;
-    }
-
-    public void setDepTime(String depTime) {
-        this.depTime = depTime;
-    }
-
-    public String getArrTime() {
-        return arrTime;
-    }
-
-    public void setArrTime(String arrTime) {
-        this.arrTime = arrTime;
-    }
-
-    public String getDepDate() {
-        return depDate;
-    }
-
-    public void setDepDate(String depDate) {
-        this.depDate = depDate;
-    }
-
-    public String getCollectedDate() {
-        return collectedDate;
-    }
-
-    public void setCollectedDate(String collectedDate) {
-        this.collectedDate = collectedDate;
-    }
-
-    public int getFee() {
+	public String getFee() {
         return fee;
     }
 
-    public void setFee(int fee) {
+    public void setFee(String fee) {
         this.fee = fee;
     }
+
+	public String getCollected_date() {
+		return collected_date;
+	}
+	
+	public void setCollected_date(String collected_date) {
+		this.collected_date = collected_date;
+	}
+
+	public String getLowestFee() {
+		return lowestFee;
+	}
+
+	public void setLowestFee(String lowestFee) {
+		this.lowestFee = lowestFee;
+	}
+
+	public String getHighestFee() {
+		return highestFee;
+	}
+
+	public void setHighestFee(String highestFee) {
+		this.highestFee = highestFee;
+	}
+
+	public String getAverageFee() {
+		return averageFee;
+	}
+
+	public void setAverageFee(String averageFee) {
+		this.averageFee = averageFee;
+	}
+
+	@Override
+	public String toString() {
+		return "Flight [collected_date=" + collected_date + ", fee=" + fee + ", lowestFee=" + lowestFee
+				+ ", highestFee=" + highestFee + ", averageFee=" + averageFee + "]";
+	}
+	
+
 }
 
