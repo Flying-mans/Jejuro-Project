@@ -35,6 +35,7 @@
 	border-radius: 1rem;
 	border: 2px solid gray;
 	padding: 15px 15px;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 /* placeholder가 없어지면 보이는 */
