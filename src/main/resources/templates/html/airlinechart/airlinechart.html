@@ -59,7 +59,7 @@
     </form>
 
     <div class="cartjs">
-      <canvas id="myChart"width="500"height="350"></canvas>
+      <canvas id="myChart"width="800"height="400"></canvas>
       <script th:inline="javascript" >
       const ctx = document.getElementById('myChart').getContext('2d');
       const myChart = new Chart(ctx, {
@@ -84,8 +84,8 @@
       		scales: {
       		yAxes: [{
       			ticks: {
-      				min: [[${lowestFee}]]-30000,
-      				max: [[${highestFee}]]+30000,
+      				min: [[${lowestFee}]]-50000,
+      				max: [[${highestFee}]]+50000,
       				stepSize : 10000,
       				fontSize : 15,
       			}
