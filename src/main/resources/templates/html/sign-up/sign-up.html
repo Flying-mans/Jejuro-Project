@@ -25,11 +25,7 @@
                 회원가입
             </span>
 
-            <div th:replace="~{form_erros :: formErrorsFragment}"></div>
-            <!-- <div  class="error" 
-            role="alert" th:if="${#fields.hasAnyErrors()}">
-            <div th:each="err : ${#fields.allErrors()}" th:text="${err}"/>
-            </div> -->
+            <div th:replace="~{html/error/form_errors :: formErrorsFragment}"></div>
     
             <div class="input">
                 <span>이메일</span>
