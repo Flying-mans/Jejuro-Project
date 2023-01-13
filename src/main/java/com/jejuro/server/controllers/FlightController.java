@@ -57,20 +57,20 @@ public class FlightController {
         return "html/airlinelist/airlinelist";
     }
 
-    @GetMapping("/{code}/{depDate}")
+    @GetMapping("/{code}/{depDate}/{airlineId}")
     public String getChart(
             @PathVariable("code") String code,
             @PathVariable("depDate") String depDate,
+            @PathVariable("airlineId") String airlineId,
             Model model
     ) {
-        FlightListDto flightInfoByCode = flightService.getFlightInfoByCode(code, depDate);
+        FlightListDto flightInfoByCode = flightService.getFlightInfoByCode(code, depDate, airlineId);
         model.addAttribute("flight", flightInfoByCode);
-       
-       List<Flight> charts = flightService.getDays(code,depDate);
-       List<Flight> chart = flightService.getDay(code, depDate);
+       List<Flight> charts = flightService.getDays(code,depDate,airlineId);
+       List<Flight> chart = flightService.getDay(code, depDate, airlineId);
        List<String> days = new ArrayList<String>();
        List<String> fees = new ArrayList<String>();
-    
+
        for(int i=0; i<charts.size(); i++) {
     	   String dayList = charts.get(i).getCollected_date();
     	   String feeList = charts.get(i).getFee(); 

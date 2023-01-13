@@ -26,6 +26,7 @@
 		(select name from airline a where a.airline_id = f.airline_id) name 
 		from flight f
         where code=#{code}
+		and airline_id = #{airlineId}
         and dep_date=#{depDate}
         limit 0, 1
     </select>
@@ -40,6 +41,7 @@
 		max(fee) as highestFee
 		from flight
 		where code = #{code}
+		and airline_id = #{airlineId}
 		and dep_date = #{depDate}
 		group by collected_date
 		,fee
@@ -52,6 +54,7 @@
 		max(fee) as highestFee
 		from flight
 		where code = #{code}
+		and airline_id = #{airlineId}
 		and dep_date = #{depDate}
 	</select>
 </mapper>

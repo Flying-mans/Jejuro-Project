@@ -9,9 +9,10 @@ public class FlightListDto {
     private String depArr; // 출발지 목적지
     private String depArrTime; // 출발시간 목적시간
     private String depDate; // 출발 날짜
+    private String airlineId; // 항공사
     private String fee;
 
-    public FlightListDto(String logoUrl, String airlineName, String code, String durationTime, String depArr, String depArrTime, String depDate, String fee) {
+    public FlightListDto(String logoUrl, String airlineName, String code, String durationTime, String depArr, String depArrTime, String depDate, String fee, String airlineId) {
         this.logoUrl = logoUrl;
         this.airlineName = airlineName;
         this.code = code;
@@ -20,6 +21,7 @@ public class FlightListDto {
         this.depArrTime = depArrTime;
         this.depDate = depDate;
         this.fee = fee;
+        this.airlineId = airlineId;
     }
 
     public String getLogoUrl() {
@@ -36,6 +38,14 @@ public class FlightListDto {
 
     public void setAirlineName(String airlineName) {
         this.airlineName = airlineName;
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
     }
 
     public String getDurationTime() {
@@ -62,6 +72,22 @@ public class FlightListDto {
         this.depArrTime = depArrTime;
     }
 
+    public String getDepDate() {
+        return depDate;
+    }
+
+    public void setDepDate(String depDate) {
+        this.depDate = depDate;
+    }
+
+    public String getAirlineId() {
+        return airlineId;
+    }
+
+    public void setAirlineId(String airlineId) {
+        this.airlineId = airlineId;
+    }
+
     public String getFee() {
         return fee;
     }
@@ -70,15 +96,18 @@ public class FlightListDto {
         this.fee = fee;
     }
 
-    public String getDepDate() {
-        return depDate;
-    }
-
-    public String getCode() {
-        return code;
-    }
-
-    public void setCode(String code) {
-        this.code = code;
+    @Override
+    public String toString() {
+        return "FlightListDto{" +
+                "logoUrl='" + logoUrl + '\'' +
+                ", airlineName='" + airlineName + '\'' +
+                ", code='" + code + '\'' +
+                ", durationTime='" + durationTime + '\'' +
+                ", depArr='" + depArr + '\'' +
+                ", depArrTime='" + depArrTime + '\'' +
+                ", depDate='" + depDate + '\'' +
+                ", airlineId='" + airlineId + '\'' +
+                ", fee='" + fee + '\'' +
+                '}';
     }
 }

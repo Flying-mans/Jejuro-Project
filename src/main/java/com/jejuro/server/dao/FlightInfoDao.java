@@ -11,9 +11,9 @@ public interface FlightInfoDao {
 
 	List<FlightInfo> getFlightListRoundtrip(String departure, String depDate, String arrDate, int offset, int size);
     List<FlightInfo> getFlightListOneWay(String departure, String depDate, int offset, int size);
-    List<Flight> getDays(String code, String depDate);
-    List<Flight> getDay(String code, String depDate);
+    List<Flight> getDays(String code, String depDate, String airlineId);
+    List<Flight> getDay(String code, String depDate, String airlineId);
     
     
-    FlightInfo getFlightInfoByCode(String code, String depDate);
+    FlightInfo getFlightInfoByCode(String code, String depDate, String airlineId);
 }

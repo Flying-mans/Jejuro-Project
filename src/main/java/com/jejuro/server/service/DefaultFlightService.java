@@ -55,9 +55,10 @@ public class DefaultFlightService implements FlightService{
         DecimalFormat won = new DecimalFormat("###,###");
         String fee = won.format(f.getFee())+"원";
 
+        String airlineId = f.getAirlineId();
         // depDate
-        String depDate = f.getDep_date();
-        FlightListDto flightListDto = new FlightListDto(logoUrl, airLineName, code, durationTime, depArr, depArrTime, depDate, fee);
+        String depDate = f.getDepDate();
+        FlightListDto flightListDto = new FlightListDto(logoUrl, airLineName, code, durationTime, depArr, depArrTime, depDate, fee, airlineId);
         return flightListDto;
     }
 
@@ -76,21 +77,21 @@ public class DefaultFlightService implements FlightService{
     }
 
     @Override
-    public FlightListDto getFlightInfoByCode(String code, String depDate) {
-        FlightInfo flightInfoByCode = flightInfoDao.getFlightInfoByCode(code, depDate);
+    public FlightListDto getFlightInfoByCode(String code, String depDate, String airlineId) {
+        FlightInfo flightInfoByCode = flightInfoDao.getFlightInfoByCode(code, depDate, airlineId);
         FlightListDto flightListDto = getFlightListDto(flightInfoByCode);
         return flightListDto;
     }
 
 
 	@Override
-	public List<Flight> getDays(String code, String depDate) {
-		return flightInfoDao.getDays(code, depDate);
+	public List<Flight> getDays(String code, String depDate, String airlineId) {
+		return flightInfoDao.getDays(code, depDate, airlineId);
 	}
 
 	@Override
-	public List<Flight> getDay(String code, String depDate) {
+	public List<Flight> getDay(String code, String depDate, String airlineId) {
 		// TODO Auto-generated method stub
-		return flightInfoDao.getDay(code, depDate);
+		return flightInfoDao.getDay(code, depDate, airlineId);
 	}
 }
