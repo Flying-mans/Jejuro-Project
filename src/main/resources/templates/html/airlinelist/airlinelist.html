@@ -55,7 +55,7 @@
 <main class="main">
     <div class="board-flight" th:each="flight: ${flights}">
         <section class="board-flight-info">
-            <a th:href="@{'flight/'+${flight.getCode()}+'/'+${flight.getDepDate()}}">
+            <a th:href="@{'flight/'+${flight.getCode()}+'/'+${flight.getDepDate()}+'/'+${flight.getAirlineId()}}">
                 <form action="chart" method="post">
                     <div name="flightlogo" class="airline-img">
                         <img th:src="${flight.getLogoUrl()}" alt="">
@@ -66,6 +66,7 @@
                     <div name="deparr" class="dep-arr" th:text="${flight.getDepArr()}">김포-제주</div>
                     <div name="flighttime" class="flight-time" th:text="${flight.getDepArrTime()}">08:00 - 20:20</div>
                     <div name="flightprice" class="flight-price" th:text="${flight.getFee()}">59,470원</div>
+
                 </form>
             </a>
         </section>
