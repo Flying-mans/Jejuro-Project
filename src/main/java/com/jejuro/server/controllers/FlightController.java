@@ -64,8 +64,8 @@ public class FlightController {
             @PathVariable("airlineId") String airlineId,
             Model model
     ) {
-        FlightListDto flightInfoByCode = flightService.getFlightInfoByCode(code, depDate, airlineId);
-        model.addAttribute("flight", flightInfoByCode);
+       FlightListDto flightInfoByCode = flightService.getFlightInfoByCode(code, depDate, airlineId);
+       model.addAttribute("flight", flightInfoByCode);
        List<Flight> charts = flightService.getDays(code,depDate,airlineId);
        List<Flight> chart = flightService.getDay(code, depDate, airlineId);
        List<String> days = new ArrayList<String>();
@@ -78,8 +78,9 @@ public class FlightController {
     	   fees.add(feeList);
        }
        
-       int lowestFee = Integer.parseInt(charts.get(0).getLowestFee());
-       int highestFee = Integer.parseInt(charts.get(0).getHighestFee());
+       int lowestFee = Integer.parseInt(chart.get(0).getLowestFee());
+       int highestFee = Integer.parseInt(chart.get(0).getHighestFee());
+
        
        model.addAttribute("days", days);
        model.addAttribute("fees", fees);
