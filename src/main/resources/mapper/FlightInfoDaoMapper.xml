@@ -16,7 +16,7 @@
 		as collected_date
 	    from flight group by code
 	    )
-		order by collected_date desc;
+		order by collected_date desc
     </select>
 
     <select id="getFlightInfoByCode" resultType="com.jejuro.server.entity.view.FlightInfo">
@@ -28,7 +28,8 @@
         where code=#{code}
 		and airline_id = #{airlineId}
         and dep_date=#{depDate}
-        limit 0, 1
+		order by flight_id desc
+		limit 0,1
     </select>
 
     <delete id="" >
