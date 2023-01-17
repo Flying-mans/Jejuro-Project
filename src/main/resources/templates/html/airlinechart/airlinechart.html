@@ -13,7 +13,11 @@
   <link rel="stylesheet" href="/css/button.css" type="text/css">
   <link rel="stylesheet" href="/css/airlinelist/airlinelist.css" type="text/css">
   <link rel="stylesheet" href="/css/airlinechart/airlinechart.css" type="text/css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
+<!--  곡선 그래프-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
+<!--  1자 라인 그래프-->
+<!--  <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.0/dist/chart.min.js"></script>-->
+<!--  <script src="https://cdn.jsdelivr.net/npm/chart.js@3.6.2/dist/chart.min.js"></script>-->
 
 </head>
 
@@ -77,7 +81,7 @@
       				'rgba(255, 153, 0, 1)',
       			],
               borderWidth: 1,
-              pointTension:2,
+              tension:0,
               pointRadius:4,
               pointHoverRadius:12,
               pointHoverBorderColor: 'rgba(255, 153, 0)',
