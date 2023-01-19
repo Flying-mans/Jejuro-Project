@@ -19,6 +19,8 @@ h1{
 .board-flight-info{
     margin: 30px 0;
     pointer-events: none;
+    border: 1px solid #ff9900;
+    border-radius: 25px;
 }
 
 
@@ -30,8 +32,7 @@ h1{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border: 1px solid rgba(221, 120, 19, 0.2);
-    /* box-shadow: 0 4px 10px rgba(220, 120, 20, 0.2); */
+    border: 1px solid #ff9900;
     backdrop-filter: blur(6.2px);
     transition: transform 0.2s 0.1s, box-shadow 0.2s 0.1s;
     border-radius: 25px;
@@ -48,7 +49,6 @@ h1{
     justify-content: center;
     align-items: center;
 }
-
 .title{
     width: 30vw;
     text-align: center;
@@ -60,16 +60,14 @@ h1{
     text-align: center;
     font-size: 11px;
 }
-
 .low.price{
     color: red;
 }
-
 .high.price{
     color: blue;
 }
 
-/* 항공 알림 컨테이너 */
+/* 항공 알림 가격 - 버튼 컨테이너 */
 .airline-alarm-container{
     width: 80vw;
     height: 40px;
@@ -79,14 +77,13 @@ h1{
     justify-content: center;
     align-items: center;
 }
-
 .alarm-price {
     width: 30vw;
     height: 30px;
     padding-right: 10px;
     margin-right: 10px;
     border: 0;
-    outline: 1px solid rgba(221, 120, 19, 0.2);
+    outline: 1px solid #ff9900;
     backdrop-filter: blur(6.2px);
     border-radius: 25px;
     text-align: end;
@@ -108,7 +105,7 @@ h1{
     width: 70vw;
     height: 50vh;
     overflow: scroll;
-    border: 1px solid rgba(221, 120, 19, 0.2);
+    border: 1px solid #ff9900;
     /* 가로 스크롤 */
     overflow: auto;
     white-space: nowrap;
