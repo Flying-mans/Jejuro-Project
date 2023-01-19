@@ -16,7 +16,7 @@
 		as collected_date
 	    from flight group by code
 	    )
-		order by collected_date desc
+		order by dep_time asc
     </select>
 
     <select id="getFlightInfoByCode" resultType="com.jejuro.server.entity.view.FlightInfo">

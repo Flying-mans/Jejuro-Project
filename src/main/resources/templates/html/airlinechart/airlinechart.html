@@ -62,6 +62,7 @@
     <form class="airline-alarm-container" action="/flight/alarm" method="post">
       <input type="hidden" name="code" th:value="${flight.getCode()}">
       <input type="hidden" name="depDate" th:value="${flight.getDepDate()}">
+      <input type="hidden" name="airlineId" th:value="${flight.getAirlineId()}">
       <input type="text" name="alarm" class="alarm-price" placeholder="알림 가격을 설정 ₩"> </input>
       <button type="submit" class="alarm-button"> 알림설정 </button>
     </form>

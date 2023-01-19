@@ -96,6 +96,7 @@ public class FlightController {
     public String setAlarm(
             @RequestParam("code") String code,
             @RequestParam("depDate") String depDate,
+            @RequestParam("airlineId") String airlineId,
             @RequestParam("alarm") String price1,
             Principal principal
     ) {
@@ -107,7 +108,7 @@ public class FlightController {
         alarmService.setAlarm(memberId, code, depDate, price);
 
 
-        String result = "redirect:/flight/" + code + "/" + depDate;
+        String result = "redirect:/flight/" + code + "/" + depDate + "/" + airlineId;
         return result;
     }
 }
