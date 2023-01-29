@@ -18,6 +18,10 @@ main{
     margin-bottom: 20px;
 }
 
+.input[type=password] {
+	font-family:'Malgun gothic', dotum, sans-serif;
+}
+
 div > span{
     margin-left: 10px;
 }
