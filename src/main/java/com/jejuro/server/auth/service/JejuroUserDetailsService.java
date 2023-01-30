@@ -4,11 +4,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Service;
 
-import com.jejuro.server.auth.entity.JejuroUserDetails;
+import com.jejuro.server.auth.entity.PrincipalDetails;
 import com.jejuro.server.dao.MemberDao;
 import com.jejuro.server.entity.Member;
 
+@Service
 public class JejuroUserDetailsService implements UserDetailsService{
 
     @Autowired
@@ -19,11 +21,11 @@ public class JejuroUserDetailsService implements UserDetailsService{
 
         Member member = memberDao.getByEmail(email);
 
-        JejuroUserDetails user = new JejuroUserDetails();
-        user.setEmail(member.getEmail());
-        user.setPassword(member.getPassword());
-        user.setNickName(member.getNickName());
-        return user;
+        if(member.isPresent()) {
+            return new PrincipalDetails(member);
+        }
+        
+        return null;
     }
 
 }
