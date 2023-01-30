@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>reset password</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="stylesheet" href="/css/button.css" type="text/css">
+    <link rel='stylesheet' type='text/css' media='screen' href='/css/login/login.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='/css/login/reset-pwd.css'>
+    <script src='/js/login.js'></script>
+</head>
+<body>
+    <div class="wrap-login">
+        <form action="passwordtest" method="post">
+            <h1>비밀번호를 잊어버리셨나요?</h1>
+            <div>
+                <p><b>JEJURO</b>에 가입했던 이메일과 닉네임을 입력해주세요.</p>
+                <p class="txt">비밀번호 재설정 메일을 보내드립니다.</p><br>
+            </div>
+            <div class="not-matched" th:if="${error}!=null">
+                닉네임 또는 이메일이 일치하지 않습니다.
+            </div>
+            <div class="wrap">
+                <div class="wrap-input">
+                    <input class="input username" type="text" name="nickname">
+                    <span class="placeholder username">Nickname</span>
+                </div>
+                <div class="wrap-input">
+                    <input class="input password" type="text" name="email">
+                    <span class="placeholder password">Email</span>
+                </div>
+            </div>
+            <div class="text-end sign-up-form-btn">
+                <button class="btn sign-up-btn">
+                    확인
+                </button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
