@@ -1,0 +1,18 @@
+
+h1, .wrap-input{
+	margin-bottom: 30px;
+}
+
+p {
+	display: inline-block;
+}
+
+.txt {
+	display: flex;
+	justify-content: center;
+	margin-top: 5px;
+}
+
+.btn {
+	width: 100%;
+}

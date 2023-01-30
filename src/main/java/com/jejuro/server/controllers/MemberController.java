@@ -1,5 +1,6 @@
 package com.jejuro.server.controllers;
 
+import java.io.UnsupportedEncodingException;
 import java.security.Principal;
 import java.util.List;
 
@@ -18,8 +19,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.jejuro.server.entity.Alarm;
 import com.jejuro.server.entity.Member;
 import com.jejuro.server.service.AlarmService;
+import com.jejuro.server.service.MailService;
 import com.jejuro.server.service.MemberService;
 
+import jakarta.mail.MessagingException;
 import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 
@@ -37,31 +40,35 @@ public class MemberController {
 	@Autowired
 	private AlarmService alarmService;
 
+	@Autowired
+	private MailService mailService;
+
 	@GetMapping("signup")
-	public String siginup(Member member){
+	public String siginup(Member member) {
 		return "html/sign-up/sign-up";
 	}
 
 	/**
 	 * @Valid
-	 * 유효성 겅사를 위해
-	 * spring-boot-starter-validation dependency 주입 후 사용 가능
+	 *        유효성 겅사를 위해
+	 *        spring-boot-starter-validation dependency 주입 후 사용 가능
 	 * 
-	 * @ModelAttribute 
-	 * html name과 entity의 필드가 동일하다면 스프링이 setter method를 호출하면서 값을 알아서 담아줌
+	 * @ModelAttribute
+	 *                 html name과 entity의 필드가 동일하다면 스프링이 setter method를 호출하면서 값을 알아서
+	 *                 담아줌
 	 *
 	 * @param member
-	 * 이메일 닉네임 패스워드 핸드폰
+	 *               이메일 닉네임 패스워드 핸드폰
 	 * @return 로그인 페이지
 	 */
 	@PostMapping("signup")
-	public String signup(@Valid @ModelAttribute Member member, BindingResult bindingResult){
-		
-		if(bindingResult.hasErrors()) {
+	public String signup(@Valid @ModelAttribute Member member, BindingResult bindingResult) {
+
+		if (bindingResult.hasErrors()) {
 			return "html/sign-up/sign-up";
 		}
 
-		if(!member.getPassword().equals(member.getPasswordCK())) {
+		if (!member.getPassword().equals(member.getPasswordCK())) {
 			bindingResult.rejectValue("passwordCK", "passwordInCorrect", "패스워드가 일치하지 않습니다.");
 			return "html/sign-up/sign-up";
 		}
@@ -72,13 +79,11 @@ public class MemberController {
 			e.printStackTrace();
 			bindingResult.reject("signupFailed", "이미 등록된 사용자입니다.");
 			return "html/sign-up/sign-up";
-		}catch(Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 			bindingResult.reject("signupFailed", e.getMessage());
 			return "html/sign-up/sign-up";
 		}
-
-		
 
 		return "html/login/login";
 	}
@@ -140,7 +145,7 @@ public class MemberController {
 	// 내 정보 수정하기
 	@GetMapping("/myinfo/update/{id}")
 	public String updateMember(@PathVariable("id") int id,
-			Model model	) {
+			Model model) {
 
 		Member member = service.get(id);
 		model.addAttribute("member", new Member(id, member.getEmail(), null, null, null));
@@ -176,6 +181,19 @@ public class MemberController {
 			return "reditect:" + returnURL;
 
 		return "redirect:/index";
+	}
+	
+	@GetMapping("/password")
+	public String resetPwd() {
+		return "html/reset-pwd/reset-pwd";
+	}
+	
+	@PostMapping("/passwordtest")
+	public String sendPwd(String email,
+			String nickname) throws UnsupportedEncodingException, MessagingException {
+
+		mailService.sendMail(email, nickname);
+		return "html/reset-pwd/send-pwd";
 	}
 
 	// 알람 설정===========================================
