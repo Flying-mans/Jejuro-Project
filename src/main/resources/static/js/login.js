@@ -29,7 +29,6 @@ window.addEventListener("load", function () {
 
         const el = e.target;
         const focusEle = document.activeElement;
-        console.log(focusEle)
 
         // input 클릭하면 placeholder 위로 올라가게 focus클래스 추가
         if (el.classList.contains("username")) {
@@ -74,5 +73,14 @@ window.addEventListener("load", function () {
             passwdInput.type = 'password';
         }
     }
-
+    /** 
+     * 탭을 이용해서 placeholder가 올라갈 수 있게 추가
+     */
+    userInput.onfocus = function () {
+        username.classList.add("placeholder-focus");
+    }
+    passwdInput.onfocus = function () {
+        password.classList.add("placeholder-focus");
+        eye.classList.remove("d-none");
+    }
 });

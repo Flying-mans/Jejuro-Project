@@ -18,6 +18,10 @@ main{
     margin-bottom: 20px;
 }
 
+.input[type=password] {
+	font-family:'Malgun gothic', dotum, sans-serif;
+}
+
 div > span{
     margin-left: 10px;
 }
@@ -32,4 +36,14 @@ input{
 .sign-up-form-btn{
     display: flex;
     justify-content: flex-end;
+}
+
+.error {
+    color: #842029;
+    background-color: #f8d7da;
+    border: 1px solid #f5c2c7;
+    border-radius: 0.375rem;
+    position: relative;
+    padding: 1rem 1rem;
+    margin-bottom: 1rem;
 }

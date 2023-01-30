@@ -16,7 +16,7 @@
 		as collected_date
 	    from flight group by code
 	    )
-		order by collected_date desc;
+		order by dep_time asc
     </select>
 
     <select id="getFlightInfoByCode" resultType="com.jejuro.server.entity.view.FlightInfo">
@@ -26,8 +26,10 @@
 		(select name from airline a where a.airline_id = f.airline_id) name 
 		from flight f
         where code=#{code}
+		and airline_id = #{airlineId}
         and dep_date=#{depDate}
-        limit 0, 1
+		order by flight_id desc
+		limit 0,1
     </select>
 
     <delete id="" >
@@ -40,6 +42,7 @@
 		max(fee) as highestFee
 		from flight
 		where code = #{code}
+		and airline_id = #{airlineId}
 		and dep_date = #{depDate}
 		group by collected_date
 		,fee
@@ -52,6 +55,7 @@
 		max(fee) as highestFee
 		from flight
 		where code = #{code}
+		and airline_id = #{airlineId}
 		and dep_date = #{depDate}
 	</select>
 </mapper>

@@ -13,14 +13,14 @@ public interface FlightService {
                                       String depDate,
                                       String arrDate);
 
-    FlightListDto getFlightInfoByCode(String code, String depDate);
+    FlightListDto getFlightInfoByCode(String code, String depDate, String airlineId);
 
 
 
 
-	List<Flight> getDays(String code, String depDate);
+	List<Flight> getDays(String code, String depDate, String airlineId);
 	
-	List<Flight> getDay(String code, String depDate);
+	List<Flight> getDay(String code, String depDate, String airlineId);
 	
 	
     
