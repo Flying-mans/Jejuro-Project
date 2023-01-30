@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" 
-    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,59 +14,59 @@
     <link rel="stylesheet" href="/css/search/search.css" type="text/css">
 </head>
 <body>
-    <div th:replace="~{inc/header :: headerFragment}"></div>
+<div th:replace="~{inc/header :: headerFragment}"></div>
 
-    <section class="search-page">
+<section class="search-page">
 
-        <div class="search-page-image">
-            <img class="" src="" alt="">
-        </div>
-        
-        <div class="search-page-title">
-            <h1> 항공편 </h1>
-        </div>
-        <form action="/flight" method="post">
-            <div class="search-page-box">
+    <div class="search-page-image">
+        <img class="" src="" alt="">
+    </div>
 
-                <input class="tooglecheckbox" name="oneway" type="checkbox" id="search-toggle">
-                <label class="trip-toggle" for="search-toggle">
-                    <div>왕복</div>
-                    <div>편도</div>
-                </label>
+    <div class="search-page-title">
+        <h1> 항공편 </h1>
+    </div>
+    <form action="/flight/loading" method="get">
+        <div class="search-page-box">
 
-                    <select name="departure" class="start-position">
-                        <option value="">출발지</option>
-                        <option class="GMP" value="GMP">김포(GMP)</option>
-                        <option class="CJU" value="CJU">제주(CJU)</option>
-                    </select>
-                
-                <div class="arrowimg">
-                    <img>
-                </div>
+            <input class="tooglecheckbox" name="oneway" type="checkbox" id="search-toggle">
+            <label class="trip-toggle" for="search-toggle">
+                <div>왕복</div>
+                <div>편도</div>
+            </label>
 
-                    <select name="arrival" class="arrival-position">
-                        <option value="">도착지</option>
-                        <option class="CJU" value="CJU">제주(CJU)</option>
-                        <option class="GMP" value="GMP">김포(GMP)</option>
-                    </select>
+            <select name="departure" class="start-position">
+                <option value="">출발지</option>
+                <option class="GMP" value="GMP">김포(GMP)</option>
+                <option class="CJU" value="CJU">제주(CJU)</option>
+            </select>
 
-                <div class="start-date">
-                    <div>출발일</div>
-                    <input name="depDate" type="date" class="cal" data-placeholder="출발일">
-                </div>
-
-                <div class="arrival-date">
-                    <div>도착일</div>
-                    <input name="arrDate" type="date" class="cal" data-placeholder="도착일">
-                </div>
-                
-                <div>
-                    <button class="search-btn">검색</button>
-                </div>
+            <div class="arrowimg">
+                <img>
             </div>
-        </form>
 
-    </section>
+            <select name="arrival" class="arrival-position">
+                <option value="">도착지</option>
+                <option class="CJU" value="CJU">제주(CJU)</option>
+                <option class="GMP" value="GMP">김포(GMP)</option>
+            </select>
+
+            <div class="start-date">
+                <div>출발일</div>
+                <input name="depDate" type="date" class="cal" data-placeholder="출발일">
+            </div>
+
+            <div class="arrival-date">
+                <div>도착일</div>
+                <input name="arrDate" type="date" class="cal" data-placeholder="도착일">
+            </div>
+
+            <div>
+                <button class="search-btn">검색</button>
+            </div>
+        </div>
+    </form>
+
+</section>
 
 </body>
 </html>

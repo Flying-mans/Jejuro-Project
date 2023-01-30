@@ -28,17 +28,32 @@ public class FlightController {
     @Autowired
     private FlightService flightService;
 
-
-    
-
     @Autowired
     private AlarmService alarmService;
-  
+
     @Autowired
     private MemberService memberService;
 
+    @GetMapping("/loading")
+    public String loading(
+            @RequestParam(value = "oneway", required = false) boolean oneWay,
+            String departure,
+            String arrival,
+            String depDate,
+            String arrDate,
+            Model model
+    ) {
+        List<FlightListDto> flightList = flightService.getFlightList(oneWay, departure, arrival, depDate, arrDate);
 
-    @PostMapping()
+        BasicFlightInfoDto basicInfoDto = new BasicFlightInfoDto(departure, arrival, depDate, arrDate);
+
+        model.addAttribute("flights", flightList);
+        model.addAttribute("basicInfo", basicInfoDto);
+
+        return "html/loading/loading";
+    }
+
+    @GetMapping()
     public String flightList(
             @RequestParam(value = "oneway", required = false) boolean oneWay,
             String departure,
@@ -48,12 +63,19 @@ public class FlightController {
             Model model
     ) {
         List<FlightListDto> flightList = flightService.getFlightList(oneWay, departure, arrival, depDate, arrDate);
+
+        if(departure.equals("GMP"))
+            departure = "김포(GMP)";
+        if(arrival.equals("CJU"))
+            arrival = "제주(CJU)";
+
+
         BasicFlightInfoDto basicInfoDto = new BasicFlightInfoDto(departure, arrival, depDate, arrDate);
-        
+
         model.addAttribute("flights", flightList);
         model.addAttribute("basicInfo", basicInfoDto);
 
-        
+
         return "html/airlinelist/airlinelist";
     }
 
@@ -64,31 +86,31 @@ public class FlightController {
             @PathVariable("airlineId") String airlineId,
             Model model
     ) {
-       FlightListDto flightInfoByCode = flightService.getFlightInfoByCode(code, depDate, airlineId);
-       model.addAttribute("flight", flightInfoByCode);
-       List<Flight> charts = flightService.getDays(code,depDate,airlineId);
-       List<Flight> chart = flightService.getDay(code, depDate, airlineId);
-       List<String> days = new ArrayList<String>();
-       List<String> fees = new ArrayList<String>();
+        FlightListDto flightInfoByCode = flightService.getFlightInfoByCode(code, depDate, airlineId);
+        model.addAttribute("flight", flightInfoByCode);
+        List<Flight> charts = flightService.getDays(code,depDate,airlineId);
+        List<Flight> chart = flightService.getDay(code, depDate, airlineId);
+        List<String> days = new ArrayList<String>();
+        List<String> fees = new ArrayList<String>();
 
-       for(int i=0; i<charts.size(); i++) {
-    	   String dayList = charts.get(i).getCollected_date();
-    	   String feeList = charts.get(i).getFee(); 
-    	   days.add(dayList);
-    	   fees.add(feeList);
-       }
-       
-       int lowestFee = Integer.parseInt(chart.get(0).getLowestFee());
-       int highestFee = Integer.parseInt(chart.get(0).getHighestFee());
+        for(int i=0; i<charts.size(); i++) {
+            String dayList = charts.get(i).getCollected_date();
+            String feeList = charts.get(i).getFee();
+            days.add(dayList);
+            fees.add(feeList);
+        }
 
-       
-       model.addAttribute("days", days);
-       model.addAttribute("fees", fees);
-       model.addAttribute("charts",charts);
-       model.addAttribute("chart", chart);
-       model.addAttribute("lowestFee", lowestFee);
-       model.addAttribute("highestFee", highestFee);
-       
+        int lowestFee = Integer.parseInt(chart.get(0).getLowestFee());
+        int highestFee = Integer.parseInt(chart.get(0).getHighestFee());
+
+
+        model.addAttribute("days", days);
+        model.addAttribute("fees", fees);
+        model.addAttribute("charts",charts);
+        model.addAttribute("chart", chart);
+        model.addAttribute("lowestFee", lowestFee);
+        model.addAttribute("highestFee", highestFee);
+
         return "html/airlinechart/airlinechart";
     }
 
