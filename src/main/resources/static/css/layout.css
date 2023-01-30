@@ -37,7 +37,8 @@ body {
 
 .name {
   display: flex;
-  justify-content: start;
+  justify-content: end;
+  margin-right: 1vh;
   width: 150px;
 }
 
