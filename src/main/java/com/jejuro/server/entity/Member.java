@@ -18,6 +18,7 @@ public class Member {
     private int member_id;
 	private String email;
 	private String password;
+	private String passwordCK;
 	private String nickName;
 	private String phoneNum;
 	private String role; // ROLE_USER, ROLE_ADMIN
