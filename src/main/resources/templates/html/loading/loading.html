@@ -1,11 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Loading</title>
+    <meta http-equiv="refresh" th:content="|8;
+    /flight?oneway=on&departure=${basicInfo.departure}&arrival=${basicInfo.arrival}&depDate=${basicInfo.depDate}&arrDate=|">
+
     <link rel="stylesheet" href="/css/reset.css" type="text/css">
     <link rel="stylesheet" href="/css/style.css" type="text/css">
     <link rel="stylesheet" href="/css/deco.css" type="text/css">
@@ -14,24 +17,23 @@
 </head>
 
 <body>
-    <section class="loading-page">
-        <div class="loading-page-img">
-            <div class="loading-logo-container">
-                <div class="loading-logo">Loading</div>
-                <div class="dots-bars-4"></div>
-            </div>
-            <div>
-                <img class="jejuro-logo-img" src="/image/jejuro-logo.svg" alt="logo">
-            </div>
-            <div class="loading-flight-moving"></div>
-            <div id="loader">
-                <div id="top"></div>
-                <div id="bottom"></div>
-                <div id="line"></div>
-            </div>
-                
+<section class="loading-page">
+    <div class="loading-page-img">
+        <div class="loading-logo-container">
+            <div class="loading-logo">Loading</div>
+            <div class="dots-bars-4"></div>
         </div>
-    </section>
+        <div>
+            <img class="jejuro-logo-img" src="/image/jejuro-logo.svg" alt="logo">
+        </div>
+        <div class="loading-flight-moving"></div>
+        <div id="loader">
+            <div id="top"></div>
+            <div id="bottom"></div>
+            <div id="line"></div>
+        </div>
+
+    </div>
+</section>
 </body>
-`
 </html>
