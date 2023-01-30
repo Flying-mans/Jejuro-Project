@@ -27,8 +27,8 @@ public class JejuroSecurityConfig {
                                 .csrf()
                                 .disable()
                                 .authorizeHttpRequests(authorize -> authorize // 회원 권한 테스트
-                                                .requestMatchers("/search/**").hasAnyRole("ROLE_USER", "ROLE_ADMIN")
-                                                .requestMatchers("/post/**").hasAnyRole("ROLE_USER", "ROLE_ADMIN")
+                                                .requestMatchers("/search/**").hasAnyAuthority("ROLE_USER", "ROLE_ADMIN")
+                                                .requestMatchers("/post/**").hasAnyAuthority("ROLE_USER", "ROLE_ADMIN")
                                                 .anyRequest().permitAll())
 
                                 .exceptionHandling(exp -> exp
@@ -37,8 +37,6 @@ public class JejuroSecurityConfig {
                                 .formLogin(form -> form
                                                 .loginPage("/member/login")
                                                 .defaultSuccessUrl("/index"))
-
-                                .userDetailsService(JejuroUserDetailsService)
 
                                 .logout(form -> form
                                                 .logoutUrl("/member/logout")
