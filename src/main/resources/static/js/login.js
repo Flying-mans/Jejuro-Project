@@ -10,7 +10,7 @@ function popUp() {
 
     let status = 'width=' + width + ', height=' + height + ', left=' + left + ', top=' + top + ', scrollbars=yes, status=no, resizable=yes, titlebar=no';
 
-    const url = "http://localhost:8081/member/password";
+    const url = "http://127.0.0.1:5503/html/findpasswd/findpasswd.html";
 
     window.open(url, "popup", status);
 };
