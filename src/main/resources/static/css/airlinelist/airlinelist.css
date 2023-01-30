@@ -5,76 +5,40 @@ h1{
     margin: 0;;
 }
 
-/*출발지 -> 도착지*/
-.start-arrival-container{
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-}
-.start-arrival-position{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    align-items: center;
-    margin-top: 60px;
-}
-.pointimg{
-    width: 20px;
-    height: 30px;
-}
-.start-point{
-    margin: auto;
-    font-size: 30px;
-}
-.arrow-img {
-    background: url(/image/search/go-arrows.svg) no-repeat;
-    margin-top: 30px;
-    width: 50px;
-    height: 50px;
-}
-.arrival-point{
-    margin: auto;
-    font-size: 30px;
-}
-
-
-/*출발날 -> 도착날 */
-.start-arrival-date{
-    height: 150px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    margin: 30px 0;
-}
-.start-dateimg{
-    width: 30px;
-    height: 30px;
-}
-.start-date{
-    margin: auto;
-    font-size: 30px;
-}
-.arrival-dateimg{
-    width: 30px;
-    height: 30px;
-}
-.arrival-date{
-    margin: auto;
-    font-size: 30px;
-}
-
-
-/* 각 항공사 리스트 출력*/
 .main{
     width: 100%;
     height: 100%;
 }
+
+/*출발지 -> 도착지*/
+.airlinesearch-info{
+    width: 60vw;
+    height: 10vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 50px 0 30px 0;
+}
+.jejurofly{
+    width: 60px;
+    background: url(/image/airlinelist/jejuroflight.svg) no-repeat center center/contain;
+    float: right;
+}
+.dep-arr-img{
+    width: 150px;
+    background: url(/image/airlinelist/dep-arr.svg) no-repeat center center/contain;
+}
+.info{
+    text-align: center;
+    line-height: 100px;
+}
+
+/* 각 항공사 리스트 출력*/
 .airline-list-container{
-    width: 80vw;
+    width: 60vw;
     height: 100vh;
     border: 2px solid #ff9900;
-    border-radius: 25px;
+    border-radius: 25px 25px 0 0;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -83,7 +47,7 @@ h1{
 
 /* 항공사/시간/가격 바 */
 .airline-kinds{
-    width: 80vw;
+    width: 60vw;
     height: 7vh;
     display: flex;
     flex-direction: row;
@@ -117,7 +81,7 @@ h1{
 
 /* 항공사 정보 리스트 */
 .border-flight-list{
-    width: 80vw;
+    width: 60vw;
     height: 90vh;
     display: flex;
     flex-direction: column;
@@ -125,8 +89,25 @@ h1{
     overflow-y: auto;
     overflow-x: hidden;
 }
+
+.border-flight-list::-webkit-scrollbar {
+    width: 8px;  /* 스크롤바의 너비 */
+}
+
+.border-flight-list::-webkit-scrollbar-thumb {
+    height: 50px; /* 스크롤바의 길이 */
+    background: #ff9900; /* 스크롤바의 색상 */
+
+    border-radius: 10px;
+}
+
+.border-flight-list::-webkit-scrollbar-track {
+    background: #ff990052;  /*스크롤바 뒷 배경 색상*/
+}
+
+
 .board-flight{
-    width: 80vw;
+    width: 60vw;
     height: 90vh;
     display: flex;
     flex-direction: column;
@@ -142,13 +123,13 @@ h1{
 }
 .board-flight-info{
     margin: 10px;
-    width: 80vw;
+    width: 60vw;
     height: 13vh;
     backdrop-filter: blur(6.2px);
     transition: transform 0.2s 0.1s, box-shadow 0.2s 0.1s;
 }
 .board-flight-info form{
-    width: 80vw;
+    width: 60vw;
     height: 13vh;
     display: grid;
     place-items: center;
@@ -184,15 +165,4 @@ h1{
 }
 .flight-price{
     grid-area: price;
-}
-
-/*항공 리스트 footer*/
-.airline-kinds-footer{
-    width: 80vw;
-    height: 7vh;
-    border-radius: 0 0 20px 20px;
-    background-color: #ff9900;
-    color: black;
-    text-align: center;
-    line-height: 50px;
 }

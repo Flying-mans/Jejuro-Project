@@ -20,38 +20,17 @@
 <div th:replace="~{inc/header :: headerFragment}"></div>
 
 <!-- 출발지 -> 도착지 -->
-<div class="start-arrival-container">
-    <section class="start-arrival-position">
-        <div>
-            <img class="pointimg" src="/image/airlinelist/point.svg" alt="">
-            <span class="start-point" th:text="${basicInfo.departure}"> 출발지</span>
-        </div>
-        <div class="arrow-img">
-            <img>
-        </div>
-        <div>
-            <img class="pointimg" src="/image/airlinelist/point.svg" alt="">
-            <span class="arrival-point" th:text="${basicInfo.arrival}"> 도착지</span>
-        </div>
-    </section>
-
-    <!-- 출발날 -> 도착날 -->
-    <section class="start-arrival-date">
-        <div>
-            <img class="start-dateimg" src="/image/airlinelist/dateimg.svg" alt="">
-            <span class="start-date" th:text="${basicInfo.depDate}"> 출발날짜</span>
-        </div>
-        <div>
-            <img class="arrival-dateimg" src="/image/airlinelist/dateimg.svg" alt="" th:if="${basicInfo.arrDate != ''}"/>
-            <span class="arrival-date" th:text="${basicInfo.arrDate}"> 도착날짜</span>
-        </div>
-    </section>
-</div>
-
-<!-- 각 항공사 리스트 출력-->
 <main class="main">
-    <div class="airline-list-container">
 
+    <div class="airlinesearch-info">
+        <img class="jejurofly" src="" alt="">
+        <div class="departure-info info" th:text="${basicInfo.departure}">김포(GMP)</div>
+        <img class="dep-arr-img" src="" alt="">
+        <div class="arrival-info info" th:text="${basicInfo.arrival}"> 제주(CJU)</div>
+        <div class="depdate-info info" th:text="${basicInfo.depDate}">2023-03-20</div>
+        <div class="arrdate-info info" th:text="${basicInfo.arrDate}">2023-04-01</div>
+    </div>
+    <div class="airline-list-container">
         <!-- 항공사/시간/가격 바 -->
         <div class="airline-kinds">
             <div class="airline-list">항공사</div>
@@ -79,9 +58,6 @@
                 </section>
             </div>
         </div>
-
-        <!-- 항공 리스트 footer -->
-        <div class="airline-kinds-footer">제주로 가는 항공 가격 정보</div>
     </div>
 </main>
 

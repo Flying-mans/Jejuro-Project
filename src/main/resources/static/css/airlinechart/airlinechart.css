@@ -26,7 +26,7 @@ h1{
 
 /* 항공 차트 컨테이너 */
 .airline-chart-container{
-    width: 80vw;
+    width: 60vw;
     height: 65vh;
     display: flex;
     flex-direction: column;
@@ -41,7 +41,7 @@ h1{
 
 /* 최고-최저-평균 컨테이너 */
 .low-high-container{
-    width: 80vw;
+    width: 60vw;
     height: 20px;
     margin: 10px 0;
     display: flex;
@@ -69,7 +69,7 @@ h1{
 
 /* 항공 알림 가격 - 버튼 컨테이너 */
 .airline-alarm-container{
-    width: 80vw;
+    width: 60vw;
     height: 40px;
     margin: 10px 0;
     display: flex;
@@ -101,21 +101,39 @@ h1{
 
 
 /* 항공가격 차트 */
-.cartjs{
-    width: 70vw;
+.chartjs{
+    width: 50vw;
     height: 50vh;
     overflow: scroll;
     border: 1px solid #ff9900;
+    border-radius: 10px;
     /* 가로 스크롤 */
     overflow: auto;
     white-space: nowrap;
+}
+/*스크롤바 전체*/
+.chartjs::-webkit-scrollbar {
+    width: 10px;
+    height: 10px; /* 스크롤바의 높이 */
+}
+
+/*스크롤 막대*/
+.chartjs::-webkit-scrollbar-thumb {
+    background: #ff9900; /* 스크롤바의 색상 */
+    border-radius: 10px;
+}
+
+/*스크롤 막대 외부*/
+.chartjs::-webkit-scrollbar-track {
+    background: #ff990052;  /*스크롤바 뒷 배경 색상*/
+    border-radius: 10px;
 }
 
 @media (min-width:700px){
 
     /* 최고-최저-평균 컨테이너 */
     .low-high-container{
-        width: 80vw;
+        width: 60vw;
         height: 20px;
         margin: 10px 0;
         display: flex;
