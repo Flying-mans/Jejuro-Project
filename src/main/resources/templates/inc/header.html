@@ -2,12 +2,19 @@
 <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
 
 <header class="header" th:fragment="headerFragment">
-    <div>
+    <div class="logo">
         <a href="/index">
             <img class="jejuro-logo-img" src="/image/jejuro-logo.svg" alt="logo">
         </a>
     </div>
-    <div>
+    <div class="toggel">
+        <div class="name">
+            <a href="/member/myinfo" sec:authorize="isAuthenticated()">
+                <th:block sec:authorize="isAuthenticated()">
+                    <span><span sec:authentication="name">회원</span> 님</span>
+                </th:block>
+            </a>
+        </div>
         <input type="checkbox" id="menu-btn" class="menu-btn visuallyHidden">
         <label for="menu-btn">
             <div class="hamburger hamburger1">
@@ -30,10 +37,10 @@
                     <!-- <span sec:authentication="principal.authorities">[ROLE_USER, ROLE_ADMIN]</span> -->
                     <th:block sec:authorize="isAuthenticated()">
                         <li>
-                            <a href="/member/myinfo" sec:authorize="isAuthenticated()"><span sec:authentication="name">Bob</span>마이페이지</a><br>
+                            <a href="/member/myinfo" sec:authorize="isAuthenticated()">마이페이지</a><br>
                         </li>
                         <li>
-                            <a href="/member/logout" sec:authorize="hasAnyRole('ADMIN', 'MEMBER')">로그아웃</a>
+                            <a href="/member/logout" sec:authorize="hasAnyRole('ROLE_USER', 'ROLE_ADMIN')">로그아웃</a>
                         </li>
                     </th:block>
                     <!-- This content is only shown to administrators. -->
