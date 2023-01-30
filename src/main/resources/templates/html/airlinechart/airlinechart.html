@@ -13,16 +13,20 @@
   <link rel="stylesheet" href="/css/button.css" type="text/css">
   <link rel="stylesheet" href="/css/airlinelist/airlinelist.css" type="text/css">
   <link rel="stylesheet" href="/css/airlinechart/airlinechart.css" type="text/css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
+  <!-- 꺾은선 그래프 -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
+  <!-- 1자 그래프-->
+  <!--  <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.0/dist/chart.min.js"></script>-->
 
 </head>
 
 
 <body>
-<div th:replace ="inc/header :: headerFragment"></div>
+<div th:replace ="~{inc/header :: headerFragment}"></div>
 
 <main class="main">
 
+  <!-- 항공 정보 박스 /전 리스트 페이지와 동일-->
   <section class="board-flight-info">
     <a>
       <form>
@@ -38,7 +42,10 @@
     </a>
   </section>
 
+  <!-- 항공 차트 컨테이너 -->
   <div class="airline-chart-container"  th:each="chart: ${chart}" >
+
+    <!-- 최고-최저-평균 컨테이너 -->
     <div class="low-high-container">
       <div class="low-price title">최저가격 :
         <span class="low price" th:text="${chart.lowestFee}">45,000원</span>
@@ -51,52 +58,59 @@
       </div>
     </div>
 
+    <!-- 항공 알림 가격 - 버튼 컨테이너 -->
     <form class="airline-alarm-container" action="/flight/alarm" method="post">
       <input type="hidden" name="code" th:value="${flight.getCode()}">
       <input type="hidden" name="depDate" th:value="${flight.getDepDate()}">
+      <input type="hidden" name="airlineId" th:value="${flight.getAirlineId()}">
       <input type="text" name="alarm" class="alarm-price" placeholder="알림 가격을 설정 ₩"> </input>
       <button type="submit" class="alarm-button"> 알림설정 </button>
     </form>
 
+    <!-- 항공가격 차트 -->
     <div class="cartjs">
       <canvas id="myChart"width="800"height="400"></canvas>
       <script th:inline="javascript" >
-      const ctx = document.getElementById('myChart').getContext('2d');
-      const myChart = new Chart(ctx, {
-      	type: 'line',
-      	data: {
-      		labels: [[${days}]],
-      		datasets: [{
-      			label: [[${flight.getAirlineName()}]],
-      			data: [[${fees}]]
-      			,
-      			backgroundColor: [
-      				'rgba(255, 153, 0, 0.3)',
-      			],
-      			borderColor: [
-      				'rgba(255, 153, 0, 1)',
-      			],
+        const ctx = document.getElementById('myChart').getContext('2d');
+        const myChart = new Chart(ctx, {
+          // line 그래프
+          type: 'line',
+          data: {
+            // 항공 collected_date list
+            labels: [[${days}]],
+            datasets: [{
+              // 항공사 이름
+              label: [[${flight.getAirlineName()}]],
+              // 항공 fee list
+              data: [[${fees}]]
+              ,
+              backgroundColor: [
+                '#ff990052',
+              ],
+              borderColor: [
+                '#ff9900',
+              ],
               borderWidth: 1,
-              pointTension:2,
+              tension:0,
               pointRadius:4,
               pointHoverRadius:12,
-              pointHoverBorderColor: 'rgba(255, 153, 0)',
-              pointHoverBackgroundColor:'rgba(255, 153, 0)',
+              pointHoverBorderColor: '#ff9900',
+              pointHoverBackgroundColor:'#ff9900',
             }]
-      	},
-      	options: {
-      		responsive: false,
-      		scales: {
-      		yAxes: [{
-      			ticks: {
-      				min: [[${lowestFee}]]-50000,
-      				max: [[${highestFee}]]+50000,
-      				stepSize : 10000,
-      				fontSize : 15,
-      			}
-      		}]
-      	}}
-      });
+          },
+          options: {
+            responsive: false,
+            scales: {
+              yAxes: [{
+                ticks: {
+                  min: [[${lowestFee}]]-10000,
+                  max: [[${highestFee}]]+10000,
+                  stepSize : 5000,
+                  fontSize : 15,
+                }
+              }]
+            }}
+        });
       </script>
     </div>
   </div>

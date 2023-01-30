@@ -17,10 +17,10 @@
 </head>
 
 <body>
-<div th:replace="inc/header :: headerFragment"></div>
+<div th:replace="~{inc/header :: headerFragment}"></div>
 
+<!-- 출발지 -> 도착지 -->
 <div class="start-arrival-container">
-
     <section class="start-arrival-position">
         <div>
             <img class="pointimg" src="/image/airlinelist/point.svg" alt="">
@@ -35,40 +35,53 @@
         </div>
     </section>
 
+    <!-- 출발날 -> 도착날 -->
     <section class="start-arrival-date">
         <div>
             <img class="start-dateimg" src="/image/airlinelist/dateimg.svg" alt="">
             <span class="start-date" th:text="${basicInfo.depDate}"> 출발날짜</span>
         </div>
-        <!--            <div class="take-off-flight-img">-->
-        <!--                <img>-->
-        <!--            </div>-->
         <div>
             <img class="arrival-dateimg" src="/image/airlinelist/dateimg.svg" alt="" th:if="${basicInfo.arrDate != ''}"/>
-            <!--                <img class="arrival-dateimg" alt="" th:unless="${basicInfo.arrDate != ''}" th:src="@{/image/airlinelist/dateimg.svg}"/>-->
             <span class="arrival-date" th:text="${basicInfo.arrDate}"> 도착날짜</span>
         </div>
     </section>
 </div>
 
-
+<!-- 각 항공사 리스트 출력-->
 <main class="main">
-    <div class="board-flight" th:each="flight: ${flights}">
-        <section class="board-flight-info">
-            <a th:href="@{'flight/'+${flight.getCode()}+'/'+${flight.getDepDate()}}">
-                <form action="chart" method="post">
-                    <div name="flightlogo" class="airline-img">
-                        <img th:src="${flight.getLogoUrl()}" alt="">
-                    </div>
-<!--                    <div name="flightCode" class="airline-title" th:text="${flight.getCode()}"> 111</div>-->
-                    <div name="flighttitle" class="airline-title" th:text="${flight.getAirlineName()}"> 에어부산</div>
-                    <div name="totaltime" class="total-time" th:text="${flight.getDurationTime()}">1시간</div>
-                    <div name="deparr" class="dep-arr" th:text="${flight.getDepArr()}">김포-제주</div>
-                    <div name="flighttime" class="flight-time" th:text="${flight.getDepArrTime()}">08:00 - 20:20</div>
-                    <div name="flightprice" class="flight-price" th:text="${flight.getFee()}">59,470원</div>
-                </form>
-            </a>
-        </section>
+    <div class="airline-list-container">
+
+        <!-- 항공사/시간/가격 바 -->
+        <div class="airline-kinds">
+            <div class="airline-list">항공사</div>
+            <div class="time-list">시간</div>
+            <div class="price-list">가격</div>
+        </div>
+
+        <!-- 항공사 정보 리스트 -->
+        <div class="border-flight-list">
+            <div class="board-flight" th:each="flight: ${flights}">
+                <section class="board-flight-info">
+                    <a th:href="@{'flight/'+${flight.getCode()}+'/'+${flight.getDepDate()}+'/'+${flight.getAirlineId()}}">
+                        <form action="chart" method="post">
+                            <div name="flightlogo" class="airline-img">
+                                <img th:src="${flight.getLogoUrl()}" alt="">
+                            </div>
+                            <div name="flighttitle" class="airline-title" th:text="${flight.getAirlineName()}"> 에어부산</div>
+                            <div name="totaltime" class="total-time" th:text="${flight.getDurationTime()}">1시간</div>
+                            <div name="deparr" class="dep-arr" th:text="${flight.getDepArr()}">김포-제주</div>
+                            <div name="flighttime" class="flight-time" th:text="${flight.getDepArrTime()}">08:00 - 20:20</div>
+                            <div name="flightprice" class="flight-price" th:text="${flight.getFee()}">59,470원</div>
+
+                        </form>
+                    </a>
+                </section>
+            </div>
+        </div>
+
+        <!-- 항공 리스트 footer -->
+        <div class="airline-kinds-footer">제주로 가는 항공 가격 정보</div>
     </div>
 </main>
 

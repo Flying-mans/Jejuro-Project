@@ -5,25 +5,23 @@ h1{
     margin: 0;;
 }
 
+/*출발지 -> 도착지*/
 .start-arrival-container{
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
 }
-
 .start-arrival-position{
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
     align-items: center;
     margin-top: 60px;
-    /* border: 2px solid #595755; */
 }
 .pointimg{
     width: 20px;
     height: 30px;
 }
-
 .start-point{
     margin: auto;
     font-size: 30px;
@@ -34,13 +32,13 @@ h1{
     width: 50px;
     height: 50px;
 }
-
-
 .arrival-point{
     margin: auto;
     font-size: 30px;
 }
 
+
+/*출발날 -> 도착날 */
 .start-arrival-date{
     height: 150px;
     display: flex;
@@ -66,17 +64,75 @@ h1{
     font-size: 30px;
 }
 
+
+/* 각 항공사 리스트 출력*/
 .main{
     width: 100%;
     height: 100%;
 }
+.airline-list-container{
+    width: 80vw;
+    height: 100vh;
+    border: 2px solid #ff9900;
+    border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+/* 항공사/시간/가격 바 */
+.airline-kinds{
+    width: 80vw;
+    height: 7vh;
+    display: flex;
+    flex-direction: row;
+}
+.airline-list{
+    width: 33vw;
+    border-right: 2px solid white;
+    border-radius: 20px 0 0 0;
+    background-color: #ff9900;
+    color: black;
+    text-align: center;
+    line-height: 60px;
+}
+.time-list{
+    width: 33vw;
+    border: 0 0 2px 2px solid white;
+    background-color: #ff9900;
+    color: black;
+    text-align: center;
+    line-height: 60px;
+}
+.price-list{
+    width: 33vw;
+    border-left: 2px solid white;
+    border-radius: 0 20px 0 0;
+    background-color: #ff9900;
+    color: black;
+    text-align: center;
+    line-height: 60px;
+}
+
+/* 항공사 정보 리스트 */
+.border-flight-list{
+    width: 80vw;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    overflow: scroll;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
 .board-flight{
-    width: 100%;
-    height: 100%;
+    width: 80vw;
+    height: 90vh;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
+    border: 1px solid #ff9900;
 }
 .board-flight-info:hover{
     backdrop-filter: blur(0px);
@@ -84,17 +140,13 @@ h1{
     transform:scale(1.02,1.02);
     box-shadow: 0 4px 30px rgba(220,120, 20, 0.3);
 }
-
 .board-flight-info{
     margin: 10px;
     width: 80vw;
     height: 13vh;
-    border: 2px solid rgba(221, 120, 19, 0.2);
     backdrop-filter: blur(6.2px);
     transition: transform 0.2s 0.1s, box-shadow 0.2s 0.1s;
-    border-radius: 25px;
 }
-
 .board-flight-info form{
     width: 80vw;
     height: 13vh;
@@ -105,29 +157,23 @@ h1{
     "airlineimg point price"
     "airlinetitle datetime chartbutton"
 }
-
 .airline-img{
     background-repeat: no-repeat;
     grid-area: airlineimg;
 }
-
 .airline-img img{
     width: 50px;
     height: 50px;
 }
-
 .airline-title{
     grid-area: airlinetitle;
 }
-
 .total-time{
     grid-area: totaltime;
 }
-
 .dep-arr{
     grid-area: point;
 }
-
 .flight-time{
     grid-area: datetime;
 }
@@ -138,4 +184,15 @@ h1{
 }
 .flight-price{
     grid-area: price;
+}
+
+/*항공 리스트 footer*/
+.airline-kinds-footer{
+    width: 80vw;
+    height: 7vh;
+    border-radius: 0 0 20px 20px;
+    background-color: #ff9900;
+    color: black;
+    text-align: center;
+    line-height: 50px;
 }

@@ -23,20 +23,19 @@ public class FlightInfo {
 
     private String dep_date;
 
+    private  String airline_id;
 
-    public FlightInfo() {
-    }
-
-    public FlightInfo(String name, String url, String code, String departure, String arrival, int fee, String depTime, String arrTime, String dep_date) {
+    public FlightInfo(String name, String url, String code, String departure, String arrival, int fee, String dep_time, String arr_time, String dep_date, String airlineId) {
         this.name = name;
         this.url = url;
         this.code = code;
         this.departure = departure;
         this.arrival = arrival;
         this.fee = fee;
-        this.dep_time = depTime;
-        this.arr_time = arrTime;
+        this.dep_time = dep_time;
+        this.arr_time = arr_time;
         this.dep_date = dep_date;
+        this.airline_id = airlineId;
     }
 
     public String getName() {
@@ -53,6 +52,14 @@ public class FlightInfo {
 
     public void setUrl(String url) {
         this.url = url;
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
     }
 
     public String getDeparture() {
@@ -83,44 +90,31 @@ public class FlightInfo {
         return dep_time;
     }
 
-    public void setDepTime(String depTime) {
-        this.dep_time = depTime;
+    public void setDepTime(String dep_time) {
+        this.dep_time = dep_time;
     }
 
     public String getArrTime() {
         return arr_time;
     }
 
-    public void setArrTime(String arrTime) {
-        this.arr_time = arrTime;
+    public void setArrTime(String arr_time) {
+        this.arr_time = arr_time;
     }
 
-    public String getCode() {
-        return code;
-    }
-
-    public void setCode(String code) {
-        this.code = code;
-    }
-
-    public String getDep_date() {
+    public String getDepDate() {
         return dep_date;
     }
 
-    public void setDep_date(String dep_date) {
+    public void setDepDate(String dep_date) {
         this.dep_date = dep_date;
     }
 
-    @Override
-    public String toString() {
-        return "FlightInfo{" +
-                "name='" + name + '\'' +
-                ", url='" + url + '\'' +
-                ", departure='" + departure + '\'' +
-                ", arrival='" + arrival + '\'' +
-                ", fee=" + fee +
-                ", depTime='" + dep_time + '\'' +
-                ", arrTime='" + arr_time + '\'' +
-                '}';
+    public String getAirlineId() {
+        return airline_id;
+    }
+
+    public void setAirlineId(String airline_id) {
+        this.airline_id = airline_id;
     }
 }

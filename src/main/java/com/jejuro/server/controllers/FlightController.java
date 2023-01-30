@@ -57,20 +57,20 @@ public class FlightController {
         return "html/airlinelist/airlinelist";
     }
 
-    @GetMapping("/{code}/{depDate}")
+    @GetMapping("/{code}/{depDate}/{airlineId}")
     public String getChart(
             @PathVariable("code") String code,
             @PathVariable("depDate") String depDate,
+            @PathVariable("airlineId") String airlineId,
             Model model
     ) {
-        FlightListDto flightInfoByCode = flightService.getFlightInfoByCode(code, depDate);
-        model.addAttribute("flight", flightInfoByCode);
-       
-       List<Flight> charts = flightService.getDays(code,depDate);
-       List<Flight> chart = flightService.getDay(code, depDate);
+       FlightListDto flightInfoByCode = flightService.getFlightInfoByCode(code, depDate, airlineId);
+       model.addAttribute("flight", flightInfoByCode);
+       List<Flight> charts = flightService.getDays(code,depDate,airlineId);
+       List<Flight> chart = flightService.getDay(code, depDate, airlineId);
        List<String> days = new ArrayList<String>();
        List<String> fees = new ArrayList<String>();
-    
+
        for(int i=0; i<charts.size(); i++) {
     	   String dayList = charts.get(i).getCollected_date();
     	   String feeList = charts.get(i).getFee(); 
@@ -78,8 +78,9 @@ public class FlightController {
     	   fees.add(feeList);
        }
        
-       int lowestFee = Integer.parseInt(charts.get(0).getLowestFee());
-       int highestFee = Integer.parseInt(charts.get(0).getHighestFee());
+       int lowestFee = Integer.parseInt(chart.get(0).getLowestFee());
+       int highestFee = Integer.parseInt(chart.get(0).getHighestFee());
+
        
        model.addAttribute("days", days);
        model.addAttribute("fees", fees);
@@ -95,6 +96,7 @@ public class FlightController {
     public String setAlarm(
             @RequestParam("code") String code,
             @RequestParam("depDate") String depDate,
+            @RequestParam("airlineId") String airlineId,
             @RequestParam("alarm") String price1,
             Principal principal
     ) {
@@ -106,7 +108,7 @@ public class FlightController {
         alarmService.setAlarm(memberId, code, depDate, price);
 
 
-        String result = "redirect:/flight/" + code + "/" + depDate;
+        String result = "redirect:/flight/" + code + "/" + depDate + "/" + airlineId;
         return result;
     }
 }
