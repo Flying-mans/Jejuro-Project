@@ -3,7 +3,7 @@
 function popUp() {
 
     let width = 500;
-    let height = 500;
+    let height = 1500;
 
     let left = (window.screen.width / 2) - (width / 2);
     let top = (window.screen.height / 4);
