@@ -20,7 +20,7 @@ public class JejuroUserDetails implements UserDetails{
     public Collection<? extends GrantedAuthority> getAuthorities() {
 
         List<GrantedAuthority> list = new ArrayList<>();
-        list.add(new SimpleGrantedAuthority("ROLE_MEMBER"));
+        list.add(new SimpleGrantedAuthority("ROLE_USER"));
 
         return list;
     }

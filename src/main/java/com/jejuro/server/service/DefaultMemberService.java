@@ -18,6 +18,8 @@ public class DefaultMemberService implements MemberService{
 	public void add(Member member) {
 		BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 		member.setPassword(passwordEncoder.encode(member.getPassword()));
+		member.setRole("ROLE_USER");
+		member.setPresent(true);
 		dao.signUp(member);
 	}
 
