@@ -38,10 +38,9 @@
 	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* placeholder가 없어지면 보이는 */
-/* input:not(:placeholder-shown){
-	background: url(/image/jejuro-logo.svg) no-repeat right;
-} */
+.input[type=password] {
+	font-family:'Malgun gothic', dotum, sans-serif;
+}
 
 .placeholder {
 	position: absolute;
@@ -60,7 +59,6 @@
 	transform: scale(0.8) translateY(-30px);
 	background: #fff;
 }
-
 
 .input-checkbox {
 	margin-left: 0;
@@ -105,7 +103,7 @@
 
 /* === join ================= */
 
-.joinTxt {
+.join-txt {
 	font: bold;
 	/* font-size: 26px; */
 	color: #ff9900;
