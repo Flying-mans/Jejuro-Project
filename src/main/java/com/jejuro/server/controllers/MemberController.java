@@ -184,13 +184,35 @@ public class MemberController {
 	}
 	
 	@GetMapping("/password")
-	public String resetPwd() {
+	public String resetPwd(@Valid @ModelAttribute Member member, BindingResult bindingResult) {
 		return "html/reset-pwd/reset-pwd";
 	}
 	
-	@PostMapping("/passwordtest")
-	public String sendPwd(String email,
-			String nickname) throws UnsupportedEncodingException, MessagingException {
+	@PostMapping("/password")
+	public String sendPwd(@Valid @ModelAttribute Member member, BindingResult bindingResult) throws UnsupportedEncodingException, MessagingException {
+
+		System.out.println(member);
+
+		String email =  member.getEmail();
+		String nickname =  member.getNickName();
+
+		Member testNick = service.getByNickname(nickname);
+		Member confirmEmail = service.getByEmail(email);
+
+		System.out.println(testNick);
+		if (bindingResult.hasErrors()) {
+			return "html/reset-pwd/reset-pwd";
+		}
+
+		if (testNick == null ) {
+			bindingResult.rejectValue("nickName", "nicknameInCorrect", "닉네임 또는 이메일이 일치하지 않습니다.");
+			return "html/reset-pwd/reset-pwd";
+		}
+		if (confirmEmail == null ) {
+			bindingResult.rejectValue("email", "emailInCorrect", "닉네임 또는 이메일이 일치하지 않습니다.");
+			return "html/reset-pwd/reset-pwd";
+		}
+
 
 		mailService.sendMail(email, nickname);
 		return "html/reset-pwd/send-pwd";
