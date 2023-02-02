@@ -166,3 +166,31 @@ h1{
 .flight-price{
     grid-area: price;
 }
+
+@media (max-width:800px){
+
+    .airlinesearch-info{
+        width: 80vw;
+    }
+    .airline-list-container{
+        width: 80vw;
+    }
+    /* 항공사/시간/가격 바 */
+    .airline-kinds{
+        width: 80vw;
+    }
+
+    .border-flight-list{
+        width: 80vw;
+    }
+
+    .board-flight{
+        width: 80vw;
+    }
+    .board-flight-info{
+        width: 80vw;
+    }
+    .board-flight-info form {
+        width: 80vw;
+    }
+}
