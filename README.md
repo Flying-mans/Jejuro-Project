@@ -17,7 +17,7 @@
 
 조만간 완성 할 예정입니다
 
-## **🖼Jejuro DataBase **
+## 🖼Jejuro DataBase
 
 - [ERD-Cloud] ![erd (1)](https://user-images.githubusercontent.com/112062229/216223045-2d0d231e-dfef-4e04-ad45-5c98f8b0448d.png)
 
